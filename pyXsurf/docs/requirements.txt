@@ -1,2 +1,5 @@
 sphinx-autoapi
 sphinx-rtd-theme
+ipykernel
+nbsphinx
+sphinx_automodapi
