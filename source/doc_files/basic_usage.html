@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Usage &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Basic Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/source/doc_files/basic_usage.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-usage">
+<h1>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline"></a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#2021/04/05 Tutorial on basic functions, first attempt of using VScode</span>
+
+<span class="o">%</span><span class="k">reset</span>
+<span class="o">%</span><span class="k">pylab</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: Qt5Agg
+Populating the interactive namespace from numpy and matplotlib
+</pre></div>
+</div>
+</div>
+</div>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">PySurf</span></code> library consists in a set of classes and functions reapresenting 2D data and operations on them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pySurf.data2D_class</span> <span class="kn">import</span> <span class="n">Data2D</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">10</span><span class="n">b09464274b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">pySurf.data2D_class</span> <span class="kn">import</span> <span class="n">Data2D</span>
+
+<span class="o">~</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyxsurf</span><span class="o">-</span><span class="mf">1.5.1</span><span class="o">-</span><span class="n">py3</span><span class="mf">.8</span><span class="o">.</span><span class="n">egg</span>\<span class="n">pySurf</span>\<span class="n">data2D_class</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>                            <span class="n">transpose_data</span><span class="p">,</span> <span class="n">get_stats</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">pySurf.points</span> <span class="kn">import</span> <span class="n">matrix_to_points2</span><span class="p">,</span> <span class="n">points_autoresample</span>
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">pySurf.psd2d</span> <span class="kn">import</span> <span class="p">(</span><span class="n">plot_psd2d</span><span class="p">,</span> <span class="n">plot_rms_power</span><span class="p">,</span> <span class="n">psd2d</span><span class="p">,</span> <span class="n">psd2d_analysis</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>                           <span class="n">rms_power</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">pySurf.readers.format_reader</span> <span class="kn">import</span> <span class="n">auto_reader</span>
+
+<span class="o">~</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyxsurf</span><span class="o">-</span><span class="mf">1.5.1</span><span class="o">-</span><span class="n">py3</span><span class="mf">.8</span><span class="o">.</span><span class="n">egg</span>\<span class="n">pySurf</span>\<span class="n">psd2d</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">pySurf.outliers2d</span> <span class="kn">import</span> <span class="n">remove_outliers2d</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LogNorm</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">utilities.imaging</span> <span class="kn">import</span> <span class="n">fitting</span> <span class="k">as</span> <span class="n">fit</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># from IPython.display import display</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">from</span> <span class="nn">plotting.fignumber</span> <span class="kn">import</span> <span class="n">fignumber</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;utilities.imaging&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>The main class representing 2D data with <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> axis is <code class="docutils literal notranslate"><span class="pre">Data2D</span></code> object in <code class="docutils literal notranslate"><span class="pre">pySurf.data2D_class</span></code>. <code class="docutils literal notranslate"><span class="pre">Data2D</span></code> can be initialized by providing a matrix of 2-dimensional data and (optionally) <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates. Other options can be passed as well.</p>
+<p>The object interface is built on top of a function library in module <code class="docutils literal notranslate"><span class="pre">pySurf.data2D</span></code>: for almnost each method there is a corresponding function that can be called with something like <code class="docutils literal notranslate"><span class="pre">pySurf.data2D.function(data,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">..)</span></code>.</p>
+<p>Similarly, routines operating on profiles (y as a function of x as couples of vector x and y), are contained in class <code class="docutils literal notranslate"><span class="pre">pyProfile.Profile</span></code> and <code class="docutils literal notranslate"><span class="pre">pyProfile.profile</span></code> which have in many points interfaces similar to modules in <code class="docutils literal notranslate"><span class="pre">pySurf</span></code>.</p>
+<p>Here we will focus on <code class="docutils literal notranslate"><span class="pre">Data2D</span></code> object interface.</p>
+<p>A first way to initialize such an object is by passing directly 2D data, (optionally) coordinates and options.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">ny</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">nx</span><span class="o">*</span><span class="n">ny</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span><span class="n">nx</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span><span class="o">*</span><span class="mi">25</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ny</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span>
+
+<span class="n">D</span> <span class="o">=</span> <span class="n">Data2D</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mm&#39;</span><span class="p">,</span><span class="s1">&#39;mm&#39;</span><span class="p">,</span><span class="s1">&#39;um&#39;</span><span class="p">])</span>
+<span class="c1">#D.plot()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1d76a893278&gt;
+</pre></div>
+</div>
+<img alt="../../_images/basic_usage_7_1.svg" src="../../_images/basic_usage_7_1.svg" /></div>
+</div>
+<p>Data and coordinates can be obtained back in any moment simply calling the object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dd</span><span class="p">,</span> <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dd</span><span class="p">,</span> <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">yy</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Equal?&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">dd</span> <span class="o">==</span> <span class="n">data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">xx</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span><span class="n">yy</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(300, 200) (200,) (300,)
+Equal? True True True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Functions for reading common formats of 2D data are collected in <code class="docutils literal notranslate"><span class="pre">pySurf.readers</span></code> module. The structure and interface of readers is described elsewhere, a reader is essentially a function able to obtain <code class="docutils literal notranslate"><span class="pre">data,</span> <span class="pre">x,</span> <span class="pre">y</span></code> from a data file, however if the interface is correctly implemented, a reader from <code class="docutils literal notranslate"><span class="pre">pySurf.readers.instrumentReader</span></code> can be passed as argument to at object creation. In this case, additional information are automatically added to the object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infolder</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;..\..\test\input_data\4D\180215_C1S06_cut&#39;</span>
+<span class="n">fn</span> <span class="o">=</span> <span class="s1">&#39;180215_C1S01_RefSub.csv&#39;</span>
+<span class="n">file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">infolder</span><span class="p">,</span><span class="n">fn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pySurf.data2D_class</span> <span class="kn">import</span> <span class="n">Data2D</span>
+<span class="kn">from</span> <span class="nn">pySurf.instrumentReader</span> <span class="kn">import</span> <span class="n">matrix4D_reader</span>
+
+<span class="n">D</span> <span class="o">=</span> <span class="n">Data2D</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">matrix4D_reader</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>first argument is string, use it as filename
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1d771afd6a0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/basic_usage_15_1.svg" src="../../_images/basic_usage_15_1.svg" /></div>
+</div>
+</section>
+<section id="data-manipulation-functions">
+<h2>Data manipulation functions<a class="headerlink" href="#data-manipulation-functions" title="Permalink to this headline"></a></h2>
+<p>Basic operations like cropping or leveling can be applied by means of corresponding methods. Information about methods and options can be obtained by means of usual Python introspection methods.</p>
+<p>Here some example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D2</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">level</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">D2</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>  <span class="c1">#Level 4 legendre along `x` and 2 along `y`.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1d76c775898&gt;
+</pre></div>
+</div>
+<img alt="../../_images/basic_usage_17_1.svg" src="../../_images/basic_usage_17_1.svg" /></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">plotting</span></code> module contains commodity functions for plotting of data and comparisons, we use <code class="docutils literal notranslate"><span class="pre">plotting.multiplots.compare_images</span></code> to compare the original data with the modified version.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pySurf.data2D</span> <span class="kn">import</span> <span class="n">compare_2images</span>
+
+<span class="n">compare_2images</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">D2</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">D</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">D</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/basic_usage_19_1.svg" src="../../_images/basic_usage_19_1.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D2</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">level</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">compare_images</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">D2</span><span class="p">):</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pySurf.psd2d</span> <span class="kn">import</span> <span class="n">calculatePSD</span>
+<span class="kn">from</span> <span class="nn">pySurf.psd2d</span> <span class="kn">import</span> <span class="n">psd2d</span><span class="p">,</span> <span class="n">plot_psd2d</span><span class="p">,</span><span class="n">avgpsd2d</span>
+<span class="kn">from</span> <span class="nn">pySurf.data2D</span> <span class="kn">import</span> <span class="n">crop_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

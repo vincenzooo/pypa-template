@@ -1,0 +1,23 @@
+:py:mod:`pyXsurf`
+=================
+
+.. py:module:: pyXsurf
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   pyXsurf/index.rst
+
+
+Package Contents
+----------------
+
+.. py:data:: __version__
+   
+
+   
+
