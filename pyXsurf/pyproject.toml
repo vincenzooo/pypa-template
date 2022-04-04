@@ -10,9 +10,13 @@ readme = "README.md"
 python = "^3.9"
 
 [tool.poetry.dev-dependencies]
+myst-nb = "^0.13.2"
+sphinx-autoapi = "^1.8.4"
+sphinx-rtd-theme = "^1.0.0"
+ghp-import = "^2.0.2"
 [tool.semantic_release]
 version_variable = "pyproject.toml:version" # version location
-branch = "main"                             # branch to make releases of
+branch = "master"                           # branch to make releases of
 changelog_file = "CHANGELOG.md"             # changelog file
 build_command = "poetry build"              # build dists
 dist_path = "dist/"                         # where to put dists
