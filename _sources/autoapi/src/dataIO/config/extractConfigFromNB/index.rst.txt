@@ -1,0 +1,34 @@
+:py:mod:`src.dataIO.config.extractConfigFromNB`
+===============================================
+
+.. py:module:: src.dataIO.config.extractConfigFromNB
+
+
+Module Contents
+---------------
+
+.. py:data:: prefixes
+   :annotation: = ['gfile', 'cfile', 'markers1', 'markers2', 'gscale', 'mscale', 'rect1', 'c2file']
+
+   
+
+.. py:data:: notebooks
+   
+
+   
+
+.. py:data:: outconf
+   :annotation: = []
+
+   
+
+.. py:data:: key
+   
+
+   
+
+.. py:data:: outconf
+   
+
+   
+

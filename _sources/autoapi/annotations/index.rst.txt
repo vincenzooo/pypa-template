@@ -1,0 +1,59 @@
+:py:mod:`annotations`
+=====================
+
+.. py:module:: annotations
+
+
+Module Contents
+---------------
+
+.. py:data:: comment1_txt
+   :annotation: = Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: text
+        :linenos:
+
+            Marketing campaign started in Q3 shows some impact in Q4. Further
+            positive impact is expected in later quarters.
+            
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: annot_txt
+   
+
+   
+
+.. py:data:: comment2_txt
+   :annotation: = Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: text
+        :linenos:
+
+            Notes: Sales for Product A have been flat through the year. We
+            expect improvement after the new release in Q2.
+            
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: fig_txt
+   
+
+   
+

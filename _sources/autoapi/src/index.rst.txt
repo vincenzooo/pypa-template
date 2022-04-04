@@ -1,0 +1,28 @@
+:py:mod:`src`
+=============
+
+.. py:module:: src
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   dataIO/index.rst
+   plotting/index.rst
+   pyGeo3D/index.rst
+   pyProfile/index.rst
+   pySurf/index.rst
+   utilities/index.rst
+
+
+Package Contents
+----------------
+
+.. py:data:: __version__
+   
+
+   
+

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dataIO.config.interface &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>dataIO.config.interface</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for dataIO.config.interface</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Independently from underlying mechanism or preprocessing, provides an interface to access configurations</span>
+<span class="sd">on files or variables and manipulate them. A configuration is a dictionary</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="c1">#from pyhocon import ConfigFactory</span>
+<span class="c1">#https://stackoverflow.com/questions/14050281/how-to-check-if-a-python-module-exists-without-importing-it</span>
+
+<span class="kn">import</span> <span class="nn">importlib</span>
+
+<span class="c1">#if pyhocon is installed, use its method ConfigFactory for `parse`, otherwise use json.load.</span>
+<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="s2">&quot;pyhocon&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">pyhocon</span> <span class="kn">import</span> <span class="n">ConfigFactory</span> <span class="k">as</span> <span class="n">parse</span>
+    <span class="c1"># use configuration files ono HOCON format: The parsed config can be seen as a nested dictionary (with types automatically inferred) where values can be accessed using normal dictionary getter (e.g., conf[&#39;a&#39;][&#39;b&#39;] or using paths like conf[&#39;a.b&#39;]) or via the methods get, get_int (throws an exception if it is not an int), get_string, get_list, get_float, get_bool, get_config.</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">parse</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">jfile</span> <span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">jfile</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">))</span>
+
+    
+<div class="viewcode-block" id="dict_from_json"><a class="viewcode-back" href="../../../autoapi/dataIO/config/interface/index.html#dataIO.config.interface.dict_from_json">[docs]</a><span class="k">def</span> <span class="nf">dict_from_json</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;just a wrapper around parse, reads a neste dictionary from json file. Return a dictionary.&quot;&quot;&quot;</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;dict_from_json is a wrapper for configuration: please use a more direct reader if you are&#39;</span><span class="o">+</span>
+        <span class="s1">&#39; interested in a specific format (e.g. json.load().&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">parse</span><span class="p">(</span><span class="n">file</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="add_config"><a class="viewcode-back" href="../../../autoapi/dataIO/config/interface/index.html#dataIO.config.interface.add_config">[docs]</a><span class="k">def</span> <span class="nf">add_config</span><span class="p">(</span><span class="n">confdic</span><span class="p">,</span><span class="n">tag</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;add configuration from variable to confdic.</span>
+<span class="sd">    Used to migrate old code to new.&quot;&quot;&quot;</span>
+    <span class="n">confdic</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span><span class="o">=</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">confdic</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">v</span></div>
+
+<div class="viewcode-block" id="explore_config"><a class="viewcode-back" href="../../../autoapi/dataIO/config/interface/index.html#dataIO.config.interface.explore_config">[docs]</a><span class="k">def</span> <span class="nf">explore_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="o">*</span><span class="n">strings</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; given a list of strings, retrieve the value of the nested config item. &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">strings</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> 
+    <span class="k">return</span> <span class="n">config</span>   </div>
+        
+<div class="viewcode-block" id="read_json_conf"><a class="viewcode-back" href="../../../autoapi/dataIO/config/interface/index.html#dataIO.config.interface.read_json_conf">[docs]</a><span class="k">def</span> <span class="nf">read_json_conf</span><span class="p">(</span><span class="n">jfile</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read a dictionary from a json file and return a dic. Can include or exclude first level keys.</span>
+<span class="sd">    </span>
+<span class="sd">    supercede conf_from_json.</span>
+<span class="sd">    For `settings` dictionary, each key is a unique name for a configuation,</span>
+<span class="sd">    The value is a nested dictionary in format {&#39;property_name&#39;:&lt;value&gt;}, where property_name </span>
+<span class="sd">    is a string and value can be any type (including dictionaries?). </span>
+<span class="sd">    </span>
+<span class="sd">    special keys:</span>
+<span class="sd">        &#39;default&#39;: dictionary of variable names and values that are used for</span>
+<span class="sd">        every entry in the configuration when these variables are not defined.</span>
+<span class="sd">        &#39;override&#39;: dictionary of variable names and values that override every</span>
+<span class="sd">            entry in the configuration.</span>
+<span class="sd">        &#39;includeonly&#39;: if set to some list of strings, includes only configurations that are part of the list</span>
+<span class="sd">        &#39;exclude&#39;: list as in includeonly, exclude the listed config, is applied after includeonly.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    
+    
+    <span class="n">d</span><span class="o">=</span><span class="n">parse</span><span class="p">(</span><span class="n">jfile</span><span class="p">)</span>
+    <span class="c1">#d=json.load(open(jfile,&#39;r&#39;))</span>
+
+    <span class="n">config_settings</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;config_settings&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>    
+    <span class="n">default</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>            
+    <span class="n">override</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;override&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>    
+    
+    <span class="k">if</span> <span class="n">config_settings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;includeonly&#39;</span> <span class="ow">in</span> <span class="n">config_settings</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">config_settings</span><span class="p">[</span><span class="s1">&#39;includeonly&#39;</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">config_settings</span><span class="p">[</span><span class="s1">&#39;includeonly&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="p">}</span>        
+        
+        <span class="k">if</span> <span class="s1">&#39;exclude&#39;</span> <span class="ow">in</span> <span class="n">config_settings</span><span class="p">:</span>
+            <span class="c1">#import pdb</span>
+            <span class="c1">#pdb.set_trace()</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">config_settings</span><span class="p">[</span><span class="s1">&#39;exclude&#39;</span><span class="p">]:</span>
+                <span class="n">res</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;WARNING: json config exclude file not found </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">k</span><span class="p">)</span>     
+                    
+    <span class="k">if</span> <span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">tt</span><span class="p">,</span><span class="n">cc</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1">#tag and conf</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">dv</span> <span class="ow">in</span> <span class="n">default</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">cc</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">dv</span><span class="p">)</span>  <span class="c1">#or also d[tt][k]=cc.get(&#39;k&#39;,dv)</span>
+       
+    <span class="k">if</span> <span class="n">override</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1">#print(&#39;override&#39;)</span>
+        <span class="k">for</span> <span class="n">tt</span><span class="p">,</span><span class="n">cc</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1">#tag and conf</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">dv</span> <span class="ow">in</span> <span class="n">override</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">cc</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">dv</span>  
+                <span class="c1">#print(&#39;%s override %s %s&#39;%(tt,k,dv))</span>
+                
+        
+                
+    <span class="k">return</span> <span class="n">d</span></div>
+    
+    
+<div class="viewcode-block" id="write_json_conf"><a class="viewcode-back" href="../../../autoapi/dataIO/config/interface/index.html#dataIO.config.interface.write_json_conf">[docs]</a><span class="k">def</span> <span class="nf">write_json_conf</span><span class="p">(</span><span class="n">jfile</span><span class="p">,</span><span class="n">conf</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;write a configuration to a json file.&quot;&quot;&quot;</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">jfile</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">),</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>  <span class="c1">#according to https://stackoverflow.com/questions/7100125/storing-python-dictionaries</span></div>
+    <span class="c1">#json.dump(conf,open(jfile,&#39;w&#39;),indent=1)</span>
+    
+    
+    
+<div class="viewcode-block" id="conf_from_json"><a class="viewcode-back" href="../../../autoapi/dataIO/config/interface/index.html#dataIO.config.interface.conf_from_json">[docs]</a><span class="k">def</span> <span class="nf">conf_from_json</span><span class="p">(</span><span class="n">jfile</span><span class="p">,</span><span class="n">include</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">exclude</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot; Read a dictionary from a json file and return a dic. Can include or exclude first level keys.</span>
+<span class="sd">    </span>
+<span class="sd">    For `settings` dictionary, each key is a unique name for a configuation,</span>
+<span class="sd">    The value is a nested dictionary in format {&#39;property_name&#39;:&lt;value&gt;}, where property_name </span>
+<span class="sd">    is a string and value can be any type (including dictionaries?). </span>
+<span class="sd">    </span>
+<span class="sd">    If included is set to a list,</span>
+<span class="sd">    only the keys of first level (configurations) matching names in this list are included.</span>
+<span class="sd">    In alternative, exclude can be set, leading to include all but these names.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span> 
+    
+    <span class="n">PRINT</span> <span class="p">(</span><span class="s2">&quot;`conf_from_json` will be eliminated, use instead `read_json_conf(jfile)` &quot;</span><span class="p">)</span>
+        
+    <span class="n">d</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">jfile</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">))</span>
+    <span class="c1">#print(&quot;%i keys read from file..&quot;%(len(d)))  </span>
+    
+    <span class="k">if</span> <span class="n">include</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">include</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">exclude</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">exclude</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span><span class="ne">ValueError</span><span class="p">):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;key not found for &quot;</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;included keys: &quot;</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">first element:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">d</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">())),</span><span class="s2">&quot; datasets&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">d</span></div>
+    
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

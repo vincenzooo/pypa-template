@@ -1,0 +1,592 @@
+:py:mod:`pySurf.data2D`
+=======================
+
+.. py:module:: pySurf.data2D
+
+.. autoapi-nested-parse::
+
+   Similar to points, but manage matrix data with x and y. All functions accept arguments in form data,x,y where x and y can be optional in some routines.
+
+   # 2016/10/09 copied from PSDanalysis.py, quite rough, it contains also psd functions that should go in psd2d.
+
+   IDL differentiate between functions and procedure. Code synyax is rough (do begin end, -> for methods, comparison operators), but very clear to read.
+   For example, allows to understand if modify object (procedure) or
+   return a result (function). Nobody forbids to a function to modify the argument (e.g. if I modify an object or a variable inside a function, are these changes reflected outside?), however it is usually (always?) not needed, because there is a procedure for that. This also enforces the user to think to the correct interface when the subroutine is called.
+   A flag is called as
+
+   In python I need to look at code or docstring to understand if a value is modified and this can also not be consistent (some method can work as functions, others as procedures.
+   self.data=newdata makes a method a procedure, self.copy().data=newdata; return res is a function
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pySurf.data2D.removelegendre
+   pySurf.data2D.removesag
+   pySurf.data2D.removept
+   pySurf.data2D.level_by_line
+   pySurf.data2D.fitlegendre
+   pySurf.data2D.levellegendre
+   pySurf.data2D.level_data
+   pySurf.data2D.transpose_data
+   pySurf.data2D.apply_transform
+   pySurf.data2D.rotate_data
+   pySurf.data2D.save_data
+   pySurf.data2D.register_data
+   pySurf.data2D.data_equal
+   pySurf.data2D.read_data
+   pySurf.data2D.get_data
+   pySurf.data2D.data_from_txt
+   pySurf.data2D.resample_data
+   pySurf.data2D.subtract_data
+   pySurf.data2D.sum_data
+   pySurf.data2D.grid_in_poly
+   pySurf.data2D.crop_data
+   pySurf.data2D.crop_data0
+   pySurf.data2D.remove_nan_frame
+   pySurf.data2D.projection
+   pySurf.data2D.matrix_project
+   pySurf.data2D.calculate_slope_2D
+   pySurf.data2D.slope_2D
+   pySurf.data2D.get_stats
+   pySurf.data2D.test_get_stats
+   pySurf.data2D.data_histostats
+   pySurf.data2D.plot_data
+   pySurf.data2D.xplot_data
+   pySurf.data2D.test_plot_stats
+   pySurf.data2D.psf2d
+   pySurf.data2D.compare_2images
+   pySurf.data2D.plot_slope_slice
+   pySurf.data2D.plot_slope_2D
+   pySurf.data2D.levelpoints
+   pySurf.data2D.plot_surface_analysis
+   pySurf.data2D.leveldata
+   pySurf.data2D.load_test_data
+   pySurf.data2D.test_leveling
+   pySurf.data2D.test_remove_nan_frame
+   pySurf.data2D.outliers_analysis
+   pySurf.data2D.test_outliers_analysis
+   pySurf.data2D.test_fails_leveling
+   pySurf.data2D.test_plot_data_aspect
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pySurf.data2D.rad_to_sec
+   pySurf.data2D.test_folder
+   pySurf.data2D.get_stats
+   pySurf.data2D.data_histostats
+   pySurf.data2D.d
+
+
+.. py:data:: rad_to_sec
+   
+
+   
+
+.. py:data:: test_folder
+   :annotation: = C:\Users\kovor\Documents\python\pyXTel\pySurf\test
+
+   
+
+.. py:exception:: EmptyPlotRangeWarning(*args, **kwargs)
+
+   Bases: :py:obj:`dataIO.outliers.EmptyRangeWarning`
+
+   Base class for warnings about dubious runtime behavior.
+
+
+.. py:function:: removelegendre(x, deg)
+
+   Remove degree polyomial, a possible leveling function for leveldata.
+
+   Note: this is superseded by levellegendre
+
+
+.. py:function:: removesag(y)
+
+   Convenience function to remove second degree polyomial from line.
+
+   A possible leveling functiondata for leveldata.
+
+
+.. py:function:: removept(y)
+
+   Convenienve function to remove piston and tilt from line.
+
+   A possible leveling functiondata for leveldata.
+
+
+.. py:function:: level_by_line(data, function=None, axis=0, **kwargs)
+
+   Remove line through extremes line by line (along vertical lines).
+
+   The returned array has 0 at the ends, but not necessarily zero mean.
+   If fignum is set, plot comparison in corresponding figure.
+   Function is a function of profile vector y that returns a corrected profile.
+
+   Completely useless, can be replaced by np.apply_along_axis or level_points.
+
+
+.. py:function:: fitlegendre(x, y=None, deg=None, nanstrict=False, fixnans=False)
+
+   Return a legendre fit of degree deg.
+
+   Work with 1 or 2D y (if 2D, each column is independently fit and x is
+   the coordinate of first axis).
+   if nanstrict is True, every column containing nan (or Inf) is considered
+   invalid and a column of nan is returned, if False, nan are excluded and fit
+   is calculated on valid points only (note that since columns
+   are slices along first index, the option has no effect on 1D data
+   (nans are always returned as nans).
+
+   2020/09/16 modified 1D/2D mechanism, where all the code,
+   including the part in common 1D/2D was moved to the 2D specific part,
+   while the 1D part is completely delegated to functions in `pyProfile.profile`.
+
+
+.. py:function:: levellegendre(x, y, deg, nanstrict=False)
+
+   Remove degree polyomial by line.
+
+   Evolution of leveldata using legendre functions
+   that work also 2D. nr. of terms fitted in legendre is deg+1 (piston->deg=0).
+   For 2D data, data are passed as second argument (y) and y coordinates passed
+   as first (x) (legendre are leveled along columns).
+   Nanstrict excludes the lines containing nans,
+   otherwise only good points are considered.
+
+
+.. py:function:: level_data(data, x=None, y=None, degree=1, axis=None, byline=False, fit=False, *args, **kwargs)
+
+   Use RA routines to remove degree 2D legendres or levellegendre if leveling by line.
+
+   Degree can be scalar (it is duplicated) or 2-dim vector. must be scalar if leveling by line. Note the important difference between e.g. `degree = 2` and
+     `degree = (2,2)`. The first one uses degree as total degree, it expands then to xl,yl = [0,1,0,1,2,0],[0,0,1,1,0,2]. The second
+
+   leveling by line (controlled by axis keyword) also hondle nans.
+   x and y are not used, but maintained for interface consistency.
+   fit=True returns fit component instead of residuals
+
+
+.. py:function:: transpose_data(data, x, y)
+
+   Transpose (in matrix sense) data and coordinates, switching x and y, return new data,x,y.
+
+   return a view, see np.ndarray.T and np.ndarray.transpose for details.
+
+
+.. py:function:: apply_transform(data, x, y, trans=None)
+
+   Apply a 3D transformation (from Nx3 to Nx3) to data.
+
+   TODO: add option to set final resampling grid keeping initial sampling,
+   initial number of points or on custom grid (use points.resample_grid, resample_data).
+
+
+.. py:function:: rotate_data(data, x=None, y=None, ang=0, k=None, center=None, fill_value=np.nan, usepoints=False, *args, **kwargs)
+
+   Rotate anticlockwise by an angle in degree.
+
+   Non optimized version using points functions.
+   2018/10/31 added k parameters allowing 90 deg rotations with np.rot90.
+   k is the number of anticlockwise rotations about center.
+   Note there is not resampling, so it can be inaccurate if center is not
+   on pixel center.
+
+   rotate_Data was intended to work using scipy.ndimage.interpolation.rotate but this failed.
+   Added 2018/12/12
+   args and kwargs are passed to the function that handles the rotation.
+
+   See also comments on resampling in `data2D.apply_transform`.
+
+   rot90 determination of rotated axis can probably be extended to general case, but in the meanwhile
+   the implementation based on points offers an accurate interpolation (even if slower),
+     can be enabled setting flag `usepoints`.
+
+
+.. py:function:: save_data(filename, data, x=None, y=None, fill_value=np.nan, addaxis=True, makedirs=False, **kwargs)
+
+   Save data as matrix on a file.
+
+   Can save as fits if the extension is .fits,
+   but this should be probably moved elsewhere,
+   otherwise uses np.saavetxt to save as text.
+   kwargs are passed to np.savetxt or hdu.writeto
+
+
+.. py:function:: register_data(data, x, y, scale=(1, 1, 1.0), strip=False, crop=None, center=None, *args, **kwargs)
+
+   Get data,x,y and register them using usual set of parameters.
+
+   registering operation are performed in the following order and are:
+       scale: scale the three axis of the `scale` factor, if sign is changed, reorder.
+       strip: if True, strip all nans at the border of the data.
+       crop: list of ranges (3 axis) to pass to data2D.crop_data
+       center: final position of data center (0,0) in x and y data coordinates,
+       if 2 element, center data coordinates, if 3 elements, center also data.
+       This means e.g. that data are first cropped (or cleaned of invalid data) than centered. This means that the value puts in the provided coordinate(s) the center of points after cropping operations.
+       unexpected parameters passed to register_data are ignored (*args and **kwargs are not used, just suppress error).
+
+   Note that read_data already calls register (after stripping common arguments) careful not to call twice.
+
+
+.. py:function:: data_equal(d1, d2, nanstrict=False)
+
+   Compare two data keeping nans into account.
+
+
+.. py:function:: read_data(file, rreader, **kwargs)
+
+   Read data from a file using a given raw reader `rreader`, with custom options in `args, kwargs`.
+
+   The function calls raw reader, but, before this, strips all options that are recognized by register_data,
+     all remaining unkown parameters are passed to rreader.
+   Then register_data is called with the previously stored settings (or defaults if not present).
+
+   This was made to hide messy code beyond interface. See old notes below, internal behavior can be better fixed e.g. by using dataIO.dicts.pop_kw and inspect.signature and fixing header interface.
+
+   Old notes say:
+
+       Division of parameters is hard coded, that is neither too elegant or maintainable. Note however that with this structure it is
+       possible to call the read_data procedure with specific parameters, for example in example below, the reader for
+       Zygo cannot be called directly with intensity keyword set to True without making a specific case from the other readers,
+       while this can be done using read_data.
+
+       this is an ugly way to deal with the fact that return
+       arguments are different if header is set, so when assigned to a variable as in patch routines in pySurf instrumentReader it fails.
+       Workaround has been calling directly read_data, not optimal.
+
+       2019/04/09 merged from data2D and instrumentReader to data2D. Mostly code from data2D and comments
+           from instrumentReader. code commented with ## was excluded.
+
+       non essendo sicuro dell'interfaccia per ora faccio cosi'.
+       The function first calls the (raw) data reader, then applies the register_data function to address changes of scale etc,
+       arguments are filtered and passed each one to the proper routine.
+       18/06/18 add all optional parameters, if reader is not passed,
+       only registering is done. note that already if no register_data
+       arguments are passed, registration is skipped.
+       18/06/18 add action argument. Can be  'read', 'register' or 'all' (default, =read and register). This is useful to give fine control, for example to modify x and y after reading and still make it possible to register data (e.g. this is done in
+       Data2D.__init__).
+
+
+.. py:function:: get_data(*args, **kwargs)
+
+   Old version.
+
+
+
+.. py:function:: data_from_txt(filename, x=None, y=None, xrange=None, yrange=None, matrix=False, addaxis=False, center=None, skip_header=None, delimiter=' ', strip=False, **kwargs)
+
+   Read matrix from text file. Return data,x,y.
+
+   handle addaxis, center and strip nan, on top of all `np.genfromtxt` options.
+   This function shouldn't be called directly, there are smarter ways of doing it using read_data and readers,
+     however, this is a quick way to get data from text if you don't know what I am talking about.
+
+   center: is the position of the center of the image in final coordinates (changed on 2016/08/10, it was '(before any scaling or rotation) in absolute coordinates.') If None coordinates are left unchanged.
+       Set to (0,0) to center the coordinate system to the data.
+   addaxis: (if matrix is set) can be set to read values for axis in first row and column
+       (e.g. if points were saved with default addaxis=True in save_data.
+   strip (renamed from autocrop): remove frame of nans (external rows and columns made all of nans),
+       note it is done before centering. To include all data in centering, crop data
+       at a second time with remove_nan_frame
+
+   2020/07/10 Added kwargs even if they are not used to suppress error if unknown arguments
+       are passed, that can be convenient when kwargs for multiple subfunctions are passed
+       to the calling code. This way, kwargs that are meant for another function are tollerated,
+       even if it is suboptimal, a better filtering of kwargs should be done.
+       For example, makes it fail when called by instrument_reader.read_data with header=True,
+       because even if the function doesn't expect a header keyword, the caller routine doesn't
+       detect the error. Solution is to make the calling routine check for undefined values?
+
+
+.. py:function:: resample_data(d1, d2, method='mc', onfirst=False)
+
+   Resample d1 [Ny' x Nx'] on x and y from d2[Nx x Ny].
+
+   d1 and d2 are passed as list of data,x,y.
+   Return a [Nx x Ny] data.
+   onfirst allow to resample second array on first (same as swapping args).
+   To get a (plottable) matrix of data use:
+   plt.imshow(rpoints[:,2].reshape(ygrid.size,xgrid.size)).
+
+
+.. py:function:: subtract_data(d1, d2, xysecond=False, resample=True)
+
+   d1 and d2 are triplets (data,x,y), second array is automatically resampled
+   on first, unless resample is set to False (in that case, data arrays are assumed
+   having same size and subtracted.
+   If xySecond is set to True results are calculated on xy of 2nd array,
+   equivalent to -(subtract_data(d2-d1)).
+
+
+.. py:function:: sum_data(d1, d2, xysecond=False, resample=True)
+
+   Sum two data sets after interpolation on first set coordinates.
+
+   If xySecond is set to True results are calculated on xy of 2nd array.
+
+
+.. py:function:: grid_in_poly(x, y, verts)
+
+   Data is not needed. Example of usage?
+
+
+.. py:function:: crop_data(data, x, y, xrange=None, yrange=None, zrange=None, mask=False, poly=None, interactive=False, *args, **kwargs)
+
+   Return data,x,y of cropped data inside axis ranges, polygons, or interactively
+   selected rectangular region.
+
+   axis ranges are passed as a 2-element vector of which each can be None
+       or None, where None indicates automatic range (adjust to data).
+   If mask is set to True, return a boolean mask of the cropped region.
+   poly is a list of vertex for a polygon.
+
+   If interactive is True, allows interactive selection with:
+   Zoom to the region to crop, and/or use CTRL+leftClick to add points and create
+   an polygonal selection. CTRL+rightClick remove the nearest point. Press ENTER when done.
+
+
+.. py:function:: crop_data0(data, x, y, xrange=None, yrange=None, zrange=None)
+
+   Original version before adding polygonal and interactive selection.
+
+
+
+.. py:function:: remove_nan_frame(data, x, y, internal=False)
+
+   Remove all external rows and columns that contains only nans.
+   If internal is set, return the
+   internal crop (largest internal rectangle without nans on the frame).
+
+
+.. py:function:: projection(data, axis=0, span=False, expand=False)
+
+   return average along axis. default axis is 0, profile along x.
+   keywords give extended results:
+   span: if set, return  3 vectors [avg, min, max] with min and max calculated
+   pointwise along same direction.
+   expand: instead of a single vector with point-wise minima, returns lists of
+   all vectors having at least one point
+       that is minimum (maximum) between all vectors parallel to axis. Overrides span.
+   ex:
+   a=array([[21, 16,  3, 14],
+            [22, 17,  6, 15],
+            [ 0,  3, 21, 16]])
+
+   In [62]: projection(a)
+   Out[62]: array([ 14.33333333,12.,10.,15.])
+
+   In [73]: projection(a,span=True)
+   Out[73]:
+   [array([ 14.33333333,12.,10.,15.]),
+    array([ 0,  3,  3, 14]),
+    array([22, 17, 21, 16])]
+
+   In [71]: projection(a,expand=True)
+   Out[71]:
+   [array([ 14.33333333,12.,10.,15.]),
+    array([[21, 16,  3, 14],[ 0,  3, 21, 16]]),
+    array([[22, 17,  6, 15],[ 0,  3, 21, 16]])]
+
+
+.. py:function:: matrix_project(data, axis=1)
+
+   project a matrix along an axis and return, min, mean and max.
+   For backward compatibility, replaced by projection
+   (note different default axis).
+
+
+.. py:function:: calculate_slope_2D(wdata, x, y, scale=(1.0, 1.0, 1.0))
+
+   calculate slope maps in x and y.
+   return slope in x and y respectively.
+   Set scale to (dx,dy,1000.) for z in micron, x,y in mm.
+
+
+.. py:function:: slope_2D(wdata, x, y, scale=(1.0, 1.0, 1.0))
+
+   calculate slope maps in x and y.
+   return a couple of maps of type slope,x,y data for x and y slopes respectively.
+   Set scale to (dx,dy,1000.) for z in micron, x,y in mm. (?does it mean  1,1,1000?)
+
+
+.. py:function:: get_stats(data=None, x=None, y=None, units=None, vars=None, string=False, fmt=None)
+
+   Return selected statistics for each of data,x,y as numeric array or string, wrapping `dataIO.stats`.
+
+   `vars` determines which statistical indicators are included in stats, while `string`, `fmt` and `units` are used to generate and control a string output in a similar way as in wrapped function `dataIO.arrays.stats`. `get_stats` implements a more versatile syntax handling statistics on  three coordinates axis.
+   See the test function `test_get_stats` for more examples.
+
+   `vars` is an array of indices selecting which variables must be included in the statistics. You can call `stats` with no argument to see the list of variables (and standard format).
+   The options are:
+       scalar: use a preset (=1 basic statistics, =2 for extended statistics)
+       single level list of integer indices (e.g. =[0,1]): it is applied only to data.
+       two-level nested list (e.g. =[[0,1]]) and the outer list has a single element, the selection is used replicated to data, x, y.
+       3-element nested list =[[0,1],[1],[2]]: indicates different choices for data, x and y.
+
+   In this context, special values can be used to indicate different type of defaults (N.B.: vars are in order matching `data, x, y`), these are internally converted to the proper format:
+   None: don't include element (e.g. [1,2] is equivalent to [[1,2],None,None])
+   []:  use default (e.g. [[0,2],[],None] uses default for x and doesn't report y)
+   [[]]: use full set of variables (e.g. [[0,2],[],[[]]] uses default for x and full stats for y, [[[]]] uses full for data).
+
+   Statistics are returned as array of numerical values, unless `string` flag is set. In that case, `units` and `fmt` are used to control the output format.
+
+   `units` (scalar in `dataIO.arrays.stats`) can be passed as 3-element list of strings to individually set the units for each axis. These are appended to every value in the respective axis (a more flexible behavior can be obtained by using `fmt`). If scalar is used on data axis, if single element string array, use for all axis (i.e. set `units` as array to obtain different behavior like units=['','',u] to set only the data axis).
+
+   `fmt` uses `dataIO.arrays.stats`, but it is not divided in axis. All axis settings are combined in a single list. If `string` is set to True `get_stats` returns a flattened array of strings, so an array of equal lenght can be passed, or a scalar, used for all axis and stats.
+   Note that strings are assembled here without accessing to `dataIO.arrays.stats` function, whose `fmt` argument is not used at all here.
+
+   `units` are used and appended to `fmt` if not None or set to empty string.
+   The length of the two must match, and are converted to the correct format inside this function.
+   Conversion is made in this case in dependance on the format of `vars`. For example, `vars = [[1,2,3],None,None]` requires to convert ['mm','mm','um'] to ['um','um','um']
+
+   If default, units are built from vars and from strings obtained from `dataIO.arrays.stats` (called without data).
+
+   TODO: span doesn't exclude nan data, put flag to tune this option.
+   TODO: there is some confusion in creating labels for `plot_data` because it can be unclear which one is X, Y, Z. A label should be added externally or in a routine. Also, statistics cannot be sorted (a list is returned, so it is possible to sort the list).
+   TODO: make a default extended stats, with  span and pts nr. for x and y and mean, span, rms for z.
+
+
+
+.. py:data:: get_stats
+   
+
+   
+
+.. py:function:: test_get_stats(*value, help=True)
+
+
+.. py:function:: data_histostats(data, x=None, y=None, bins=100, density=True, units=None, loc=0, *args, **kwargs)
+
+   wrapper around plt.hist, plot histogram of data (over existing window) adding label with stats.
+   `density` set tu True normalizes distribution to have sum equal 1. Return 3-uple according to `plt.hist`:
+
+
+.. py:data:: data_histostats
+   
+
+   
+
+.. py:function:: plot_data(data, x=None, y=None, title=None, outfile=None, units=None, stats=False, vars=None, loc=0, contour=False, colors=None, largs=None, framealpha=0.5, nsigma=None, *args, **kwargs)
+
+   Plot data using imshow and modifying some default properties.
+   Units for x,y,z can be passed as 3-el array or scalar, None can be used to ignore unit.
+   Broadcast all imshow arguments.
+   stats is a flag to print stats on plot. Here it can be assigned booleanTrue
+   or integer value: True or 1 plots statistics, 2 plots x and y spans
+   largs is a dictionary of arguments passed to caption in plotting.caption.legendbox
+   (used only if stats are plotted).
+       (e.g. {'color':'r'}
+   Returns axim as returned by plt.imshow.
+   nsigma set colorscale to this multiple of data standard deviation.
+   In alternative can be a dictionary containing arguments for remove_outliers.
+   If None (default) range is not changed from matplotlib defaults.
+   If dict, a nummber of parameters for can be passed to remove_outliers.remove_outliers to determine color range (data are left intact).
+   2020/11/05 updated all stats functions.
+   2020/07/14 added flag `contour` to overplot contours, and colors,
+   to be passed to `plt.contour`
+
+
+.. py:function:: xplot_data(data, x, y, title=None, outfile=None, *args, **kwargs)
+
+
+.. py:function:: test_plot_stats(value=None)
+
+   Test plotting of legendbox in plot_data
+
+
+.. py:function:: psf2d(y, wdata, alpha, xout, nskip=1)
+
+   return a 2d psf for axial profiles on wdata with coordinate y.
+
+
+
+.. py:function:: compare_2images(data, ldata, x=None, y=None, fignum=None, titles=None, vmin=None, vmax=None, commonscale=False)
+
+   for backward compatibility, replaced by multiplot.compare_images. plot two images from data and ldata on a two panel figure with shared zoom.
+   x and y must be the same for the two data sets.
+
+
+.. py:function:: plot_slope_slice(wdata, x, y, scale=(1.0, 1.0, 1.0), vrange=None, srange=None, filter=False)
+
+   use calculate_slope_2D to calculate slope and
+   plot map and respective slope maps in x and y. Return the three axis.
+   Set scale to (1,1,1000.) for z in micron, x,y in mm.
+   srange is used as slope range for plots. If filter is set,
+   data outside of the range are also excluded from rms calculation.
+
+
+.. py:function:: plot_slope_2D(wdata, x, y, scale=(1.0, 1.0, 1.0), vrange=None, srange=None, filter=False)
+
+   use calculate_slope_2D to calculate slope and
+   plot map and slice slope rms in x and y. Return the three axis.
+   Set scale to (1,1,1000.) for z in micron, x,y in mm.
+   If filter is set, data out of srange are removed and automatic scale is
+     used for plot. If not, srange is used for plot axis, but all data
+     are used in plots and rms calculation.
+
+
+.. py:function:: levelpoints(w0)
+
+   plot and return matrices of wdata, lwdata, lwdata2
+   from points w0
+
+
+.. py:function:: plot_surface_analysis(*args, **kwargs)
+
+
+.. py:function:: leveldata(*args, **kwargs)
+
+
+.. py:function:: load_test_data()
+
+   load a standard Zygo file for tests.
+
+
+.. py:function:: test_leveling(d=None)
+
+   plot a set of images, representative of data leveled with different combinations of parameters.
+   d is Data2D object.
+
+
+.. py:function:: test_remove_nan_frame()
+
+
+.. py:function:: outliers_analysis(data, x=None, y=None, nsigma=3, itmax=5, outname=None)
+
+   Perform multiple iterations of outlier removal, plotting data and histogram at each step.
+
+
+.. py:function:: test_outliers_analysis()
+
+   run outliers analysis and save output of tests.
+
+
+.. py:function:: test_fails_leveling()
+
+   reproduce warning about fit
+
+
+.. py:function:: test_plot_data_aspect()
+
+   test for plots with different aspect ratios.
+
+
+.. py:data:: d
+   
+
+   
+

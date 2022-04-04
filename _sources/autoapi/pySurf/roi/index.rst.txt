@@ -1,0 +1,37 @@
+:py:mod:`pySurf.roi`
+====================
+
+.. py:module:: pySurf.roi
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pySurf.roi.external_roi_rect
+   pySurf.roi.in_hull
+
+
+
+.. py:function:: external_roi_rect(points)
+
+   finds the smallest (straight to axis) rectangle containing all points.
+
+   Points are passed as N x 2 array, returns two couples (x0,x1) (y0,y1)
+
+
+.. py:function:: in_hull(p, hull)
+
+   Test if points in `p` are in `hull`
+
+   `p` should be a `NxK` coordinates of `N` points in `K` dimensions
+   `hull` is either a scipy.spatial.Delaunay object or the `MxK` array of the
+   coordinates of `M` points in `K`dimensions for which Delaunay triangulation
+   will be computed
+
+

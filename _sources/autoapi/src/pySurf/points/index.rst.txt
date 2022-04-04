@@ -1,0 +1,327 @@
+:py:mod:`src.pySurf.points`
+===========================
+
+.. py:module:: src.pySurf.points
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pySurf.points.crop_points1
+   src.pySurf.points.crop_points
+   src.pySurf.points.rotate_points
+   src.pySurf.points.translate_points
+   src.pySurf.points._get_plane
+   src.pySurf.points.level_points
+   src.pySurf.points.points_find_hull
+   src.pySurf.points.points_in_poly2
+   src.pySurf.points.points_in_poly
+   src.pySurf.points.clipStats
+   src.pySurf.points.points_rms
+   src.pySurf.points.histostats
+   src.pySurf.points.matrix_to_points2
+   src.pySurf.points.matrix_to_points
+   src.pySurf.points.get_points
+   src.pySurf.points.save_points
+   src.pySurf.points.points_find_grid2
+   src.pySurf.points.points_find_grid
+   src.pySurf.points.rebin_points
+   src.pySurf.points.resample_points
+   src.pySurf.points.resample_grid
+   src.pySurf.points.points_autoresample
+   src.pySurf.points.extract_profile
+   src.pySurf.points.plot_points
+   src.pySurf.points.subtract_points
+   src.pySurf.points.subtract_points2
+   src.pySurf.points.subtract_points_old
+   src.pySurf.points.roicircle_points
+   src.pySurf.points.smooth_points
+   src.pySurf.points.smooth_points2
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pySurf.points.verbose
+   src.pySurf.points.method
+   src.pySurf.points.pts
+
+
+.. py:data:: verbose
+   :annotation: = False
+
+   Module containing functions acting on a point cloud. With the intention
+   of creating a class. Points are in format (Npoints,Ndim).
+   Note also that shape, when used (mostly is just a visual parameter for plots), is in format (nx,ny), that is opposite to python convention.
+
+.. py:data:: method
+   :annotation: = linear
+
+   2014/03/17 moved here all routines from EA2019_align and from OP1S07_align.
+
+.. py:function:: crop_points1(points, xrange=None, yrange=None, zrange=None, poly=None, interactive=False)
+
+   crop a xyz points [Nx3], keeping only points inside xrange and yrange defined as (min,max).
+   Interactive allows to set a region by zooming and/or a polygon by point and click
+   (order of vertex matters).
+
+
+.. py:function:: crop_points(points, xrange=None, yrange=None, zrange=None, mask=False, poly=None, interactive=False)
+
+   experimental version, adds option booleam to return mask. useful e.g. to clean data based on crop on deltaR
+
+
+.. py:function:: rotate_points(points, theta, center=(0, 0))
+
+   returns rotated coordinates of 2D point(s) x ([Npoints x 2]) about a center with anticlockwise angle theta in rad. If 3D points are passed, z coordinate is maintained.
+
+
+.. py:function:: translate_points(points, offset=None)
+
+   returns translated coordinates. Useless routine, can be done with
+   a simple sum points+offset
+
+
+.. py:function:: _get_plane(points, pars=None, xrange=None, yrange=None, zrange=None, mask=None, returnPars=False)
+
+   Return points of a plane defined by pars on x,y coordinates of points.
+   pars is a 3 elements vector [A,B,C] according to Ax + By + C = z.
+   if pars is None, plane is calculated by best fit on selected points and two elements are returned:
+   the points of the best fit plane and its parameters A,B,C. The points are calculated on all
+   points positions.
+
+
+.. py:function:: level_points(points, xrange=None, yrange=None, zrange=None, mask=None, pars=None, retall=False)
+
+   return the leveled points (after subtraction of best fit plane on selected points).
+   If pars is provided as 3 elements vector is intended as plane coefficients and fit is not performed.
+
+
+.. py:function:: points_find_hull(pts)
+
+   return the convex hull non containing invalid (nan) points as a (np,2) array.
+   hull=points_find_hull(pts)
+   plt.plot(hull[:,0], hull[:,1], 'r--', lw=2).
+
+
+.. py:function:: points_in_poly2(pts, vert)
+
+   return a boolen array, True if point is inside a polygon,
+   given its vertices.
+
+
+.. py:function:: points_in_poly(pts, verts)
+
+
+.. py:function:: clipStats(p, clip)
+
+
+.. py:function:: points_rms(points, xrange=None, yrange=None, zrange=None, mask=None)
+
+   return the rms of the selected points.
+
+
+.. py:function:: histostats(points, bins=100, log=True, *args, **kwargs)
+
+   Plot histogram of z. Accept arguments for plt.hist.
+
+
+.. py:function:: matrix_to_points2(mdata, x=None, y=None, xrange=None, yrange=None)
+
+
+.. py:function:: matrix_to_points(data, xgrid, ygrid, transpose=False)
+
+   this assumes that the order in data (after flattening) follows the order of
+   x and y in meshgrid. If not (vertical direction first), set flag transpose.
+   Not tested on arrays with different x and y, potentially a mess.
+
+
+.. py:function:: get_points(filename, x=None, y=None, xrange=None, yrange=None, matrix=False, addaxis=False, scale=None, center=None, skip_header=None, delimiter=',')
+
+   Return a set of xyz points (N,3) from generic csv files in xyz or matrix format.
+
+   For example for nanovea saved txt (matrix=False) or gwyddion saved matrix (matrix=True, xrange, yrange must be defined).
+
+   `x` and `y` added 2018/02/17 make sense only for data in matrix format,
+   allowing to ovveride or set values for the x and y axis and apply
+   modifications that would not be straightforward on the returned value in
+   `points` format.
+
+   input x and y can be None or empty object (calculate from data size), M-element array (must fit data size) or range (2-el). If the last two cases (when appropriate axis are passed), they are always used and get priority on what is read from file, be careful to omit them unless you want to alter data.
+
+   This way I can e.g. open a matrix file and return points with a modified x y grid. Setting x or y to an empty object rather than to None discards axis from file and use grid indices.
+
+   addaxis: (if matrix is set) can be set to True to read values for axis in first row and column
+       (e.g. if points were saved with default addaxis=True in save_data.
+   A single axis can be extracted if addaxis is set to string 'x', 'y'.
+   `True` is equivalent to set to 'xy' (added 2020/06/18).
+
+   A complete description of the possible options is:
+    read and use from file: addaxis=True, x= None
+    read and discard from file, use passed: addaxis=True, x=np.array
+    read and discard from file, use calculated: addaxis=True, x=[]
+    don't read from file, use passed: addaxis=False, x=np.array
+    don't read from file, use calculated: addaxis=False, x=None|[]
+
+   center is the position of the center of the image in final coordinates (changed on 2016/08/10, it was '(before any scaling or rotation) in absolute coordinates.') If None coordinates are left unchanged.
+       Set to (0,0) to center the coordinate system to the data.
+   addaxis (if matrix is set) can be set to read values for axis in first row and column
+       (e.g. if points were saved with default addaxis=True in save_points.
+   2020/06/18 changes to logic in reading axis with matrix option, it was failing when x and y not set. Added possibility of individual `addAxis`
+   TODO: reduce overlapping with `data2D.data_from_txt`.
+   2018/02/17 reintroduced xrange even if discorauged. implemented x and y (unused as well) to axis, range
+   or indices.
+
+
+
+.. py:function:: save_points(filename, points, xgrid=None, ygrid=None, shape=None, matrix=False, fill_value=np.nan, addaxis=True, **kwargs)
+
+   save points on a file. If matrix is true write in matrix form (in this case you have to
+   provide the values for axis). Otherwise write as points in columns.
+
+
+.. py:function:: points_find_grid2(points, result='shape', sort=None, steps=None)
+
+   Given points as pointcloud, do some basic guess on shape and axis orientation
+   of the grid.
+   Works for raster points, even irregular and non rectangular, but not for scatter
+   (step is estimated from the first two elements, it fails if elements are not sorted,
+   points can be sorted xy or yx to avoid failure, like (xysort):
+       a = a[a[:,1].argsort()]
+       a = a[a[:,0].argsort(kind='mergesort')] #stable sort.
+   Return a tuple (fastind,result), fastind is 1 for y and 0 for x,
+   result can be 'shape', 'step'  or 'grid'.
+   step can be provided as scalar or 2d vector to enforce step size
+
+   sort can be None, 'xy', 'yx' (respectively try to guess, x or y faster)
+       or 'none' (apply stable sort xy before calculating grid).
+
+   This second version, works well in well-behaved cases, for more complex situations,
+   better to check results (see critical cases below).
+
+
+
+.. py:function:: points_find_grid(points, result='shape', sort=None)
+
+   Given points as pointcloud, do some basic guess on shape and axis orientation
+   of the grid. Not many checks in this first version, you need to verify results.
+   Works for raster points, even irregular and non rectangular, but not for scatter (step is estimated from the first two
+   elements, it fails if elements are not sorted, points can be
+   sorted xy or yx to avoid failure, like (xysort):
+       a = a[a[:,1].argsort()]
+       a = a[a[:,0].argsort(kind='mergesort')] #stable sort.
+   Return a tuple (fastind,result), fastind is 1 for y and 0 for x,
+   result can be 'shape', 'step'  or 'grid'.
+
+
+.. py:function:: rebin_points(tpoints, matrix=False, steps=None, *args, **kwargs)
+
+   Use `stats.binned_statistic_2d` to create a new surface from original points
+   divided in bins centered on xy of final points. Points in a bin can be averaged
+   (default) or binned statistics options can be used to obtain result values.
+
+   It is theoretically the best way to create a surface on a grid with minimal loss of information,
+   however it can be tricky, both for estimating errors (or values on empty bins) and for
+   transformations (e.g. crop ).
+
+
+.. py:function:: resample_points(tpoints, positions)
+
+   resample tpoints [Npoints x 3] on the points defined in positions [Mpoints x 2], or [Mpoints x 3]
+   (in this case 3rd column is ignored).
+   Return a [Nx x Ny , 3] vector of points. To get a (plottable) matrix of data use:
+   plt.imshow(rpoints[:,2].reshape(xgrid.size,ygrid.size)).
+
+
+.. py:function:: resample_grid(tpoints, xgrid=None, ygrid=None, matrix=False, resample=True)
+
+   resample tpoints [Npoints x 3] on the grid defined by two vectors xgrid [Nx] and ygrid [Ny].
+   Return a [Nx * Ny , 3] vector of points, sorted in standard python order
+   (x changes faster) or a matrix if matrix=True. if resample is set to False
+   only x and y are changed and values are not touched (must maintain number of points).
+   matrix=True-->points to matrix
+   p=resample_grid(p) #straighten the grid of p changing data as little as possible
+   matrix=False,resample=False-> Convert from matrix to points without resampling if matrix input, useless if input is points (do two opposite operations that should cancel each other).
+
+
+
+.. py:function:: points_autoresample(points, cut=0, resample=True)
+
+   Use points_find_grid to determine the grid for points and resample.
+   It should give minimal alteration of points when close to grid.
+   This routine returns data,x,y
+   Same result can be obtained by calling
+   resample_grid (without providing x and y)
+   AND points_find_grid to determine x and y.
+
+
+.. py:function:: extract_profile(points, xy0, xy1=None, npoints=None, along=True, plot=False)
+
+   extract a profile from xy0=(x0, y0) to xy1=(x1,y1).
+   Return a couple of vectors x, y, z. The number of points can be set, otherwise is set
+   accordingly to the longest profile dimension.
+   If `along` is set (default), a two-dim x-z profile is returned with x distance
+   along the profile from xy0.
+   If called without second argument, extract point.
+   #TODO, can be made faster by cropping data around profile.
+
+
+.. py:function:: plot_points(points, xgrid=None, ygrid=None, shape=None, units=None, resample=True, scatter=False, contours=0, bar=True, stats=True, **kwargs)
+
+   resample xyz points [Nx3] to a grid whose axis xgrid and ygrid are given
+   and plot it. If resample is set to False x and y positions are considered only for range,
+   but they are not used to position the z values (it works if x and y are on an exact unrotated grid,
+   resampling is slower, but exact).
+   shape is in format (nx,ny) that is opposite to python convention.
+   contours is contour spacing.
+
+
+.. py:function:: subtract_points(p1, p2, xysecond=False, resample=True)
+
+   Subtract second set of points after interpolation on first set coordinates.
+   If xySecond is set to True data are interpolate on xy of p2 and then subtracted.
+
+
+.. py:function:: subtract_points2(p1, p2, xySecond=False, resample=True)
+
+   attempt to make subtract_points faster by transposing and acting on faster slice
+
+
+.. py:function:: subtract_points_old(p1, p2, xySecond=False, resample=True)
+
+   Subtract second set of points after interpolation on first set coordinates.
+   If xySecond is set to True data are interpolate on xy of p2 and then subtracted.
+
+
+.. py:function:: roicircle_points(points, radius, missing=None, invert=False)
+
+   Select points inside a circle of given radius. Points outside the circle are removed
+   or replaced by a missing value.
+
+
+.. py:function:: smooth_points(points, xywidth, xgrid=None, ygrid=None, shape=None, matrix=False)
+
+   resample points on a grid and perform moving average smoothin in x and y according to xywidth,
+   if one component is None smoothing in that direction is not performed.
+   Return points in usual coordinates, unless matrix flag is set.
+
+
+.. py:function:: smooth_points2(points, xywidth, xgrid=None, ygrid=None, shape=None)
+
+   NOT WORKING shape in format (nx,ny) as convention in points, opposite of python.
+
+
+.. py:data:: pts
+   
+
+   
+

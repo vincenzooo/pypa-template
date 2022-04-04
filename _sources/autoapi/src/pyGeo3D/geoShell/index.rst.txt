@@ -1,0 +1,163 @@
+:py:mod:`src.pyGeo3D.geoShell`
+==============================
+
+.. py:module:: src.pyGeo3D.geoShell
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.pyGeo3D.geoShell.fig
+   src.pyGeo3D.geoShell.punto
+   src.pyGeo3D.geoShell.raggio
+   src.pyGeo3D.geoShell.proPlane
+   src.pyGeo3D.geoShell.hyp
+   src.pyGeo3D.geoShell.shell1
+   src.pyGeo3D.geoShell.limite
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pyGeo3D.geoShell.o
+
+
+.. py:class:: fig(origin)
+
+   Bases: :py:obj:`object`
+
+   .. py:method:: __repr__(self)
+
+      Return repr(self).
+
+
+   .. py:method:: __eq__(self, other)
+
+      Return self==value.
+
+
+
+.. py:class:: punto(x, y, z, origin=(0, 0, 0))
+
+   Bases: :py:obj:`fig`
+
+   .. py:method:: trasla(self, new_origin)
+
+
+
+.. py:class:: raggio(m, q, origin=(0, 0, 0))
+
+   Bases: :py:obj:`fig`
+
+   un raggio di luce e' una retta nel piano // a yz (x=origin[0])
+   equazione fissata da due parametri m e q. m,q= None per retta verticale
+   (// asse z, equazione x=origin[0], y=origin[1])
+
+   .. py:attribute:: theta
+      
+
+      
+
+   .. py:method:: trasla(self, new_origin)
+
+
+   .. py:method:: getTh(self)
+
+
+   .. py:method:: setTh(self, value)
+
+
+
+.. py:class:: proPlane(m, q, origin=(0, 0, 0))
+
+   Bases: :py:obj:`fig`
+
+   piano // a asse x con inclinazione rispetto asse z,
+   uguale all'angolo off-axis. e' il piano su cui si proietta
+   l'apertura dell'ottica. equazione fissata da due parametri m e q.
+
+   .. py:attribute:: theta
+      
+
+      
+
+   .. py:method:: projectCircle(self, R, center)
+
+
+   .. py:method:: getTh(self)
+
+
+   .. py:method:: setTh(self, value)
+
+
+
+.. py:class:: hyp(a, b, origin=(0, 0, 0))
+
+   Bases: :py:obj:`fig`
+
+   iperbole determinata (nel piano) dai due parametri a e b,
+   secondo l'equazione (z/a)^2-(y/b)^2=1
+
+   .. py:method:: rayIntersect(self, raggio)
+
+      restituisce uno o piu' punti intersezione tra iperbole
+      e raggio
+
+
+   .. py:method:: tanInPmq(self, p)
+
+      restituisce m e q del raggio tangente all'iperbole nel punto p
+      nelle coordinate con origine self.origin
+
+
+   .. py:method:: tanInP(self, p)
+
+      restituisce il raggio tangente all'iperbole nel punto p
+
+
+   .. py:method:: tanInPang(self, p)
+
+      restituisce l'angolo tra tangente e
+      raggio incidente nel punto p
+
+
+
+.. py:class:: shell1(R, F, origin=(0, 0, 0), limit=-1)
+
+   Bases: :py:obj:`fig`
+
+   shell determinata da due parametri tra raggio, focale, angolo
+   non considero l'altezza in quanto la prendo come unita' di misura,
+   quindi H=1. considero solo la prima semisuperficie
+
+   .. py:method:: planeIntersect(self, x0)
+
+      intersezione con un piano // a yz, con eq. x=x0
+      (rispetto all'origine standard)
+
+
+   .. py:method:: rayIntersect(self, raggio)
+
+      da' le coordinate del punto di intersezione con un raggio
+
+
+
+.. py:class:: limite(zmin=0.0, zmax=1.0, origin=(0, 0, 0))
+
+   Bases: :py:obj:`fig`
+
+
+.. py:data:: o
+   
+
+   
+

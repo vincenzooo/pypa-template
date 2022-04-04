@@ -1,0 +1,71 @@
+:py:mod:`src.pyGeo3D.ostruzione`
+================================
+
+.. py:module:: src.pyGeo3D.ostruzione
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pyGeo3D.ostruzione.diretto
+   src.pyGeo3D.ostruzione.inverso
+   src.pyGeo3D.ostruzione.daa
+   src.pyGeo3D.ostruzione.angsep
+   src.pyGeo3D.ostruzione.main
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pyGeo3D.ostruzione.modules
+   src.pyGeo3D.ostruzione.H
+
+
+.. py:data:: modules
+   
+
+   
+
+.. py:function:: diretto(F, dmin, SH)
+
+   ricavando diametro all' ingersso da diam allintersezione
+
+
+.. py:function:: inverso(F, dmax, H)
+
+   ricava il dianetri allintersezione dal diametro d'ingresso
+   con metodo ricorsico.  stessa unita' di misura.
+
+
+.. py:function:: daa(y0, angolo)
+
+   dato un punto di partenza (0,y0), e l'angolo con l'asse y
+   per una retta con coefficiente angolare negativo,
+   restituisce la x nel di ordinata y1
+
+
+.. py:function:: angsep(F, H, r, theta)
+
+
+.. py:function:: main(F, H, r_vec, theta)
+
+   assumendo shell con altezza uguale per parabola e iperbole,
+   calcola la minima separazione
+   angolare fra le shell per evitare ostruzione all'uscita per i
+   raggi del vettore r_vec per l'angolo fuori asse theta
+
+
+.. py:data:: H
+   :annotation: = 300
+
+   
+

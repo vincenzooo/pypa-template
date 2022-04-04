@@ -1,0 +1,34 @@
+:py:mod:`src.plotting.xadd_clickable_markers`
+=============================================
+
+.. py:module:: src.plotting.xadd_clickable_markers
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.xadd_clickable_markers.add_clickable_markers
+   src.plotting.xadd_clickable_markers.retax
+
+
+
+.. py:function:: add_clickable_markers(propertyname='markers', fig=None, ax=None, key=None)
+
+   Makes pickable the image (image only) in the current figure.
+   add a list property to the figure.
+   Propertyname doesn't really work yet, but works fine with a single set
+   of markers named markers
+
+
+.. py:function:: retax()
+
+   diagnostic routine. return coordinates of all plotted points,
+   assuming this are the symbols for the plotted markers.
+
+

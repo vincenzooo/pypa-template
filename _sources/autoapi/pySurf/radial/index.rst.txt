@@ -1,0 +1,54 @@
+:py:mod:`pySurf.radial`
+=======================
+
+.. py:module:: pySurf.radial
+
+.. autoapi-nested-parse::
+
+   Radial psf functions.
+
+   https://photutils.readthedocs.io/en/stable/psf.html
+
+   https://learn.astropy.org/rst-tutorials/synthetic-images.html?highlight=filtertutorials#3.-Prepare-a-Point-Spread-Function-(PSF)
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pySurf.radial.barycenter
+   pySurf.radial.radius
+   pySurf.radial.radius_sorted
+   pySurf.radial.radial_slice
+
+
+
+.. py:function:: barycenter(data, x, y)
+
+   return barycenter of 2D data, weighted by data.
+
+
+.. py:function:: radius(x, y, xc, yc)
+
+   calculate radius for points xx,yy from center in xc,yc.
+
+   Return an array same size of xx/yy with all radii.
+
+
+.. py:function:: radius_sorted(data, x, y, xc, yc)
+
+   return radius and corresponding data sorted by distance from xc,yc.
+
+
+.. py:function:: radial_slice(x, y, angle, xyc, plot=False, *args, **kwargs)
+
+   Gives extreme points of a segment passing by xc, yc with slope angle in radians inside the span of points x and y.
+   works in all four quadrants.
+
+

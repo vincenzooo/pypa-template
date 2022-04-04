@@ -1,0 +1,39 @@
+:py:mod:`readConfig2`
+=====================
+
+.. py:module:: readConfig2
+
+
+Module Contents
+---------------
+
+.. py:data:: config
+   
+
+   
+
+.. py:data:: string_val
+   
+
+   
+
+.. py:data:: bool_val
+   
+
+   
+
+.. py:data:: int_val
+   
+
+   
+
+.. py:data:: float_val
+   
+
+   
+
+.. py:data:: m1
+   
+
+   
+

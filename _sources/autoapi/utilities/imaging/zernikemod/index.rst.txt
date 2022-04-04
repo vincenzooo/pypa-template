@@ -1,0 +1,98 @@
+:py:mod:`utilities.imaging.zernikemod`
+======================================
+
+.. py:module:: utilities.imaging.zernikemod
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   utilities.imaging.zernikemod.rnm
+   utilities.imaging.zernikemod.zernike
+   utilities.imaging.zernikemod.zmodes
+   utilities.imaging.zernikemod.zmatrix
+   utilities.imaging.zernikemod.carttopolar
+   utilities.imaging.zernikemod.zernsurf
+   utilities.imaging.zernikemod.fitimg
+   utilities.imaging.zernikemod.fitvec
+   utilities.imaging.zernikemod.zcoeff
+
+
+
+.. py:function:: rnm(n, m, rho)
+
+   Return an array with the zernike Rnm polynomial calculated at rho points.
+
+
+   **ARGUMENTS:**
+
+       === ==========================================
+       n    n order of the Zernike polynomial
+       m    m order of the Zernike polynomial
+       rho  Matrix containing the radial coordinates.
+       === ==========================================
+
+   .. note:: For rho>1 the returned value is 0
+
+   .. note:: Values for rho<0 are silently returned as rho=0
+
+
+
+.. py:function:: zernike(n, m, rho, theta)
+
+   Returns the an array with the Zernike polynomial evaluated in the rho and
+   theta.
+
+   **ARGUMENTS:**
+
+   ===== ==========================================
+   n     n order of the Zernike polynomial
+   m     m order of the Zernike polynomial
+   rho   Matrix containing the radial coordinates.
+   theta Matrix containing the angular coordinates.
+   ===== ==========================================
+
+   .. note:: For rho>1 the returned value is 0
+
+   .. note:: Values for rho<0 are silently returned as rho=0
+
+
+.. py:function:: zmodes(N)
+
+   Construct Zernike mode vectors in standard ordering
+   Includes all modes up to radial order N
+
+
+.. py:function:: zmatrix(rho, theta, N, r=None, m=None)
+
+   Formulate Zernike least squares fitting matrix
+   Requires rho and theta vectors, normalized to rhomax=1
+
+
+.. py:function:: carttopolar(x, y, cx, cy, rad)
+
+
+.. py:function:: zernsurf(x, y, cx, cy, rad, coeff, r=None, m=None)
+
+
+.. py:function:: fitimg(img, N=20, r=None, m=None)
+
+   Perform Zernike fit on an image.
+   Zernike domain is defined over the full image array.
+
+
+.. py:function:: fitvec(x, y, z, N=20, r=None, m=None)
+
+   Perform Zernike fit on an image.
+   Zernike domain is defined over the full image array.
+
+
+.. py:function:: zcoeff(filename, save=False, cx=0.0, cy=0.0, rad=1.0, order=20, r=None, m=None, **kwags)
+
+

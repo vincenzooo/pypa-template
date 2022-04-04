@@ -1,0 +1,33 @@
+:py:mod:`src.pySurf`
+====================
+
+.. py:module:: src.pySurf
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   FEA/index.rst
+   PointCloud/index.rst
+   _instrument_reader/index.rst
+   affine2D/index.rst
+   clip/index.rst
+   data2D/index.rst
+   data2D_class/index.rst
+   distanceTable/index.rst
+   find_internal_rectangle/index.rst
+   fit_cylinder/index.rst
+   instrumentReader/index.rst
+   outliers2d/index.rst
+   plane_fit/index.rst
+   points/index.rst
+   psd2d/index.rst
+   radial/index.rst
+   roi/index.rst
+   stress_compensation/index.rst
+   testSurfaces/index.rst
+
+

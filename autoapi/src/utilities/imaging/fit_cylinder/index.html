@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.utilities.imaging.fit_cylinder &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="src.utilities.imaging.fitting" href="../fitting/index.html" />
+    <link rel="prev" title="src.utilities.imaging.chebFit" href="../chebFit/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../pySurf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.imaging</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.imaging.fit_cylinder</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/src/utilities/imaging/fit_cylinder/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.utilities.imaging.fit_cylinder">
+<span id="src-utilities-imaging-fit-cylinder"></span><h1><a class="reference internal" href="#module-src.utilities.imaging.fit_cylinder" title="src.utilities.imaging.fit_cylinder"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.imaging.fit_cylinder</span></code></a><a class="headerlink" href="#module-src.utilities.imaging.fit_cylinder" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.utilities.imaging.fit_cylinder.closest_point_on_line" title="src.utilities.imaging.fit_cylinder.closest_point_on_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">closest_point_on_line</span></code></a>(points, lVersor, lPoint)</p></td>
+<td><p>From a list of points in 3D space as Nx3 array, returns a Nx3 array with the corresponding closest points on the line.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.utilities.imaging.fit_cylinder.cylinder_error" title="src.utilities.imaging.fit_cylinder.cylinder_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cylinder_error</span></code></a>(odr=(0, 0, 0, 0, 0, 0), points=None, extra=False)</p></td>
+<td><p>Given a set of N points in format Nx3, returns the   error on the cylinder defined by origin and direction as a 6(3+3) dim vector.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.utilities.imaging.fit_cylinder.cylinder_error3" title="src.utilities.imaging.fit_cylinder.cylinder_error3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cylinder_error3</span></code></a>(odr=(0, 0, 0, 0), points=None, extra=False, xy=False)</p></td>
+<td><p>Given a set of N points in format Nx3, returns the rms surface error on the cylinder defined by origin (intercept of the axis with x=0) and direction,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.utilities.imaging.fit_cylinder.cone_error" title="src.utilities.imaging.fit_cylinder.cone_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cone_error</span></code></a>(odr=(0, 0, 0, 0, 0, 0), points=None, extra=False)</p></td>
+<td><p>Given a set of N points in format Nx3, returns the rms surface error on the cone defined by origin (intercept of the axis with x=0) and direction,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.utilities.imaging.fit_cylinder.cone_error3" title="src.utilities.imaging.fit_cylinder.cone_error3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cone_error3</span></code></a>(odr=(0, 220.0, 0, 0), points=None, extra=False)</p></td>
+<td><p>Given a set of N points in format Nx3, returns the rms surface error on the cone defined by</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.utilities.imaging.fit_cylinder.subtract_cylinder" title="src.utilities.imaging.fit_cylinder.subtract_cylinder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subtract_cylinder</span></code></a>(pp, odr, sampleName='')</p></td>
+<td><p>odr: 6-vector (origin_y,origin_y,origin_z,direction_x,direction_y,direction_z),</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.utilities.imaging.fit_cylinder.subtract_cone" title="src.utilities.imaging.fit_cylinder.subtract_cone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subtract_cone</span></code></a>(pp, odr, sampleName='', outfile=None, vmin=None, vmax=None)</p></td>
+<td><p>odr: 6-vector (origin_y,origin_y,origin_z,direction_x,direction_y,direction_z),</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.utilities.imaging.fit_cylinder.fit_cylinder" title="src.utilities.imaging.fit_cylinder.fit_cylinder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_cylinder</span></code></a>(points, guessValue=None)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.utilities.imaging.fit_cylinder.fit_cone" title="src.utilities.imaging.fit_cylinder.fit_cone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_cone</span></code></a>(points, guessValue=None)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.utilities.imaging.fit_cylinder.fit_func" title="src.utilities.imaging.fit_cylinder.fit_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_func</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utilities.imaging.fit_cylinder.closest_point_on_line">
+<span class="sig-prename descclassname"><span class="pre">src.utilities.imaging.fit_cylinder.</span></span><span class="sig-name descname"><span class="pre">closest_point_on_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lVersor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lPoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utilities.imaging.fit_cylinder.closest_point_on_line" title="Permalink to this definition"></a></dt>
+<dd><p>From a list of points in 3D space as Nx3 array, returns a Nx3 array with the corresponding closest points on the line.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utilities.imaging.fit_cylinder.cylinder_error">
+<span class="sig-prename descclassname"><span class="pre">src.utilities.imaging.fit_cylinder.</span></span><span class="sig-name descname"><span class="pre">cylinder_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">odr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utilities.imaging.fit_cylinder.cylinder_error" title="Permalink to this definition"></a></dt>
+<dd><p>Given a set of N points in format Nx3, returns the   error on the cylinder defined by origin and direction as a 6(3+3) dim vector.
+If extra is set, additional values are returned :</p>
+<blockquote>
+<div><p>radius: best fit radius for the cylinder.
+deltaR[N,3]: deviation from radius for each point.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utilities.imaging.fit_cylinder.cylinder_error3">
+<span class="sig-prename descclassname"><span class="pre">src.utilities.imaging.fit_cylinder.</span></span><span class="sig-name descname"><span class="pre">cylinder_error3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">odr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utilities.imaging.fit_cylinder.cylinder_error3" title="Permalink to this definition"></a></dt>
+<dd><p>Given a set of N points in format Nx3, returns the rms surface error on the cylinder defined by origin (intercept of the axis with x=0) and direction,
+passed as 4-vector odr (origin_y,origin_z,direction_x,direction_z).
+Best fit radius for odr is calculated as average.
+If extra is set, additional values are returned :</p>
+<blockquote>
+<div><p>radius: best fit radius for the cylinder.
+deltaR[N,3]: deviation from radius for each point.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utilities.imaging.fit_cylinder.cone_error">
+<span class="sig-prename descclassname"><span class="pre">src.utilities.imaging.fit_cylinder.</span></span><span class="sig-name descname"><span class="pre">cone_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">odr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utilities.imaging.fit_cylinder.cone_error" title="Permalink to this definition"></a></dt>
+<dd><p>Given a set of N points in format Nx3, returns the rms surface error on the cone defined by origin (intercept of the axis with x=0) and direction,
+passed as 4-vector odr(origin_y,origin_z,direction_x,direction_z).
+Best fit cone for odr is calculated from linear fit of data.
+If extra is set, additional values are returned :
+coeff: best fit radius for the cone as [m,q] for x’ distance from x=0 plan on cone axis R(x’)=m x’ + q. Half cone angle is atan(m).
+deltaR[N,3]: deviation from radius for each point.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utilities.imaging.fit_cylinder.cone_error3">
+<span class="sig-prename descclassname"><span class="pre">src.utilities.imaging.fit_cylinder.</span></span><span class="sig-name descname"><span class="pre">cone_error3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">odr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">220.0,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utilities.imaging.fit_cylinder.cone_error3" title="Permalink to this definition"></a></dt>
+<dd><p>Given a set of N points in format Nx3, returns the rms surface error on the cone defined by
+its axis (radius and apex are determined by best fit).
+Axis is defined as a 4 elements vector odr=(x,z,cx,cz), not in xz plane.
+origin (intercept of the axis with y=0) and director cosines.
+If extra is set, additional values are returned :
+coeff: best fit radius for the cone as [m,q] for x’ distance from x=0 plan on cone axis R(x’)=m x’ + q. Half cone angle is atan(m).
+deltaR[N,3]: deviation from radius for each point. Bump positive convention (smaller radius is positive).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utilities.imaging.fit_cylinder.subtract_cylinder">
+<span class="sig-prename descclassname"><span class="pre">src.utilities.imaging.fit_cylinder.</span></span><span class="sig-name descname"><span class="pre">subtract_cylinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampleName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utilities.imaging.fit_cylinder.subtract_cylinder" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>odr: 6-vector (origin_y,origin_y,origin_z,direction_x,direction_y,direction_z),</dt><dd><p>note that  this is redundant, since only two components are enough for direction
+(magnitude is irrelevant).</p>
+</dd>
+</dl>
+<p>pp: complete set of points Npx3</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utilities.imaging.fit_cylinder.subtract_cone">
+<span class="sig-prename descclassname"><span class="pre">src.utilities.imaging.fit_cylinder.</span></span><span class="sig-name descname"><span class="pre">subtract_cone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampleName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utilities.imaging.fit_cylinder.subtract_cone" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>odr: 6-vector (origin_y,origin_y,origin_z,direction_x,direction_y,direction_z),</dt><dd><p>note that  this is redundant, since only two components are enough for direction
+(magnitude is irrelevant).</p>
+</dd>
+</dl>
+<p>pp: complete set of points Npx3</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utilities.imaging.fit_cylinder.fit_cylinder">
+<span class="sig-prename descclassname"><span class="pre">src.utilities.imaging.fit_cylinder.</span></span><span class="sig-name descname"><span class="pre">fit_cylinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">guessValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utilities.imaging.fit_cylinder.fit_cylinder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utilities.imaging.fit_cylinder.fit_cone">
+<span class="sig-prename descclassname"><span class="pre">src.utilities.imaging.fit_cylinder.</span></span><span class="sig-name descname"><span class="pre">fit_cone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">guessValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utilities.imaging.fit_cylinder.fit_cone" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="src.utilities.imaging.fit_cylinder.fit_func">
+<span class="sig-prename descclassname"><span class="pre">src.utilities.imaging.fit_cylinder.</span></span><span class="sig-name descname"><span class="pre">fit_func</span></span><a class="headerlink" href="#src.utilities.imaging.fit_cylinder.fit_func" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../chebFit/index.html" class="btn btn-neutral float-left" title="src.utilities.imaging.chebFit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../fitting/index.html" class="btn btn-neutral float-right" title="src.utilities.imaging.fitting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

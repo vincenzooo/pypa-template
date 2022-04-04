@@ -1,0 +1,47 @@
+:py:mod:`test_program_path`
+===========================
+
+.. py:module:: test_program_path
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   test_program_path.test_program_path
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   test_program_path.p
+
+
+.. py:function:: test_program_path()
+
+   copied from test function in
+
+          called from script importing from this file:
+               # .py file contains a copy of this function.
+               %run .../dataIO/test/test_program_path.py
+
+               caller's path: ...\pyXTel\dataIO
+   iles.py
+               program path: None
+
+
+
+
+.. py:data:: p
+   
+
+   
+

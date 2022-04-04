@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>utilities.fourier &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="utilities.metrology" href="../metrology/index.html" />
+    <link rel="prev" title="utilities.cylinder" href="../cylinder/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plotting</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyGeo3D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyProfile</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pySurf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../cylinder/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities.cylinder</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities.fourier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../metrology/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities.metrology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transformations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities.transformations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities.fourier</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/utilities/fourier/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-utilities.fourier">
+<span id="utilities-fourier"></span><h1><a class="reference internal" href="#module-utilities.fourier" title="utilities.fourier"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities.fourier</span></code></a><a class="headerlink" href="#module-utilities.fourier" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.fourier.components" title="utilities.fourier.components"><code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code></a>(d, win=np.hanning)</p></td>
+<td><p>Want to return Fourier components with optional window</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.fourier.continuousComponents" title="utilities.fourier.continuousComponents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">continuousComponents</span></code></a>(d, dx, win=np.hanning)</p></td>
+<td><p>Want to return Fourier components with optional window</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.fourier.newFreq" title="utilities.fourier.newFreq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">newFreq</span></code></a>(f, p, nf)</p></td>
+<td><p>Interpolate a power spectrum onto a new frequency grid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.fourier.freqgrid" title="utilities.fourier.freqgrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">freqgrid</span></code></a>(d, dx=1.0)</p></td>
+<td><p>Return a frequency grid to match FFT components</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.fourier.ellipsoidalHighFrequencyCutoff" title="utilities.fourier.ellipsoidalHighFrequencyCutoff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ellipsoidalHighFrequencyCutoff</span></code></a>(d, fxmax, fymax, dx=1.0, win=np.hanning)</p></td>
+<td><p>A simple low-pass filter with a high frequency cutoff.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.fourier.meanPSD" title="utilities.fourier.meanPSD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">meanPSD</span></code></a>(d0, win=np.hanning, dx=1.0, axis=0, irregular=False, returnInd=False, minpx=10)</p></td>
+<td><p>Return the 1D PSD averaged over a surface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.fourier.medianPSD" title="utilities.fourier.medianPSD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">medianPSD</span></code></a>(d0, win=np.hanning, dx=1.0, axis=0, nans=False)</p></td>
+<td><p>Return the 1D PSD &quot;medianed&quot; over a surface.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.fourier.realPSD" title="utilities.fourier.realPSD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">realPSD</span></code></a>(d0, win=np.hanning, dx=1.0, axis=None, nans=False, minpx=10)</p></td>
+<td><p>This function returns the PSD of a real function</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.fourier.computeFreqBand" title="utilities.fourier.computeFreqBand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">computeFreqBand</span></code></a>(f, p, f1, f2, df, method='linear')</p></td>
+<td><p>Compute the power in the PSD between f1 and f2.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.fourier.fftComputeFreqBand" title="utilities.fourier.fftComputeFreqBand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fftComputeFreqBand</span></code></a>(d, f1, f2, df, dx=1.0, win=np.hanning, nans=False, minpx=10, method='linear')</p></td>
+<td><p>Wrapper to take the FFT and immediately return the</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.fourier.psdScan" title="utilities.fourier.psdScan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psdScan</span></code></a>(d, f1, f2, df, N, axis=0, dx=1.0, win=np.hanning, nans=False, minpx=10)</p></td>
+<td><p>Take a running slice of length N and compute band limited</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.fourier.lowpass" title="utilities.fourier.lowpass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lowpass</span></code></a>(d, dx, fcut)</p></td>
+<td><p>Apply a low pass filter to a 1 or 2 dimensional array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.fourier.randomizePh" title="utilities.fourier.randomizePh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randomizePh</span></code></a>(d)</p></td>
+<td><p>Create a randomized phase array that maintains a real</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.fourier.randomProfile" title="utilities.fourier.randomProfile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randomProfile</span></code></a>(freq, psd)</p></td>
+<td><p>Generate a random profile from an input PSD.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.components">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">components</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.hanning</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.components" title="Permalink to this definition"></a></dt>
+<dd><p>Want to return Fourier components with optional window
+Application note: These components are dependent on sampling!
+This means you can <em>not</em> interpolate these components onto other
+frequency grids!</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.continuousComponents">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">continuousComponents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.hanning</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.continuousComponents" title="Permalink to this definition"></a></dt>
+<dd><p>Want to return Fourier components with optional window
+Divide by frequency interval to convert to continuous FFT
+These components can be safely interpolated onto other frequency
+grids. Multiply by new frequency interval to get to numpy format
+FFT. Frequency units <em>must</em> be the same in each case.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.newFreq">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">newFreq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.newFreq" title="Permalink to this definition"></a></dt>
+<dd><p>Interpolate a power spectrum onto a new frequency grid.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.freqgrid">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">freqgrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.freqgrid" title="Permalink to this definition"></a></dt>
+<dd><p>Return a frequency grid to match FFT components</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.ellipsoidalHighFrequencyCutoff">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">ellipsoidalHighFrequencyCutoff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fxmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fymax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.hanning</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.ellipsoidalHighFrequencyCutoff" title="Permalink to this definition"></a></dt>
+<dd><p>A simple low-pass filter with a high frequency cutoff.
+The cutoff boundary is an ellipsoid in frequency space.
+All frequency components with (fx/fxmax)**2+(fy/fymax)**2 &gt; 1.
+are eliminated.
+fxmax refers to the second index, fymax refers to the first index
+This is consistent with indices in imshow</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.meanPSD">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">meanPSD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.hanning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">irregular</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">returnInd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minpx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.meanPSD" title="Permalink to this definition"></a></dt>
+<dd><p>Return the 1D PSD averaged over a surface.
+Axis indicates the axis over which to FFT
+If irregular is True, each slice will be stripped
+and then the power spectra
+interpolated to common frequency grid
+Presume image has already been interpolated internally
+If returnInd is true, return array of power spectra
+Ignores slices with less than minpx non-nans</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.medianPSD">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">medianPSD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.hanning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.medianPSD" title="Permalink to this definition"></a></dt>
+<dd><p>Return the 1D PSD “medianed” over a surface.
+Axis indicates the axis over which to FFT
+If nans is True, each slice will be stripped,
+internally interpolated, and then the power spectra
+interpolated to common frequency grid</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.realPSD">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">realPSD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.hanning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minpx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.realPSD" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns the PSD of a real function
+Gets rid of zero frequency and puts all power in positive frequencies
+Returns only positive frequencies</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.computeFreqBand">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">computeFreqBand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.computeFreqBand" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the power in the PSD between f1 and f2.
+f and p should be as returned by realPSD or meanPSD
+Interpolate between f1 and f2 with size df
+Then use numerical integration</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.fftComputeFreqBand">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">fftComputeFreqBand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.hanning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minpx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.fftComputeFreqBand" title="Permalink to this definition"></a></dt>
+<dd><p>Wrapper to take the FFT and immediately return the
+power between f1 and f2 of a slice
+If slice length is &lt; 10, return nan</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.psdScan">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">psdScan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.hanning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minpx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.psdScan" title="Permalink to this definition"></a></dt>
+<dd><p>Take a running slice of length N and compute band limited
+power over the entire image. Resulting power array will be
+of shape (S1-N,S2) if axis is 0
+axis is which axis to FFT over</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.lowpass">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">lowpass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fcut</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.lowpass" title="Permalink to this definition"></a></dt>
+<dd><p>Apply a low pass filter to a 1 or 2 dimensional array.
+Supply the bin size and the cutoff frequency in the same units.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.randomizePh">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">randomizePh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.randomizePh" title="Permalink to this definition"></a></dt>
+<dd><p>Create a randomized phase array that maintains a real
+inverse Fourier transform. This requires that F(-w1,-w2)=F*(w1,w2)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.fourier.randomProfile">
+<span class="sig-prename descclassname"><span class="pre">utilities.fourier.</span></span><span class="sig-name descname"><span class="pre">randomProfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.fourier.randomProfile" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a random profile from an input PSD.
+freq should be in standard fft.fftfreq format
+psd should be symmetric as with a real signal
+sqrt(sum(psd)) will equal RMS of profile</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../cylinder/index.html" class="btn btn-neutral float-left" title="utilities.cylinder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../metrology/index.html" class="btn btn-neutral float-right" title="utilities.metrology" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

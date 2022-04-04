@@ -1,0 +1,38 @@
+:py:mod:`dataIO.config.make_config`
+===================================
+
+.. py:module:: dataIO.config.make_config
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   dataIO.config.make_config.save_section
+   dataIO.config.make_config.make_config
+   dataIO.config.make_config.string_to_config
+
+
+
+.. py:function:: save_section(sec, outfile)
+
+   save a specific section (or list of sections) to a config file.
+
+
+.. py:function:: make_config(settingsFile)
+
+   create a configuration object from a .ini file, set defaults.
+   return config and list of sections to process as specified in 'process' section
+   (default to all sections).
+
+
+.. py:function:: string_to_config(header)
+
+   convert a string to a config object.
+
+

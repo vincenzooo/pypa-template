@@ -1,0 +1,79 @@
+:py:mod:`dataIO.outliers`
+=========================
+
+.. py:module:: dataIO.outliers
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   dataIO.outliers.remove_outliers
+   dataIO.outliers.filter_outliers
+   dataIO.outliers.test_filter_outliers
+   dataIO.outliers.test_remove_outliers
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   dataIO.outliers.a
+
+
+.. py:exception:: EmptyRangeWarning
+
+   Bases: :py:obj:`RuntimeWarning`
+
+   Base class for warnings about dubious runtime behavior.
+
+
+.. py:function:: remove_outliers(data: numpy.array, nsigma: float = 3.0, itmax: int = 1, flattening_func: Callable[[numpy.array], numpy.array] = None, span: bool = False, print_partial: bool = False) -> numpy.array
+
+   iteratively remove outliers out of an interval. Returns a mask, True on data to keep.
+
+   For each iteration, outliers outside `nsigma` standard deviations from average are removed. Loop ends after `itmax` (default 1) iterations or if convergency is reached (two consecutive iterations with same stdev).
+   A flattening function (or any function that returns a modified version of data) can be passed to be performed at each iteration. At each interaction function is calculated on accepted values only.
+   If at any point data is empty, an empty array is returned.
+
+   A mask is returned by default, A copy of the original array with invalid values as nan. Values array can equivalently be obtained from mask by `np.where(mask,a,np.nan)`.
+
+   `span` argument is deprecated and it will be removed. Please update your code to use `from dataIO.span import span; span (remove_outliers(data,...))`.
+
+
+
+.. py:function:: filter_outliers(data: numpy.array, nsigma: float = 3.0, itmax: int = 1, flattening_func: Callable[[numpy.array], numpy.array] = None, span: bool = False, print_partial: bool = False) -> numpy.array
+
+   This is a generator version that uses remove_outliers to provide iterative result if
+   that iteratively remove outliers out of an interval.
+   Each iteration return a mask, True on data to keep.
+
+       For each iteration, outliers outside `nsigma` standard deviations from average are removed. Loop ends after `itmax` (default 1) iterations or if convergency is reached (two consecutive iterations with same stdev).
+       A flattening function (or any function that returns a modified version of data) can be passed to be performed at each iteration. At each interaction function is calculated on accepted values only.
+       If at any point data is empty, an empty array is returned.
+
+       A mask is returned by default, A copy of the original array with invalid values as nan. Values array can equivalently be obtained from mask by `np.where(mask,a,np.nan)`.
+
+       `span` argument is deprecated and it will be removed. Please update your code to use `from dataIO.span import span; span (remove_outliers(data,...))`.
+
+
+
+
+.. py:function:: test_filter_outliers(a=None)
+
+
+.. py:function:: test_remove_outliers(a=None)
+
+
+.. py:data:: a
+   
+
+   
+

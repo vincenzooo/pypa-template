@@ -1,0 +1,22 @@
+:py:mod:`pyGeo3D.intersect_plane_line`
+======================================
+
+.. py:module:: pyGeo3D.intersect_plane_line
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyGeo3D.intersect_plane_line.intersect_plane_line
+
+
+
+.. py:function:: intersect_plane_line(pNormal, pPoint, lVersor, lPoint, epsilon=1e-06)
+
+

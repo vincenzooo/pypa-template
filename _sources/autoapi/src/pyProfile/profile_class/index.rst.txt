@@ -1,0 +1,367 @@
+:py:mod:`src.pyProfile.profile_class`
+=====================================
+
+.. py:module:: src.pyProfile.profile_class
+
+.. autoapi-nested-parse::
+
+   2020/09/21
+   Differently from what done in pySurf, here we keep reader and register mechanism separated and leave to the user the responsibility to call them. They can be put together in future if a convenient model for readers is found.
+
+   `pyProfile.profile` has only a simple reader (a thin wrapper around `np.genfromtxt`) and a function `register_profile` to align and rescale x and y. Additional readers (`read_mx_profiles`, `read_xyz`) are considered experimental and kept here, even if they are functions.
+
+   2020/06/25 start to create profile class on template of data2D_class.
+   N.B.: there is an important difference between profile and data2D functions
+   work, and is that data2D functions accept as argument surfaces in the form (tuple)
+   `(data,x,y)`, while functions in `profile` want x and y as separate arguments.
+   Meaning that in this second case, passing only one argument is check with None
+   as default val on second argument, rather than with inspecting the elements together.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.pyProfile.profile_class.Profile
+   src.pyProfile.profile_class.PSD
+   src.pyProfile.profile_class.Plist
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pyProfile.profile_class.read_xyz
+   src.pyProfile.profile_class.read_mx_profiles
+   src.pyProfile.profile_class.get_header_field
+   src.pyProfile.profile_class.read_mca
+   src.pyProfile.profile_class.test_class_init
+   src.pyProfile.profile_class.test_profile_mul
+   src.pyProfile.profile_class.test_profile_mul2
+   src.pyProfile.profile_class.test_profile_class
+   src.pyProfile.profile_class.test_plot
+   src.pyProfile.profile_class.test_profile_div
+   src.pyProfile.profile_class.test_profile_div2
+   src.pyProfile.profile_class.test_profile_division
+
+
+
+.. py:function:: read_xyz(filename, *args, **kwargs)
+
+   temptative routine to read xyz files.
+   Use by reading the data and then passing them to profile.
+   It will be incorporated in some form of reader in a
+   more mature version
+
+
+.. py:function:: read_mx_profiles(filename, *args, **kwargs)
+
+   temptative routine to read xyz files. Return a list of all profiles
+       with names from 3rd column (files are in format x,y,profilename).
+   Use by reading the data and then passing them to profile.
+   It will be incorporated in some form of reader in a
+   more mature version
+
+
+.. py:function:: get_header_field(db, tag, header='<<PMCA SPECTRUM>>')
+
+   Extract a single field named `tag` as a list.
+   tag must should match a field (column) name as inferred from header
+   (otherwise empty list is returned).
+   Temporarily here for use with `read_mca`, can be moved to a more general
+   use in dataIO.
+
+
+.. py:function:: read_mca(filename, *args, **kwargs)
+
+   Given a .mca file, return a `Profile` object.
+
+   temptative routine to read mca files from amptek energy sensitive detector. Return a profile with metadata information in a `.header` property (temporarily a dictionary obtained from string blocks) of all profiles.
+   Like all other readers will be incorporated in some form of reader in a
+   more mature version.
+
+
+.. py:class:: Profile(x=None, y=None, file=None, reader=None, units=None, name=None, *args, **kwargs)
+
+   Bases: :py:obj:`object`
+
+   A class containing x,y data. It has a set of methods for analysis and visualization.
+   Function methods: return a copy with new values.
+   to use as modifier (procedure), e.g.:
+       a=a.level()
+
+   .. py:attribute:: plot
+      
+
+      
+
+   .. py:attribute:: load
+      
+
+      
+
+   .. py:attribute:: __doc__
+      
+
+      
+
+   .. py:attribute:: load
+      
+
+      from functools import update_wrapper
+      #@update_wrapper(rotate_data)  #this doesn't work as I would like
+      def rotate(self,angle,*args,**kwargs):
+          """call data2D.rotate_data, which rotate array of an arbitrary angle in degrees in direction
+          (from first to second axis)."""
+          res = self.copy()
+          res.data,res.x,res.y=rotate_data(self.data,self.x,self.y,angle,*args,**kwargs)
+          return res
+      rotate=update_docstring(rotate,rotate_data)
+
+   .. py:attribute:: crop
+      
+
+      
+
+   .. py:attribute:: movingaverage
+      
+
+      
+
+   .. py:attribute:: rebin
+      
+
+      
+
+   .. py:attribute:: level
+      
+
+      
+
+   .. py:attribute:: resample
+      
+
+      
+
+   .. py:attribute:: psd
+      
+
+      
+
+   .. py:attribute:: remove_nan_ends
+      
+
+      
+
+   .. py:method:: __call__(self)
+
+
+   .. py:method:: __add__(self, other, *args, **kwargs)
+
+
+   .. py:method:: __sub__(self, other, *args, **kwargs)
+
+      This is made on copy and paster from add. It is maybe not the most flexible way in relation with multiplication and operations with different types, but it works well enough.
+
+      original code (handle only profile objects):
+          res=Profile(*(subtract_profile(*self(),*other(),*args,**kwargs))(),units=self.units)
+          res.name = self.name + " - " + other.name
+          return res
+
+
+   .. py:method:: __repr__(self)
+
+      Return repr(self).
+
+
+   .. py:method:: __mul__(self, scale, *args, **kwargs)
+
+      mutiplocation: accept Profile, scalars or 2-vector [x,y].
+
+
+   .. py:method:: __rmul__(self, scale, *args, **kwargs)
+
+
+   .. py:method:: __matmul__(self, scale, *args, **kwargs)
+      :abstractmethod:
+
+
+   .. py:method:: __neg__(self)
+
+
+   .. py:method:: __rtruediv__(self, other)
+
+      division: accept Profile, scalars or 2-vector [x,y].
+
+
+   .. py:method:: __truediv__(self, other)
+
+      https://stackoverflow.com/questions/37310077/python-rtruediv-does-not-work-as-i-expect
+
+      __rtruediv__ only has priority over __truediv__ if the right-hand operand is an instance of a subclass of the left-hand operand's class.
+
+      When you do 343 / x, NewInt is a subclass of int, so x's __rtruediv__ gets priority. When you do 343.3 / x, NewInt is not a subclass of float, so 343.3's __truediv__ gets priority.
+
+      343.3.__truediv__(x) doesn't return NotImplemented, since float knows how to divide a float by an int. Thus, x.__rtruediv__ doesn't get called.
+
+
+   .. py:method:: merge(self, other, *args, **kwargs)
+
+
+   .. py:method:: min(self)
+
+
+   .. py:method:: max(self)
+
+
+   .. py:method:: sort(self, reverse=False)
+
+      return sorted copy.
+
+
+   .. py:method:: plot(self, title=None, *args, **kwargs)
+
+      plot profile using and setting automatically labels.
+         Additional arguments are passed to `plt.plot`.
+
+      Quite useless for profile, can be plot with `plt.plot(*P(),*args,**kwargs)
+
+
+   .. py:method:: load(self, filename, *args, **kwargs)
+
+      A simple file loader using np.genfromtxt.
+      Load columns from file in self.x and self.y.
+
+
+   .. py:method:: save(self, filename, *args, **kwargs)
+
+      Save data using `pyProfile.profile.save_profile`.
+
+
+   .. py:method:: register(self, filename, *args, **kwargs)
+
+      Use pyProfile.profile.register_profile to rescale.
+
+
+   .. py:method:: crop(self, *args, **kwargs)
+
+      crop profile making use of function profile.crop_data, where x,y are taken from self.
+
+
+   .. py:method:: movingaverage(self, *args, **kwargs)
+
+      moving average using function profile.movingaverage, where x,y are taken from self.
+
+
+   .. py:method:: rebin(self, *args, **kwargs)
+
+      rebin using function profile.rebin_profile, where x,y are taken from self.
+
+
+   .. py:method:: level(self, degree=1, zero='mean', *args, **kwargs)
+
+      return a leveled profile calling profile.level_profile.
+      `zero option can be 'top', 'bottom' or 'mean', and is a facility to shift curves so that their min or max value is aligned to zero.
+
+
+   .. py:method:: resample(self, other, *args, **kwargs)
+
+      TODO, add option to pass x and y instead of other as an object.
+
+
+   .. py:method:: psd(self, wfun=None, rmsnorm=True, norm=1)
+
+      return a PSD object with psd of self.
+
+
+   .. py:method:: remove_nan_ends(self, *args, **kwargs)
+
+
+   .. py:method:: std(self)
+
+      return standard deviation of data excluding nans
+
+
+   .. py:method:: copy(self)
+
+      copy.deepcopy should work well.
+
+
+   .. py:method:: printstats(self, label=None, fmt='%3.2g')
+
+
+
+.. py:class:: PSD(*args, **kwargs)
+
+   Bases: :py:obj:`Profile`
+
+   It is a type of profile with customized behavoiur and additional properties
+   and methods.
+
+   .. py:method:: plot(self, *args, **kwargs)
+
+      plot profile using and setting automatically labels.
+         Additional arguments are passed to `plt.plot`.
+
+      Quite useless for profile, can be plot with `plt.plot(*P(),*args,**kwargs)
+
+
+   .. py:method:: rms_power(self, plot=False, *args, **kwargs)
+      :abstractmethod:
+
+      Calculate rms slice power as integral of psd. If plot is set also plot the whole thing.
+
+
+   .. py:method:: save(self, filename, *args, **kwargs)
+
+      Save psd.
+
+
+
+.. py:class:: Plist
+
+   Bases: :py:obj:`dataIO.superlist.Superlist`
+
+   A list of Profile objects on which unknown operations are performed serially.
+
+   .. py:method:: plot(self, *args, **kwargs)
+
+      plot over same plot each profile in the list.
+
+
+
+.. py:function:: test_class_init(wfile=None)
+
+   test init and plot
+
+
+.. py:function:: test_profile_mul(p1, p2)
+
+
+.. py:function:: test_profile_mul2(p1, res)
+
+
+.. py:function:: test_profile_class()
+
+
+.. py:function:: test_plot(p1)
+
+
+.. py:function:: test_profile_div(p1, p2)
+
+
+.. py:function:: test_profile_div2(p1, res)
+
+
+.. py:function:: test_profile_division(p1, p2)
+
+   plot division of profile 2 by 1 and inverse of the inverse ratio based on np only and compare with division between objects, interpolate over 1st. Plot comparison with what is calculated by np only.
+
+

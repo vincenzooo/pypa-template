@@ -1,0 +1,90 @@
+:py:mod:`src.plotting.scale`
+============================
+
+.. py:module:: src.plotting.scale
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.scale.Scale
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.scale.test_with_image
+   src.plotting.scale.test_with_plot
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.scale.infolder
+
+
+.. py:class:: Scale(pixsize=None, un='', visible=False)
+
+   Bases: :py:obj:`object`
+
+   2018/12/10 N.B.: this almost works, but scale is not accurate when zooming.
+   probably something with how the length is rounded. use grid for comparison to
+   see the effect.
+
+   A scale that can be plotted as line and text.
+   Can be turned on and off setting the `visible` property.
+   .pixsize is the size of a pixel in the units used for the caption.
+   The string from the unit is in self.un.
+   The method draw draws the scale if self.visible is True and
+   remove it if not. Instances of line and text are returned
+   (and can be modified, remember to call plt.draw to apply changes).
+   Note that scale is independent on image, so it is plotted on current
+   axis, it is care of the caller to set that.
+   The scale updates itself on the plot on zooming, through callback
+   connection through ax.callbacks.connect
+
+   Vincenzo Cotroneo vcotroneo@cfa.harvard.edu 2016/03/07
+
+   .. py:method:: draw(self, ax=None, pixsize=None)
+
+      from size of pixel pixsize (default to self.pixsize)
+      and corresponding real size imsize calculate a a suitable size for a
+      scale mark and the corresponding value and draw it.
+      The text for the unit is provided in un.
+      Note that only matplotlib objects are used, an image is not necessary
+      and there are no pixels: pixsize represents the physical size of a unit of
+      axis coordinate (it matches pixel size if an image is plotted with pixel
+      coordinates, as default in imshow)
+
+
+   .. py:method:: remove(self)
+
+
+
+.. py:function:: test_with_image(infile, outfolder=None)
+
+   apply a scale on a image. Image can be aligned and zoomed to verify scale
+   and scale update.
+
+
+.. py:function:: test_with_plot(outfolder=None)
+
+   Apply scale to a line plot, it should work the same as an image.
+
+
+.. py:data:: infolder
+   :annotation: = test\input_data
+
+   
+

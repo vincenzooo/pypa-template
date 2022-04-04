@@ -1,0 +1,72 @@
+:py:mod:`utilities.imaging.fitting`
+===================================
+
+.. py:module:: utilities.imaging.fitting
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   utilities.imaging.fitting.legendre2d
+   utilities.imaging.fitting.fitCylMisalign
+   utilities.imaging.fitting.fitConic
+   utilities.imaging.fitting.fitLegendreDistortions
+   utilities.imaging.fitting.sgolay2d
+   utilities.imaging.fitting.circle
+   utilities.imaging.fitting.circleMerit
+
+
+
+.. py:function:: legendre2d(d, xo=2, yo=2, xl=None, yl=None)
+
+   Fit a set of 2d Legendre polynomials to a 2D array.
+   The aperture is assumed to be +-1 over each dimension.
+   NaNs are automatically excluded from the analysis.
+   x0 = 2 fits up to quadratic in row axis
+   y0 = 3 fits up to cubic in column axis
+   If xl and yl are specified, only the polynomials with
+   orders xl[i],yl[i] are fitted, this allows for fitting
+   only specific polynomial orders.
+
+
+.. py:function:: fitCylMisalign(d)
+
+   Fit cylindrical misalignment terms to an image
+   Piston, tip, tilt, cylindrical sag, and astigmatism
+   are fit
+
+
+.. py:function:: fitConic(d)
+
+   Fit cylindrical misalignment terms to an image
+   Piston, tip, tilt, cylindrical sag, and astigmatism
+   are fit
+
+
+.. py:function:: fitLegendreDistortions(d, xo=2, yo=2, xl=None, yl=None)
+
+   Fit 2D Legendre's to a distortion map as read by 4D.
+   If sum of orders is odd, the coefficient needs to be negated.
+
+
+.. py:function:: sgolay2d(z, window_size, order, derivative=None)
+
+   
+
+
+.. py:function:: circle(x, y, xc, yc)
+
+   Fit a circle to a set of x,y coordinates
+   Supply with a guess of circle center
+   Returns [xc,yc],[rmsRad,rad]
+
+
+.. py:function:: circleMerit(x, y, xo, yo)
+
+

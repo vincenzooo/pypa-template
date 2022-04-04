@@ -1,0 +1,22 @@
+:py:mod:`dataIO.running_mean`
+=============================
+
+.. py:module:: dataIO.running_mean
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   dataIO.running_mean.running_mean
+
+
+
+.. py:function:: running_mean(y, N)
+
+

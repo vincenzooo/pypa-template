@@ -1,0 +1,24 @@
+:py:mod:`dataIO.jpgToFits`
+==========================
+
+.. py:module:: dataIO.jpgToFits
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   dataIO.jpgToFits.jpgToFITS
+
+
+
+.. py:function:: jpgToFITS(filename)
+
+   Extract the RGB channels and save them as FITS.
+
+

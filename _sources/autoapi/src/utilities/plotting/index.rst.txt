@@ -1,0 +1,68 @@
+:py:mod:`src.utilities.plotting`
+================================
+
+.. py:module:: src.utilities.plotting
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.utilities.plotting.scatter3d
+   src.utilities.plotting.isoplot
+   src.utilities.plotting.pltd
+   src.utilities.plotting.pltd2
+   src.utilities.plotting.scinot
+   src.utilities.plotting.mindiff
+   src.utilities.plotting.mycontour
+   src.utilities.plotting.edgestocent
+   src.utilities.plotting.myhist
+   src.utilities.plotting.nanmean
+   src.utilities.plotting.pload
+   src.utilities.plotting.psave
+
+
+
+.. py:function:: scatter3d(x, y, z, **args)
+
+   Make a 3d scatter plot
+
+
+.. py:function:: isoplot(*args, **kargs)
+
+
+.. py:function:: pltd(x1, y1, x2, y2, xlabel='', ylabel1='', ylabel2='', title='', ystyle1='b-', ystyle2='r-', ylim1='', ylim2='', label1='', label2='')
+
+
+.. py:function:: pltd2(x1, y1, fn, xlabel='', ylabel1='', ylabel2='', title='', ystyle1='b-', ystyle2='r-', ylim1='', ylim2='', label1='', label2='')
+
+
+.. py:function:: scinot(x)
+
+
+.. py:function:: mindiff(x, y)
+
+
+.. py:function:: mycontour(img, x=0, y=0, log=False, fmt=None, nlev=None, maxl=None, minl=None)
+
+
+.. py:function:: edgestocent(x)
+
+
+.. py:function:: myhist(arr, bins=10, density=None, range=None)
+
+
+.. py:function:: nanmean(arr)
+
+
+.. py:function:: pload(filename)
+
+
+.. py:function:: psave(data, filename)
+
+

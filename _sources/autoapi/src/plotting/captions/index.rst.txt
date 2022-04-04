@@ -1,0 +1,41 @@
+:py:mod:`src.plotting.captions`
+===============================
+
+.. py:module:: src.plotting.captions
+
+.. autoapi-nested-parse::
+
+   Created on Fri Jun  8 00:36:57 2018
+
+   @author: Vincenzo
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.captions.original_make_caption
+   src.plotting.captions.legendbox
+   src.plotting.captions.test_legendbox
+
+
+
+.. py:function:: original_make_caption()
+
+
+.. py:function:: legendbox(text, ax=None, loc=0, *args, **kwargs)
+
+   Create a legend from class matplotlib.legend.Legend and add it to axis.
+   `text` is a list of strings to be passed to `labels` parameter in Legend.
+   Unclear how line styles are set (probably none).
+
+
+.. py:function:: test_legendbox()
+
+

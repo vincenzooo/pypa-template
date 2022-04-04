@@ -1,0 +1,106 @@
+:py:mod:`src.utilities.imaging.fit_cylinder`
+============================================
+
+.. py:module:: src.utilities.imaging.fit_cylinder
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.utilities.imaging.fit_cylinder.closest_point_on_line
+   src.utilities.imaging.fit_cylinder.cylinder_error
+   src.utilities.imaging.fit_cylinder.cylinder_error3
+   src.utilities.imaging.fit_cylinder.cone_error
+   src.utilities.imaging.fit_cylinder.cone_error3
+   src.utilities.imaging.fit_cylinder.subtract_cylinder
+   src.utilities.imaging.fit_cylinder.subtract_cone
+   src.utilities.imaging.fit_cylinder.fit_cylinder
+   src.utilities.imaging.fit_cylinder.fit_cone
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.utilities.imaging.fit_cylinder.fit_func
+
+
+.. py:function:: closest_point_on_line(points, lVersor, lPoint)
+
+   From a list of points in 3D space as Nx3 array, returns a Nx3 array with the corresponding closest points on the line.
+
+
+.. py:function:: cylinder_error(odr=(0, 0, 0, 0, 0, 0), points=None, extra=False)
+
+   Given a set of N points in format Nx3, returns the   error on the cylinder defined by origin and direction as a 6(3+3) dim vector.
+   If extra is set, additional values are returned :
+       radius: best fit radius for the cylinder.
+       deltaR[N,3]: deviation from radius for each point.
+
+
+.. py:function:: cylinder_error3(odr=(0, 0, 0, 0), points=None, extra=False, xy=False)
+
+   Given a set of N points in format Nx3, returns the rms surface error on the cylinder defined by origin (intercept of the axis with x=0) and direction,
+   passed as 4-vector odr (origin_y,origin_z,direction_x,direction_z).
+   Best fit radius for odr is calculated as average.
+   If extra is set, additional values are returned :
+       radius: best fit radius for the cylinder.
+       deltaR[N,3]: deviation from radius for each point.
+
+
+.. py:function:: cone_error(odr=(0, 0, 0, 0, 0, 0), points=None, extra=False)
+
+   Given a set of N points in format Nx3, returns the rms surface error on the cone defined by origin (intercept of the axis with x=0) and direction,
+   passed as 4-vector odr(origin_y,origin_z,direction_x,direction_z).
+   Best fit cone for odr is calculated from linear fit of data.
+   If extra is set, additional values are returned :
+   coeff: best fit radius for the cone as [m,q] for x' distance from x=0 plan on cone axis R(x')=m x' + q. Half cone angle is atan(m).
+   deltaR[N,3]: deviation from radius for each point.
+
+
+.. py:function:: cone_error3(odr=(0, 220.0, 0, 0), points=None, extra=False)
+
+   Given a set of N points in format Nx3, returns the rms surface error on the cone defined by
+   its axis (radius and apex are determined by best fit).
+   Axis is defined as a 4 elements vector odr=(x,z,cx,cz), not in xz plane.
+   origin (intercept of the axis with y=0) and director cosines.
+   If extra is set, additional values are returned :
+   coeff: best fit radius for the cone as [m,q] for x' distance from x=0 plan on cone axis R(x')=m x' + q. Half cone angle is atan(m).
+   deltaR[N,3]: deviation from radius for each point. Bump positive convention (smaller radius is positive).
+
+
+.. py:function:: subtract_cylinder(pp, odr, sampleName='')
+
+   odr: 6-vector (origin_y,origin_y,origin_z,direction_x,direction_y,direction_z),
+       note that  this is redundant, since only two components are enough for direction
+       (magnitude is irrelevant).
+   pp: complete set of points Npx3
+
+
+.. py:function:: subtract_cone(pp, odr, sampleName='', outfile=None, vmin=None, vmax=None)
+
+   odr: 6-vector (origin_y,origin_y,origin_z,direction_x,direction_y,direction_z),
+       note that  this is redundant, since only two components are enough for direction
+       (magnitude is irrelevant).
+   pp: complete set of points Npx3
+
+
+.. py:function:: fit_cylinder(points, guessValue=None)
+
+
+.. py:function:: fit_cone(points, guessValue=None)
+
+
+.. py:data:: fit_func
+   
+
+   
+

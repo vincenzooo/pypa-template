@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.pySurf.PointCloud &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="src.pySurf._instrument_reader" href="../_instrument_reader/index.html" />
+    <link rel="prev" title="src.pySurf.FEA" href="../FEA/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.PointCloud</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/src/pySurf/PointCloud/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.pySurf.PointCloud">
+<span id="src-pysurf-pointcloud"></span><h1><a class="reference internal" href="#module-src.pySurf.PointCloud" title="src.pySurf.PointCloud"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.PointCloud</span></code></a><a class="headerlink" href="#module-src.pySurf.PointCloud" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.PointCloud.Points" title="src.pySurf.PointCloud.Points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Points</span></code></a></p></td>
+<td><p>Represent a set of points in a N-dimensional point cloud, defined as array in format (Npoints,Ndim).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.PointCloud._angpos2" title="src.pySurf.PointCloud._angpos2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_angpos2</span></code></a>(xy)</p></td>
+<td><p>given an image and some notable points, return the angular positions of points with respect to barycenter.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.PointCloud.method" title="src.pySurf.PointCloud.method"><code class="xref py py-obj docutils literal notranslate"><span class="pre">method</span></code></a></p></td>
+<td><p>Finally a point class, inherited from numpy array.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud.method">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.PointCloud.</span></span><span class="sig-name descname"><span class="pre">method</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">linear</span></em><a class="headerlink" href="#src.pySurf.PointCloud.method" title="Permalink to this definition"></a></dt>
+<dd><p>Finally a point class, inherited from numpy array.
+Points are in format (Npoints,Ndim), where the last column is intended to be the data</p>
+<blockquote>
+<div><p>and the first N-1 are the points coordinate. This in the most general case, but routines
+are written and tested on the 3d case. The final intent is make it valid for any ndim
+for an array of 2d shape. Routines made for ndimensional case are marked with ND, routines
+that need adjustment are marked as 3D.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud._angpos2">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.PointCloud.</span></span><span class="sig-name descname"><span class="pre">_angpos2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.PointCloud._angpos2" title="Permalink to this definition"></a></dt>
+<dd><p>given an image and some notable points, return the angular positions of points with respect to barycenter.
+The angle returned is in the range [-pi:pi]</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud.Points">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pySurf.PointCloud.</span></span><span class="sig-name descname"><span class="pre">Points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.PointCloud.Points" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represent a set of points in a N-dimensional point cloud, defined as array in format (Npoints,Ndim).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud.Points.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.PointCloud.Points.load" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud.Points.translate">
+<span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.PointCloud.Points.translate" title="Permalink to this definition"></a></dt>
+<dd><p>returns translated coordinates of 2D point(s) x ([Npoints x 2]) by an offset.
+It works also on 3-D points, in that case the z is returned unchanged.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud.Points.rotate">
+<span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.PointCloud.Points.rotate" title="Permalink to this definition"></a></dt>
+<dd><p>returns rotated coordinates of 2D point(s) x ([Npoints x 2]) about a center with anticlockwise angle theta in rad.
+If 3D points are passed, z coordinate is maintained.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud.Points.resample">
+<span class="sig-name descname"><span class="pre">resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.PointCloud.Points.resample" title="Permalink to this definition"></a></dt>
+<dd><p>resample points [Npoints x 3] on the points defined in positions [Mpoints x 2], or [Mpoints x 3]
+(in this case 3rd column is ignored).
+Return a [Nx x Ny , 3] vector of points. To get a (plottable) matrix of data use:
+plt.imshow(rpoints[:,2].reshape(xgrid.size,ygrid.size)).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud.Points.resample_grid">
+<span class="sig-name descname"><span class="pre">resample_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xgrid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ygrid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.PointCloud.Points.resample_grid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud.Points.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xgrid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ygrid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.nan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.PointCloud.Points.save" title="Permalink to this definition"></a></dt>
+<dd><p>save points on a file. If matrix is true write in matrix form (in this case you have to
+provide the values for axis). Otherwise write as points in columns.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud.Points.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xgrid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ygrid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.PointCloud.Points.plot" title="Permalink to this definition"></a></dt>
+<dd><p>resample xyz points [Nx3] to a grid whose axis xgrid and ygrid are given
+and plot it. If resample is set to False x and y positions are considered only for range,
+but they are not used to position the z values (it works if x and y are on an exact unrotated grid,
+resampling is slower, but exact).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud.Points.rms">
+<span class="sig-name descname"><span class="pre">rms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xcrop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ycrop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.PointCloud.Points.rms" title="Permalink to this definition"></a></dt>
+<dd><p>return the rms of the selected points.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud.Points.crop">
+<span class="sig-name descname"><span class="pre">crop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.PointCloud.Points.crop" title="Permalink to this definition"></a></dt>
+<dd><p>crop a xyz points [Nx3], keeping only points inside xrange and yrange defined as (min,max).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud.Points.subtract_points">
+<span class="sig-name descname"><span class="pre">subtract_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xySecond</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.PointCloud.Points.subtract_points" title="Permalink to this definition"></a></dt>
+<dd><p>Subtract second set of points after interpolation on first set coordinates.
+If xySecond is set to True data are interpolate on xy of p2 and then subtracted.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pySurf.PointCloud.Points.smooth_points">
+<span class="sig-name descname"><span class="pre">smooth_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xywidth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.PointCloud.Points.smooth_points" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../FEA/index.html" class="btn btn-neutral float-left" title="src.pySurf.FEA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../_instrument_reader/index.html" class="btn btn-neutral float-right" title="src.pySurf._instrument_reader" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+:py:mod:`src.plotting.FastImshow`
+=================================
+
+.. py:module:: src.plotting.FastImshow
+
+.. autoapi-nested-parse::
+
+   Fast Plotter for Large Images - Resamples Images to a target resolution on each zoom.
+   Example::
+       sz = (10000,20000) # rows, cols
+       buf = np.arange(sz[0]*sz[1]).reshape(sz)
+       extent = (100,150,1000,2000)
+       fig = plt.figure()
+       ax  = fig.add_subplot(111)
+       im = FastImshow(buf,extent,ax)
+       im.show()
+       plt.show()
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.FastImshow.FastImshow
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.FastImshow.sz
+
+
+.. py:class:: FastImshow(buf, ax, extent=None, tgt_res=512)
+
+   Fast plotter for large image buffers
+   Example::
+       sz = (10000,20000) # rows, cols
+       buf = np.arange(sz[0]*sz[1]).reshape(sz)
+       extent = (100,150,1000,2000)
+       fig = plt.figure()
+       ax  = fig.add_subplot(111)
+       im = FastImshow(buf,extent,ax)
+       im.show()
+       plt.show()
+
+   .. py:method:: get_strides(self, xstart=0, xend=-1, ystart=0, yend=-1, tgt_res=512)
+
+      Get sampling strides for a given bounding region. If none is provided,
+         use the full buffer size
+
+
+   .. py:method:: ax_update(self, ax)
+
+      Event handler for re-plotting on zoom
+      - gets bounds in img extent coordinates
+      - converts to buffer coordinates
+      - calculates appropriate strides
+      - sets new data in the axis
+
+
+   .. py:method:: show(self)
+
+      Initial plotter for buffer
+
+
+
+.. py:data:: sz
+   :annotation: = [10000, 20000]
+
+   
+

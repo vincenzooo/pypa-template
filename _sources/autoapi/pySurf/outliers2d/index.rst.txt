@@ -1,0 +1,31 @@
+:py:mod:`pySurf.outliers2d`
+===========================
+
+.. py:module:: pySurf.outliers2d
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pySurf.outliers2d.remove_outliers2d
+   pySurf.outliers2d.remove_outliers2d2
+
+
+
+.. py:function:: remove_outliers2d(data, x=None, y=None, nsigma=3, fignum=None, name='', includenan=True)
+
+   remove outliers line by line by interpolation (along vertical lines).
+   If fignum is set, plot comparison in corresponding figure.
+
+
+.. py:function:: remove_outliers2d2(data, x=None, y=None, nsigma=3, degree=1, fignum=None, name='', includenan=True)
+
+   remove outliers by comparing with average line profile.
+
+

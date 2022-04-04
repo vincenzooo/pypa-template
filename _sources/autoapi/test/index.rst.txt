@@ -1,0 +1,34 @@
+:py:mod:`test`
+==============
+
+.. py:module:: test
+
+
+Module Contents
+---------------
+
+.. py:data:: config
+   
+
+   
+
+.. py:data:: string_val
+   
+
+   
+
+.. py:data:: bool_val
+   
+
+   
+
+.. py:data:: int_val
+   
+
+   
+
+.. py:data:: float_val
+   
+
+   
+

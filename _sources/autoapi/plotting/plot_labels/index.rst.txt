@@ -1,0 +1,39 @@
+:py:mod:`plotting.plot_labels`
+==============================
+
+.. py:module:: plotting.plot_labels
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   plotting.plot_labels.plot_labels
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   plotting.plot_labels.xdata
+
+
+.. py:function:: plot_labels(labels, xdata, ydata, xoffset=None, yoffset=None, plain=False)
+
+   "Add fancy labels with arrows pointing at xdata,ydata.
+   offsets can be passed as offsets in data coordinates as scalar or vectors.
+   default is a fraction of axes, or can use
+
+
+.. py:data:: xdata
+   :annotation: = [1.0, 2.0, 3.0]
+
+   
+

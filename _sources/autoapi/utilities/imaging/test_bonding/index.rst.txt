@@ -1,0 +1,48 @@
+:py:mod:`utilities.imaging.test_bonding`
+========================================
+
+.. py:module:: utilities.imaging.test_bonding
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   utilities.imaging.test_bonding.closest_point_on_line
+   utilities.imaging.test_bonding.cylinder_error3
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   utilities.imaging.test_bonding.gfile
+
+
+.. py:function:: closest_point_on_line(points, lVersor, lPoint)
+
+   From a list of points in 3D space as Nx3 array, returns a Nx3 array with the corresponding closest points on the line.
+
+
+.. py:function:: cylinder_error3(odr=(0, 0, 0, 0), points=None, extra=False, xy=False)
+
+   Given a set of N points in format Nx3, returns the rms surface error on the cylinder defined by origin (intercept of the axis with x=0) and direction,
+   passed as 4-vector odr (origin_y,origin_z,direction_x,direction_z).
+   Best fit radius for odr is calculated as average.
+   If extra is set, additional values are returned :
+       radius: best fit radius for the cylinder.
+       deltaR[N,3]: deviation from radius for each point.
+
+
+.. py:data:: gfile
+   :annotation: = /home/rallured/Dropbox/WFS/SystemAlignment/Bonding/150529BottomLeft_Center.txt
+
+   
+

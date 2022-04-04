@@ -1,0 +1,159 @@
+:py:mod:`src.utilities.imaging.stitch`
+======================================
+
+.. py:module:: src.utilities.imaging.stitch
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.utilities.imaging.stitch.transformCoords
+   src.utilities.imaging.stitch.transformCoords_wMag
+   src.utilities.imaging.stitch.transformCoords_wSeparateMag
+   src.utilities.imaging.stitch.matchFiducials
+   src.utilities.imaging.stitch.matchFiducials_wMag
+   src.utilities.imaging.stitch.matchFiducials_wSeparateMag
+   src.utilities.imaging.stitch.sumOfSquares
+   src.utilities.imaging.stitch.matchPistonTipTilt
+   src.utilities.imaging.stitch.stitchImages
+   src.utilities.imaging.stitch.overlapTrans
+   src.utilities.imaging.stitch.overlapMerit
+   src.utilities.imaging.stitch.overlapImages
+   src.utilities.imaging.stitch.AlignImagesWithFiducials
+   src.utilities.imaging.stitch.AlignImagesWithFiducials_SeparateMag
+
+
+
+.. py:function:: transformCoords(x, y, tx, ty, theta)
+
+   Transforms coordinates x,y by translating tx,ty
+   and rotation theta about x
+   Returns: x,y of new coords
+
+
+.. py:function:: transformCoords_wMag(x, y, tx, ty, theta, mag)
+
+   Transforms coordinates x,y by magnifying x,y by a constant factor,
+   then translating tx,ty and rotating theta about x
+   Returns: x,y of new coords
+
+
+.. py:function:: transformCoords_wSeparateMag(x, y, tx, ty, theta, x_mag, y_mag)
+
+   Transforms coordinates x,y by magnifying x,y by a constant factor,
+   then translating tx,ty and rotating theta about x
+   Returns: x,y of new coords
+
+
+.. py:function:: matchFiducials(x1, y1, x2, y2)
+
+   This function will compute a rotation and translation
+   to match a list of fiducial coordinates
+   Returns: translation tx,ty and rotation theta about zhat
+   to bring x2,y2 to x1,y1
+
+
+.. py:function:: matchFiducials_wMag(x1, y1, x2, y2)
+
+   This function will compute a rotation, translation and
+   magnification needed to match a list of fiducial coordinates.
+   Returns:
+   tx, ty - translations
+   theta - rotation
+   mag - magnification factor
+   These transformations are needed to bring x2,y2 to x1,y1
+
+
+.. py:function:: matchFiducials_wSeparateMag(x1, y1, x2, y2)
+
+   This function will compute a rotation, translation and
+   magnification needed to match a list of fiducial coordinates.
+   Returns:
+   tx, ty - translations
+   theta - rotation
+   mag - magnification factor
+   These transformations are needed to bring x2,y2 to x1,y1
+
+
+.. py:function:: sumOfSquares(x1, y1, x2, y2)
+
+   Computes the sum of the squares of the residuals
+   for two lists of coordinates
+
+
+.. py:function:: matchPistonTipTilt(img1, img2)
+
+   This function applies piston and tip/tilt
+   to minimize RMS difference between two arrays
+   Returns: img2 matched to img1
+
+
+.. py:function:: stitchImages(img1, img2)
+
+   Allows user to pick fiducials for both images.
+   Function then computes the transform to move img2
+   to img1 reference frame.
+   Updated
+
+
+.. py:function:: overlapTrans(x, y, tx, ty, theta, sx, sy)
+
+   Transform coordinates with a rotation about mean coordinate,
+   followed by translation, followed by scaling
+
+
+.. py:function:: overlapMerit(x1, y1, z1, x2, y2, z2, tx, ty, theta, sx, sy)
+
+   Apply transformation on img2 and return RMS error
+
+
+.. py:function:: overlapImages(img1, img2, scale=False)
+
+   Function to interpolate a second image onto the first.
+   This is used to compare metrology carried out on a part
+   before and after some processing step. The first image may
+   be translated, rotated, and scaled with respect to the first
+   image. Scaling is due to magnification changes.
+   Procedure is to:
+   1) Set NaNs to zeros so that they want to overlap
+   2) Set up merit function as function of transformation
+      and scaling. Return RMS error.
+   3) Use optimizer to determine best transformation
+   4) Interpolate img2 to img1 using this transformation
+      and return transformed img2.
+
+
+.. py:function:: AlignImagesWithFiducials(img1, img2, xf1, yf1, xf2, yf2)
+
+   Aligns img2 to img1 based on an array listing the x,y coordinates of common fiducials.
+   Arguments:
+   img1 - the reference image to be aligned to.
+   img2 - the image to be aligned to the reference image.
+   xf1 - an array containing the x coordinates of the fiducials in img1
+   yf1 - an array containing the y coordinates of the fiducials in img1.
+   xf2 - an array containing the x coordinates of the fiducials in img2.
+   yf2 - an array containing the y coordinates of the fiducials in img2.
+   Returns:
+   newimg - img2 as aligned and interpolated to the coordinates of img1.
+
+
+.. py:function:: AlignImagesWithFiducials_SeparateMag(img1, img2, xf1, yf1, xf2, yf2)
+
+   Aligns img2 to img1 based on an array listing the x,y coordinates of common fiducials.
+   Arguments:
+   img1 - the reference image to be aligned to.
+   img2 - the image to be aligned to the reference image.
+   xf1 - an array containing the x coordinates of the fiducials in img1
+   yf1 - an array containing the y coordinates of the fiducials in img1.
+   xf2 - an array containing the x coordinates of the fiducials in img2.
+   yf2 - an array containing the y coordinates of the fiducials in img2.
+   Returns:
+   newimg - img2 as aligned and interpolated to the coordinates of img1.
+
+

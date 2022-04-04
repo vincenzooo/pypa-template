@@ -1,0 +1,119 @@
+:py:mod:`pySurf.testSurfaces`
+=============================
+
+.. py:module:: pySurf.testSurfaces
+
+.. autoapi-nested-parse::
+
+   Artificially generated test surfaces.
+   Can be incorporated in readers.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pySurf.testSurfaces.makeGaussian
+   pySurf.testSurfaces.make_sag
+   pySurf.testSurfaces.make_range
+   pySurf.testSurfaces.make_prof_legendre
+   pySurf.testSurfaces.make_surf_legendre
+   pySurf.testSurfaces.make_surf_plane
+   pySurf.testSurfaces.test_profile_legendre
+   pySurf.testSurfaces.test_profile_legendre
+   pySurf.testSurfaces.test_surf_legendre
+   pySurf.testSurfaces.test_makeGaussian
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pySurf.testSurfaces.N
+
+
+.. py:function:: makeGaussian(size, fwhm=3, center=None)
+
+   Make a square gaussian kernel.
+   size is the length of a side of the square
+   fwhm is full-width-half-maximum, which
+   can be thought of as an effective radius.
+
+
+.. py:function:: make_sag(nx, ny)
+
+   create surface with sag along y with peak-to-valley 1.
+   Note that this is the range of data, not of the surface (i.e. if
+   number of points in y is even, the analytical minimum of the surface lies
+   between the two central pixels and it is not included in data)
+
+
+.. py:function:: make_range(nx, ny)
+
+   make a data,x,y with increasing integer values for each pixel.
+
+   example:
+
+   >>> make_range(2,3)
+
+   (array([[0., 1.],
+       [2., 3.],
+       [4., 5.]]), array([0, 1]), array([0, 1, 2]))
+
+
+.. py:function:: make_prof_legendre(x, coeff, inanp=[])
+
+   create a profile on x with legendre coefficients coeff.
+   Add nans on inanp indices.
+
+
+.. py:function:: make_surf_legendre(x, y, coeff, inanp=[], inanl=[])
+
+   Create a test surface from profiles along x, created with
+   legendre polynomial with coefficients 'coeff'.
+
+
+.. py:function:: make_surf_plane(x, y, coeff)
+
+   Create a test surface from plane coefficients `coeff` as returned from `pySurf.plane_fit`.
+   based on
+       # Ax + By + C = z
+
+
+.. py:function:: test_profile_legendre(nanpoints=0)
+
+   test my routines with profile
+
+
+
+.. py:function:: test_profile_legendre(nans=True, fixnans=True)
+
+   test on a list of 2D coefficients creating profile then fitting with
+   numpy routines and with data2D routine fitlegendre
+   (wrapper around numpy to handle nans).
+
+
+.. py:function:: test_surf_legendre(nans=True, fixnans=True)
+
+   test how 1D (line) routines in polynomial.legendre work on 1D and 2D data.
+   If nanpoints=0 nan are not put in data. If nanpoints=1 or 2 nans are added on some points and
+   some lines, with value value of nanpoints determineing the option nanstrict of levellegendre
+   (1=false, 2=true).
+
+
+.. py:function:: test_makeGaussian(N=100, rnd=3.0)
+
+
+.. py:data:: N
+   :annotation: = 100
+
+   
+

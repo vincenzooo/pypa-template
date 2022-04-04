@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dataIO.dicts &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="dataIO.files" href="../files/index.html" />
+    <link rel="prev" title="dataIO.debug" href="../debug/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../any_is_none/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.any_is_none</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../arrays/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.arrays</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../beep/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.beep</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../congrid/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.congrid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../debug/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.debug</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.dicts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../files/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.files</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fn_add_subfix/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.fn_add_subfix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../functions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.functions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jpgToFits/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.jpgToFits</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../logger/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.logger</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../outliers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.outliers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../read_blocks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.read_blocks</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../read_pars_from_namelist/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.read_pars_from_namelist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rebin/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.rebin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../roi/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.roi</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../running_mean/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.running_mean</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../span/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.span</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../superlist/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.superlist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test_span/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.test_span</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plotting</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyGeo3D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyProfile</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pySurf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.dicts</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/dataIO/dicts/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-dataIO.dicts">
+<span id="dataio-dicts"></span><h1><a class="reference internal" href="#module-dataIO.dicts" title="dataIO.dicts"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO.dicts</span></code></a><a class="headerlink" href="#module-dataIO.dicts" title="Permalink to this headline"></a></h1>
+<p>contains operations on dictionaries</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#dataIO.dicts.pop_kw" title="dataIO.dicts.pop_kw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pop_kw</span></code></a>(kws, defaults=None, keylist=None, exclude=None)</p></td>
+<td><p>A multiple pop function for a dictionary, hopefully useful to filter kws and manage function <a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#dataIO.dicts.strip_kw" title="dataIO.dicts.strip_kw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strip_kw</span></code></a>(kws, funclist, split=False, exclude=None, **kwargs)</p></td>
+<td><p>Enhanced version of pop_kw, kw can be extracted from inspection of a function (or a list  of functions).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#dataIO.dicts.print_tree" title="dataIO.dicts.print_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_tree</span></code></a>(tree, depth=0)</p></td>
+<td><p>print dictionary as tree, recursively calling itself,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#dataIO.dicts.test_filterByKey" title="dataIO.dicts.test_filterByKey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_filterByKey</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#dataIO.dicts.example_pop_kw" title="dataIO.dicts.example_pop_kw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">example_pop_kw</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#dataIO.dicts.test_pop_kw" title="dataIO.dicts.test_pop_kw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_pop_kw</span></code></a>(function=pop_kw)</p></td>
+<td><p>run a set of dict stripping tests using a function with interface compatible with <cite>pop_kw</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#dataIO.dicts.filterByKey2" title="dataIO.dicts.filterByKey2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filterByKey2</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="dataIO.dicts.filterByKey2">
+<span class="sig-prename descclassname"><span class="pre">dataIO.dicts.</span></span><span class="sig-name descname"><span class="pre">filterByKey2</span></span><a class="headerlink" href="#dataIO.dicts.filterByKey2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataIO.dicts.pop_kw">
+<span class="sig-prename descclassname"><span class="pre">dataIO.dicts.</span></span><span class="sig-name descname"><span class="pre">pop_kw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kws</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaults</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keylist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dataIO/dicts.html#pop_kw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dataIO.dicts.pop_kw" title="Permalink to this definition"></a></dt>
+<dd><p>A multiple pop function for a dictionary, hopefully useful to filter kws and manage function <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs parameters.</p>
+<dl>
+<dt>Return a dictionary of values corresponding to kws[k] for k in keylist by popping</dt><dd><p>the element from kws.</p>
+</dd>
+<dt>If k is present in a dictionary <cite>defaults</cite>, take the values from <cite>defaults</cite> if not present in kws.</dt><dd><p>return a dictionary {key:val} with val from <cite>kws</cite> or <cite>defaults</cite> if in any of them.</p>
+</dd>
+<dt>Another way of seeing the return value is as a copy of <cite>defaults</cite> where values are replaced</dt><dd><p>(after popping them) from same key in kws.</p>
+<blockquote>
+<div><p>kwargs={‘dog’:’bau’,’cat’:’miao’}
+defs={‘dog’:’barf’,’sheep’:’bee’}</p>
+<p>#pop ‘cat’ and ‘sheep’ if they are in kwargs or take them from defaults if there,
+#  put them in res
+&gt;&gt;&gt; res=pop_kw(kwargs,defaults=defs)
+&gt;&gt;&gt; kwargs
+Out[103]: {‘cat’: ‘miao’}
+&gt;&gt;&gt; res
+Out[104]: {‘dog’: ‘barf’, ‘sheep’: ‘bee’}</p>
+<p>#pop ‘cat’ and ‘sheep’ if they are in kwargs or take them from defaults if there,
+#  put them in res
+&gt;&gt;&gt; res=pop_kw(kwargs, defaults = defs, keylist = [‘cat’,’sheep’])
+&gt;&gt;&gt; kwargs
+Out[103]: {}
+&gt;&gt;&gt; res
+Out[104]: {‘cat’: ‘miao’, ‘dog’: ‘bau’, ‘sheep’: ‘bee’}</p>
+</div></blockquote>
+</dd>
+<dt>A typical usage can be dividing arbitrary <a href="#id5"><span class="problematic" id="id6">**</span></a>kwargs between different subroutines,</dt><dd><p>where the subroutines might not accept <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs, and be constrained to specific list of parameters.
+To pass kwargs in this circumstance do inside the routine:</p>
+</dd>
+</dl>
+<p>Module <cite>inspect</cite> can be used to retrieve subfunction parameter names and make a safe call, this is done automatically in <cite>strip_kw</cite>, equivalently to:</p>
+<blockquote>
+<div><p>import inspect
+pars=list(inspect.signature(f1).parameters) #give list of all accepted parameters in f1
+res1=f1(arg1,**pop_kw(kwargs,keylist = pars)) #note that pars will have keys ‘args’ and ‘kwargs’ if</p>
+<blockquote>
+<div><p># f1 accepts arbitrary arguments. kws and defaults with same name can be
+#  in conflict</p>
+</div></blockquote>
+</div></blockquote>
+<p>In general, if <a href="#id9"><span class="problematic" id="id10">**</span></a>kws are passed to a function that calls two other subs, each one with optional arguments, it can be used as (see full example in <cite>dataIO.dicts.example_pop_kw</cite>):</p>
+<blockquote>
+<div><p>def example_pop_kw(<a href="#id11"><span class="problematic" id="id12">**</span></a>kwargs):</p>
+<blockquote>
+<div><p># here if passed directly with <cite>res0=f1(arg1,**kwargs)</cite> gives error because mes2 is not a defined parameter
+res1=f1(arg1,**pop_kw(kwargs,{‘mes1’:’blah!’},[‘mes1’])) #only mes1 is passed to res1 with default if not in kwargs:
+res2=f2(arg1,**kwargs)  #other remaining kwargs can be safely passed to f2</p>
+</div></blockquote>
+</div></blockquote>
+<p>2020/05/26 added <cite>exclude</cite> keywork, as a consequence of adding to strip_kw.
+Completely reviewed 2019/04/08, changed interface and function of keylist.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataIO.dicts.strip_kw">
+<span class="sig-prename descclassname"><span class="pre">dataIO.dicts.</span></span><span class="sig-name descname"><span class="pre">strip_kw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kws</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funclist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dataIO/dicts.html#strip_kw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dataIO.dicts.strip_kw" title="Permalink to this definition"></a></dt>
+<dd><p>Enhanced version of pop_kw, kw can be extracted from inspection of a function (or a list  of functions).
+Defaults can be passed as kwargs.
+<cite>exclude</cite> is a list of keys that are kept in kws unchanged</p>
+<blockquote>
+<div><p>and not returned.</p>
+</div></blockquote>
+<p>2020/05/26 added <cite>exclude</cite>.
+Use case is presented from problems with psd_analysis.
+<cite>psd2d.psd_analysis</cite> calls <cite>strip_kw(kwargs,psd2d_analysis,title=””)</cite>.
+<cite>ps2d_analysis</cite> has keyword <cite>units</cite>, that is not used in this case (used, only if called with <cite>analysis=True</cite>). Here we want to preserve <cite>units</cite> to strip it later.</p>
+<dl>
+<dt>Old notes:</dt><dd><blockquote>
+<div><dl class="simple">
+<dt>was in theory a safer version of the first pop_kw.</dt><dd><p>I am not sure in what it was supposed to be “safer”,</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>but it was accepting functions as input.</dt><dd><p>It might have been used a negligible amount of times.</p>
+</dd>
+</dl>
+<p>sub_kw=strip_kw(kws,[sub],def1=val1,def2=val2)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataIO.dicts.print_tree">
+<span class="sig-prename descclassname"><span class="pre">dataIO.dicts.</span></span><span class="sig-name descname"><span class="pre">print_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dataIO/dicts.html#print_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dataIO.dicts.print_tree" title="Permalink to this definition"></a></dt>
+<dd><p>print dictionary as tree, recursively calling itself,
+based on <a class="reference external" href="http://www.siafoo.net/snippet/91">http://www.siafoo.net/snippet/91</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataIO.dicts.test_filterByKey">
+<span class="sig-prename descclassname"><span class="pre">dataIO.dicts.</span></span><span class="sig-name descname"><span class="pre">test_filterByKey</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dataIO/dicts.html#test_filterByKey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dataIO.dicts.test_filterByKey" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataIO.dicts.example_pop_kw">
+<span class="sig-prename descclassname"><span class="pre">dataIO.dicts.</span></span><span class="sig-name descname"><span class="pre">example_pop_kw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dataIO/dicts.html#example_pop_kw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dataIO.dicts.example_pop_kw" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataIO.dicts.test_pop_kw">
+<span class="sig-prename descclassname"><span class="pre">dataIO.dicts.</span></span><span class="sig-name descname"><span class="pre">test_pop_kw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pop_kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dataIO/dicts.html#test_pop_kw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dataIO.dicts.test_pop_kw" title="Permalink to this definition"></a></dt>
+<dd><p>run a set of dict stripping tests using a function with interface compatible with <cite>pop_kw</cite>.
+uses pop_kw if function is not provided.</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../debug/index.html" class="btn btn-neutral float-left" title="dataIO.debug" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../files/index.html" class="btn btn-neutral float-right" title="dataIO.files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

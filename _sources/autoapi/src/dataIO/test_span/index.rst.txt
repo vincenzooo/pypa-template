@@ -1,0 +1,34 @@
+:py:mod:`src.dataIO.test_span`
+==============================
+
+.. py:module:: src.dataIO.test_span
+
+
+Module Contents
+---------------
+
+.. py:data:: pts1
+   
+
+   
+
+.. py:data:: a
+   
+
+   
+
+.. py:data:: aa
+   
+
+   
+
+.. py:data:: b
+   
+
+   
+
+.. py:data:: s
+   
+
+   
+

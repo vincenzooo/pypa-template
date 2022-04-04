@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="src.dataIO" href="dataIO/index.html" />
+    <link rel="prev" title="API Reference" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pySurf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.__version__">__version__</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/autoapi/src/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src">
+<span id="src"></span><h1><a class="reference internal" href="#module-src" title="src"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a><a class="headerlink" href="#module-src" title="Permalink to this headline"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.config</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataIO/config/extractConfigFromNB/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.config.extractConfigFromNB</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dataIO/config/interface/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.config.interface</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dataIO/config/make_config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.config.make_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/any_is_none/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.any_is_none</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/arrays/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.arrays</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/beep/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.beep</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/congrid/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.congrid</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/debug/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.debug</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/dicts/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.dicts</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/files/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.files</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/fn_add_subfix/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.fn_add_subfix</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/functions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.functions</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/jpgToFits/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.jpgToFits</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/logger/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.logger</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/outliers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.outliers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/read_blocks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.read_blocks</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/read_pars_from_namelist/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.read_pars_from_namelist</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/rebin/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.rebin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/roi/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.roi</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/running_mean/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.running_mean</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/span/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.span</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/superlist/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.superlist</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataIO/test_span/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.test_span</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plotting/FastImshow/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.FastImshow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/add_clickable_markers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.add_clickable_markers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/add_mask/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.add_mask</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/backends/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.backends</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/captions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.captions</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/fignumber/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.fignumber</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/imageCaption/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.imageCaption</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/imageKey/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.imageKey</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/imageKey_v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.imageKey_v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/keyInterface/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.keyInterface</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/linestyles/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.linestyles</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/multiplots/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.multiplots</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/plot_labels/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.plot_labels</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/plot_positions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.plot_positions</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/scale/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.scale</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/test_rezoom/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.test_rezoom</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/updating_plot/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.updating_plot</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/viewlims/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.viewlims</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/xadd_clickable_markers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.xadd_clickable_markers</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyGeo3D/fit_3D_line/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D.fit_3D_line</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyGeo3D/fit_3D_plane/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D.fit_3D_plane</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyGeo3D/geoShell/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D.geoShell</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyGeo3D/intersect_plane_line/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D.intersect_plane_line</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyGeo3D/ostruzione/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D.ostruzione</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyProfile/makenicePSDplots/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile.makenicePSDplots</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyProfile/power_law/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile.power_law</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyProfile/profile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile.profile</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyProfile/profile_class/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile.profile_class</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyProfile/profile_v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile.profile_v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyProfile/psd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile.psd</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pySurf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/FEA/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.FEA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/PointCloud/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.PointCloud</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/_instrument_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf._instrument_reader</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/affine2D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.affine2D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/clip/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.clip</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/data2D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.data2D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/data2D_class/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.data2D_class</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/distanceTable/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.distanceTable</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/find_internal_rectangle/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.find_internal_rectangle</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/fit_cylinder/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.fit_cylinder</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/instrumentReader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.instrumentReader</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/outliers2d/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.outliers2d</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/plane_fit/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.plane_fit</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/points/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.points</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/psd2d/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.psd2d</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/radial/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.radial</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/roi/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.roi</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/stress_compensation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.stress_compensation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pySurf/testSurfaces/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.testSurfaces</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utilities/imaging/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.imaging</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utilities/imaging/analysis/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.imaging.analysis</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utilities/imaging/chebFit/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.imaging.chebFit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utilities/imaging/fit_cylinder/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.imaging.fit_cylinder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utilities/imaging/fitting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.imaging.fitting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utilities/imaging/man/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.imaging.man</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utilities/imaging/stitch/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.imaging.stitch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utilities/imaging/test_bonding/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.imaging.test_bonding</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utilities/imaging/zernikemod/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.imaging.zernikemod</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utilities/cylinder/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.cylinder</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities/fourier/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.fourier</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities/metrology/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.metrology</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities/plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.plotting</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities/transformations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities.transformations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this headline"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="src.__version__">
+<span class="sig-prename descclassname"><span class="pre">src.</span></span><span class="sig-name descname"><span class="pre">__version__</span></span><a class="headerlink" href="#src.__version__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dataIO/index.html" class="btn btn-neutral float-right" title="src.dataIO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

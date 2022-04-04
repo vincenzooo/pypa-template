@@ -1,0 +1,43 @@
+:py:mod:`src.plotting.test_rezoom`
+==================================
+
+.. py:module:: src.plotting.test_rezoom
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.test_rezoom.mandel
+   src.plotting.test_rezoom.ax_update
+   src.plotting.test_rezoom.ax_update2
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.test_rezoom.md
+
+
+.. py:function:: mandel(xstart, xend, ystart, yend)
+
+
+.. py:function:: ax_update(ax)
+
+
+.. py:function:: ax_update2(ax)
+
+
+.. py:data:: md
+   
+
+   
+

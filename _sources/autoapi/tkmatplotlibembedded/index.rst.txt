@@ -1,0 +1,45 @@
+:py:mod:`tkmatplotlibembedded`
+==============================
+
+.. py:module:: tkmatplotlibembedded
+
+.. autoapi-nested-parse::
+
+   Created on Wed Jun 04 17:56:03 2014
+
+   @author: Sukhbinder Singh
+
+
+
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   tkmatplotlibembedded.Window
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   tkmatplotlibembedded.root
+
+
+.. py:class:: Window(master)
+
+
+.. py:data:: root
+   
+
+   
+

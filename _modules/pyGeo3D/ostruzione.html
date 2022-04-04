@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyGeo3D.ostruzione &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>pyGeo3D.ostruzione</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyGeo3D.ostruzione</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1">#Boa:PyApp:main</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">modules</span> <span class="o">=</span><span class="p">{}</span>
+
+<div class="viewcode-block" id="diretto"><a class="viewcode-back" href="../../autoapi/pyGeo3D/ostruzione/index.html#pyGeo3D.ostruzione.diretto">[docs]</a><span class="k">def</span> <span class="nf">diretto</span> <span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">dmin</span><span class="p">,</span><span class="n">SH</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;ricavando diametro all&#39; ingersso da diam allintersezione&#39;&#39;&#39;</span>
+    <span class="n">th</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">dmin</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="nb">float</span><span class="p">(</span><span class="n">F</span><span class="p">))</span><span class="o">/</span><span class="mi">4</span>
+    <span class="n">dmax</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">SH</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">th</span><span class="p">)</span><span class="o">+</span><span class="n">dmin</span>
+    <span class="k">return</span> <span class="n">dmax</span></div>
+
+<div class="viewcode-block" id="inverso"><a class="viewcode-back" href="../../autoapi/pyGeo3D/ostruzione/index.html#pyGeo3D.ostruzione.inverso">[docs]</a><span class="k">def</span> <span class="nf">inverso</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">dmax</span><span class="p">,</span><span class="n">H</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;ricava il dianetri allintersezione dal diametro d&#39;ingresso</span>
+<span class="sd">    con metodo ricorsico.  stessa unita&#39; di misura.&#39;&#39;&#39;</span>
+    <span class="n">rIn</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">dmax</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">ThSh</span><span class="p">(</span><span class="n">R</span><span class="p">):</span><span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">R</span><span class="p">),</span><span class="nb">float</span><span class="p">(</span><span class="n">F</span><span class="p">))</span><span class="o">/</span><span class="mi">4</span>
+    <span class="k">def</span> <span class="nf">Rint</span><span class="p">(</span><span class="n">rIn</span><span class="p">,</span><span class="n">th0</span><span class="p">):</span><span class="k">return</span> <span class="n">rIn</span><span class="o">-</span><span class="n">H</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">th</span><span class="p">)</span> <span class="c1">#trova raggio allintersezione da angolo e rIn</span>
+    <span class="n">r</span><span class="o">=</span><span class="n">rIn</span>
+    <span class="n">rOld</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="n">rOld</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">10e-8</span><span class="p">):</span>
+        <span class="n">rOld</span><span class="o">=</span><span class="n">r</span>
+        <span class="n">th</span><span class="o">=</span><span class="n">ThSh</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>        
+        <span class="n">r</span><span class="o">=</span><span class="n">Rint</span><span class="p">(</span><span class="n">rIn</span><span class="p">,</span><span class="n">th</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span><span class="o">*</span><span class="mi">2</span>   </div>
+
+<div class="viewcode-block" id="daa"><a class="viewcode-back" href="../../autoapi/pyGeo3D/ostruzione/index.html#pyGeo3D.ostruzione.daa">[docs]</a><span class="k">def</span> <span class="nf">daa</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span><span class="n">angolo</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;dato un punto di partenza (0,y0), e l&#39;angolo con l&#39;asse y </span>
+<span class="sd">    per una retta con coefficiente angolare negativo, </span>
+<span class="sd">    restituisce la x nel di ordinata y1&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">y0</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">angolo</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="angsep"><a class="viewcode-back" href="../../autoapi/pyGeo3D/ostruzione/index.html#pyGeo3D.ostruzione.angsep">[docs]</a><span class="k">def</span> <span class="nf">angsep</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">theta</span><span class="p">):</span>
+    <span class="n">alfa</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span>
+    <span class="n">H1</span><span class="o">=</span><span class="n">H2</span><span class="o">=</span><span class="n">H</span>
+    <span class="c1">#trova coordinata minima pupilla uscita, il raggio colpisce lintersezione p-h</span>
+    <span class="n">rout</span><span class="o">=</span><span class="n">r</span><span class="o">-</span><span class="n">daa</span><span class="p">(</span><span class="n">H2</span><span class="p">,</span><span class="n">alfa</span><span class="o">+</span><span class="n">theta</span><span class="p">)</span>
+    <span class="c1">#trova prossimo raggio corrispondente</span>
+    <span class="k">def</span> <span class="nf">ThSh</span><span class="p">(</span><span class="n">R</span><span class="p">):</span><span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">R</span><span class="p">),</span><span class="nb">float</span><span class="p">(</span><span class="n">F</span><span class="p">))</span><span class="o">/</span><span class="mi">4</span>
+    <span class="k">def</span> <span class="nf">Rint</span><span class="p">(</span><span class="n">rint</span><span class="p">,</span><span class="n">th0</span><span class="p">,</span><span class="n">H</span><span class="p">):</span><span class="k">return</span> <span class="n">rint</span><span class="o">-</span><span class="n">H</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">th</span><span class="p">)</span> <span class="c1">#trova raggio all&#39;uscita</span>
+    <span class="n">rOld</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rout</span><span class="o">-</span><span class="n">rOld</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">10e-8</span><span class="p">):</span>
+        <span class="n">rOld</span><span class="o">=</span><span class="n">rout</span>
+        <span class="n">th</span><span class="o">=</span><span class="n">ThSh</span><span class="p">(</span><span class="n">rout</span><span class="p">)</span>        
+        <span class="n">rout</span><span class="o">=</span><span class="n">Rint</span><span class="p">(</span><span class="n">rout</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">th</span><span class="p">,</span><span class="n">H2</span><span class="p">)</span>
+    <span class="c1">#r1 e&#39; il raggio all&#39;uscita</span>
+    <span class="n">rint</span><span class="o">=</span> <span class="n">rout</span><span class="o">+</span><span class="n">H2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">th</span><span class="p">)</span> 
+    <span class="n">rin</span><span class="o">=</span> <span class="n">rint</span><span class="o">+</span><span class="n">H1</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">th</span><span class="p">)</span>
+    <span class="c1">#calcola angsep</span>
+    <span class="n">angsep</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="n">rin</span><span class="p">,</span><span class="n">H1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">angsep</span></div>
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../autoapi/pyGeo3D/ostruzione/index.html#pyGeo3D.ostruzione.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">r_vec</span><span class="p">,</span><span class="n">theta</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;assumendo shell con altezza uguale per parabola e iperbole,</span>
+<span class="sd">    calcola la minima separazione</span>
+<span class="sd">    angolare fra le shell per evitare ostruzione all&#39;uscita per i</span>
+<span class="sd">    raggi del vettore r_vec per l&#39;angolo fuori asse theta&#39;&#39;&#39;</span>
+    <span class="n">sep_vec</span><span class="o">=</span><span class="p">[</span><span class="n">angsep</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">r_vec</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">r_vec</span><span class="p">,</span> <span class="n">sep_vec</span><span class="p">)</span></div>
+    
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">rmin</span><span class="p">,</span><span class="n">rmax</span><span class="o">=</span><span class="mi">175</span><span class="p">,</span><span class="mi">350</span>
+    <span class="n">H</span><span class="o">=</span><span class="mi">300</span>
+    <span class="n">F</span><span class="o">=</span><span class="mi">20000</span>
+    <span class="n">npunti</span><span class="o">=</span><span class="mi">100</span>
+    <span class="n">r_vec</span><span class="o">=</span><span class="p">[</span><span class="n">rmin</span><span class="o">+</span><span class="n">xx</span><span class="o">*</span><span class="p">(</span><span class="n">rmax</span><span class="o">-</span><span class="n">rmin</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">npunti</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">xx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">npunti</span><span class="p">)]</span>
+    <span class="n">theta</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="mf">57.</span><span class="p">)</span> <span class="c1">#1 primo</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">r_vec</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

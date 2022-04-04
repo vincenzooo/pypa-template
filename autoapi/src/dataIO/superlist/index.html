@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.dataIO.superlist &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="src.dataIO.test_span" href="../test_span/index.html" />
+    <link rel="prev" title="src.dataIO.span" href="../span/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pySurf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.superlist</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/src/dataIO/superlist/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.dataIO.superlist">
+<span id="src-dataio-superlist"></span><h1><a class="reference internal" href="#module-src.dataIO.superlist" title="src.dataIO.superlist"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.superlist</span></code></a><a class="headerlink" href="#module-src.dataIO.superlist" title="Permalink to this headline"></a></h1>
+<p>Extensible vectorizable list.</p>
+<p>In final version has list properties <cite>iterators</cite>,
+<cite>aggregator</cite>,`expanded` containing methods that are vectorized in different ways. Iterator is default, return a list with each element obtained by applying its method with same name to each element of <cite>superlist</cite>.
+Aggregator accumulate a binary operation, returning a single value. Expanded return a single element by passing the content of <cite>superlist</cite> as n elements to the element method.
+Note that passing parameters must be handled accordingly. In particular a list of parameters or a single value can be passed to iterators, however this can create ambiguity. For example, an element method can accept list or single values, so it is not clear when a list is passed to superlist, if this means that the same list is passed to all elements as list argument of element method, rather than passing each element of list argument as scalar argument of elements method. There is no ambiguity if a list of lists or a list with len different from number of superlist elements, this should be checked, otherwise a warning should be visualized telling about the possible ambiguity and default action (possibly passing one value per element, call with nested list [[element]] to apply as list to all values).</p>
+<p>In this experimental version, different ways to access object methods are tested.</p>
+<p>functions operating on a list of Data2D objects</p>
+<p>Another problem is to make sure that superlists are returned on list operators like slices, how to do this? Metaclasses?</p>
+<p>2020/05/26 moved to dataIO</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.dataIO.superlist.Superlist" title="src.dataIO.superlist.Superlist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Superlist</span></code></a></p></td>
+<td><p>A list of pySurf.Data2D objects on which unknown operations are performed serially.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.dataIO.superlist.superlist1" title="src.dataIO.superlist.superlist1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">superlist1</span></code></a></p></td>
+<td><p>Test class that vectorizes methods. Basic, implements properties,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.dataIO.superlist.superlist2" title="src.dataIO.superlist.superlist2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">superlist2</span></code></a></p></td>
+<td><p>Test class that vectorizes methods.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.dataIO.superlist.superlist3" title="src.dataIO.superlist.superlist3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">superlist3</span></code></a></p></td>
+<td><p>Test class that vectorizes methods.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.dataIO.superlist.superlist4" title="src.dataIO.superlist.superlist4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">superlist4</span></code></a></p></td>
+<td><p>Test class that vectorizes methods.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.dataIO.superlist.superlist_alt" title="src.dataIO.superlist.superlist_alt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">superlist_alt</span></code></a></p></td>
+<td><p>2021/07/14 da <a class="reference external" href="https://stackoverflow.com/questions/2704434/intercept-method-calls-in-python">https://stackoverflow.com/questions/2704434/intercept-method-calls-in-python</a> anche testata in Dlist.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.dataIO.superlist.superlist5" title="src.dataIO.superlist.superlist5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">superlist5</span></code></a></p></td>
+<td><p>2021/07/14 da Dlist, versione funzionante con proprieta' e metodi, portata qui e non testata.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.dataIO.superlist.Superlist6" title="src.dataIO.superlist.Superlist6"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Superlist6</span></code></a></p></td>
+<td><p>Working version for debug of getattr/getattribute.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.dataIO.superlist.test_superlist_dlist" title="src.dataIO.superlist.test_superlist_dlist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_superlist_dlist</span></code></a>(D)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.dataIO.superlist.test_superlist" title="src.dataIO.superlist.test_superlist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_superlist</span></code></a>(cls, obj=None)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataIO.superlist.Superlist">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataIO.superlist.</span></span><span class="sig-name descname"><span class="pre">Superlist</span></span><a class="headerlink" href="#src.dataIO.superlist.Superlist" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>A list of pySurf.Data2D objects on which unknown operations are performed serially.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataIO.superlist.Superlist.__getattr__">
+<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.superlist.Superlist.__getattr__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataIO.superlist.superlist1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataIO.superlist.</span></span><span class="sig-name descname"><span class="pre">superlist1</span></span><a class="headerlink" href="#src.dataIO.superlist.superlist1" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>Test class that vectorizes methods. Basic, implements properties,
+but not methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataIO.superlist.superlist1.__getattr__">
+<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.superlist.superlist1.__getattr__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataIO.superlist.superlist2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataIO.superlist.</span></span><span class="sig-name descname"><span class="pre">superlist2</span></span><a class="headerlink" href="#src.dataIO.superlist.superlist2" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>Test class that vectorizes methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataIO.superlist.superlist2.__getattr__">
+<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.superlist.superlist2.__getattr__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataIO.superlist.superlist3">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataIO.superlist.</span></span><span class="sig-name descname"><span class="pre">superlist3</span></span><a class="headerlink" href="#src.dataIO.superlist.superlist3" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>Test class that vectorizes methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataIO.superlist.superlist3.__getattr__">
+<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.superlist.superlist3.__getattr__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataIO.superlist.superlist4">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataIO.superlist.</span></span><span class="sig-name descname"><span class="pre">superlist4</span></span><a class="headerlink" href="#src.dataIO.superlist.superlist4" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>Test class that vectorizes methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataIO.superlist.superlist4.__getattr__">
+<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.superlist.superlist4.__getattr__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataIO.superlist.superlist_alt">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataIO.superlist.</span></span><span class="sig-name descname"><span class="pre">superlist_alt</span></span><a class="headerlink" href="#src.dataIO.superlist.superlist_alt" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>2021/07/14 da <a class="reference external" href="https://stackoverflow.com/questions/2704434/intercept-method-calls-in-python">https://stackoverflow.com/questions/2704434/intercept-method-calls-in-python</a> anche testata in Dlist.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataIO.superlist.superlist_alt.__getattribute__">
+<span class="sig-name descname"><span class="pre">__getattribute__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.superlist.superlist_alt.__getattribute__" title="Permalink to this definition"></a></dt>
+<dd><p>Return getattr(self, name).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataIO.superlist.superlist5">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataIO.superlist.</span></span><span class="sig-name descname"><span class="pre">superlist5</span></span><a class="headerlink" href="#src.dataIO.superlist.superlist5" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>2021/07/14 da Dlist, versione funzionante con proprieta’ e metodi, portata qui e non testata.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataIO.superlist.superlist5.__getattr__">
+<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.superlist.superlist5.__getattr__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataIO.superlist.Superlist6">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataIO.superlist.</span></span><span class="sig-name descname"><span class="pre">Superlist6</span></span><a class="headerlink" href="#src.dataIO.superlist.Superlist6" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>Working version for debug of getattr/getattribute.
+print messages.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataIO.superlist.Superlist6.__getattr__">
+<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.superlist.Superlist6.__getattr__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataIO.superlist.Superlist6.__getattribute__">
+<span class="sig-name descname"><span class="pre">__getattribute__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.superlist.Superlist6.__getattribute__" title="Permalink to this definition"></a></dt>
+<dd><p>Return getattr(self, name).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataIO.superlist.test_superlist_dlist">
+<span class="sig-prename descclassname"><span class="pre">src.dataIO.superlist.</span></span><span class="sig-name descname"><span class="pre">test_superlist_dlist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.superlist.test_superlist_dlist" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataIO.superlist.test_superlist">
+<span class="sig-prename descclassname"><span class="pre">src.dataIO.superlist.</span></span><span class="sig-name descname"><span class="pre">test_superlist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.superlist.test_superlist" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../span/index.html" class="btn btn-neutral float-left" title="src.dataIO.span" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../test_span/index.html" class="btn btn-neutral float-right" title="src.dataIO.test_span" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

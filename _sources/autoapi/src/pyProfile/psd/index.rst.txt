@@ -1,0 +1,247 @@
+:py:mod:`src.pyProfile.psd`
+===========================
+
+.. py:module:: src.pyProfile.psd
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.pyProfile.psd.PSDplot
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pyProfile.psd.psd2prof
+   src.pyProfile.psd.normPSD
+   src.pyProfile.psd.psd
+   src.pyProfile.psd.psd_units
+   src.pyProfile.psd.test_psd_units
+   src.pyProfile.psd.components
+   src.pyProfile.psd.realPSD
+   src.pyProfile.psd.xrealPSD
+   src.pyProfile.psd.plot_psd
+   src.pyProfile.psd.make_psd_plots
+   src.pyProfile.psd.linearTrend
+   src.pyProfile.psd.addPSDs
+   src.pyProfile.psd.plotPSDs
+   src.pyProfile.psd.FFTtransform
+   src.pyProfile.psd.plot_transform
+   src.pyProfile.psd.xplot_sig_psd
+   src.pyProfile.psd.plot_sig_psd
+   src.pyProfile.psd.plot_sig_psd4
+   src.pyProfile.psd.testPSDest
+   src.pyProfile.psd.test_psd_normalization
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pyProfile.psd.N
+
+
+.. py:function:: psd2prof(f, p, phase=None, N=None)
+
+   build a profile from PSD, if phase (in rad) is not passed use random
+   values. A real profile of npoints is assumed. Note that profiles with
+   (len(p)-1)*2 and (len(p)-1)*2+1 points give psd with same number of points,
+   so both reconstructions are possible. Odd number of points is the default,
+   passing N overrides, with N=(len(p)-1)*2, default (len(p)-1)*2+1
+
+
+.. py:function:: normPSD(N, L=None, form=1)
+
+   return a normalization factor for the PSD, calculated according to different definitions of `power`.
+   The PSD is defined as PSD(f)=factor*np.abs(FFT)**2 where FFT is the fast fourier transform.
+   Note that in case of rfft the doubling factor is not included in norm (because part of FFT definition).
+   Possible values are (ref. to Numerical recipes when possible):
+   1 - units: [Y**2] no normalization. "sum squared amplitude" in NR 13.4.1
+   2 - units: [Y**2][X] This has the advantage that measurements on same range with different number of points match and it is the way it is usually plotted. The rms is the integral of PSD over frequency rather than the sum.
+   3 - units: [Y**2] here rms is the sum of PSD, this is RA normalization (however it differs in RA when a window is used). 13.4.5 in NR.
+   4 - units: [Y**2] not sure what this is for, "mean squared amplitude" in NR 13.4.2 and in formula 12.1.10 as discrete form of Parsifal's theorem.
+
+
+.. py:function:: psd(x, y, retall=False, wfun=None, norm=1, rmsnorm=False)
+
+   return frequencies and PSD of a profile.
+
+   If retall is set, also the phase is returned.
+   PSD is squared FFT divided by step size. Profile is assumed real, so only positive freqs are used, doubling PSD values. Return value has ceil(N/2) elements (always odd).
+   See `np.fft.rfftfreq` for details.
+   wfun is a function that given the number of points return a vector with values for the window. Note that normalization is quite arbitrary, usually it's rescaled later with rmsnorm.
+   2017/07/30 if rmsnorm is set True, PSD is normalized to (multiplied by) rms calculated from profile (must be same if no window applied).
+   2016/03/26 this psd i return to old normalizaiton "time-integral squared magnitude", multiplying by dx.
+
+
+.. py:function:: psd_units(units=[None, None, None])
+
+   return as a list of 3 strings (or None) for `units` of x,f,PSD
+   from units of x,y,data.
+   In case there is not enough information on units of data,
+       returned units are '', '[Y]', '[Y] [Z]$^2$'.
+
+   This aims to keep some consistency in handling units, because
+   of the risk of ambiguity, e.g. m^2 vs m**2 or m$^2$,
+   or even None vs "".
+   This ambiguity is also the reason why in object version `Data2D_class.PS2D`
+   units are kept from surface data, rather than being set to PSD units.
+   This is probably not the best way to solve the ambiguity, but this
+   function should be the preferred way to generate units for the
+   PSD and its axis, until a better one is found.
+   X is left blank rather than outputting '[X]' because it is identical
+       to input units and it can be inconvenient to use the string
+       in plots (e.g. "x ([X])") and the original units can be accessed
+       if desired.
+
+   2020/07/16 moved to `pyProfile.psd` from `pySurf.psd2d`, making it valid for 2 or 3D units.
+
+
+.. py:function:: test_psd_units()
+
+   run tests with different combinations of defined and undefined units.
+
+
+
+.. py:function:: components(d, win=1)
+
+   RA Want to return Fourier components with optional window
+   Application note: These components are dependent on sampling!
+   This means you can *not* interpolate these components onto other
+   frequency grids!
+
+
+.. py:function:: realPSD(d0, win=np.hanning, dx=1.0, axis=None, nans=False, minpx=10)
+
+   (Ryan Allured) This function returns the PSD of a real function
+   Gets rid of zero frequency and puts all power in positive frequencies
+   Returns only positive frequencies
+
+
+.. py:function:: xrealPSD(d, win=1, dx=1.0, axis=None)
+
+   RA This function returns the PSD of a real function
+   Gets rid of zero frequency and puts all power in positive frequencies
+   Returns only positive frequencies
+
+
+.. py:function:: plot_psd(f, p, units=None, label=None, span=0, psdrange=None, includezerofreq=False, *args, **kwargs)
+
+   Plot a PSD on logaritmic axis with standard labels.
+   Units can be passed as profile units (2-el) or x,y,z (3-el, only last two are used).
+   If span is set, plots psd
+   range according to span settings of data2D.projection.
+
+
+.. py:function:: make_psd_plots(toplot, units=None, outfile=None)
+
+   This was in makenicePSDplots.make_plots, needs to be integrated with psd_plot.
+
+   toplot is a dictionary (or collections.OrderedDict if order is important) with filenames as keys and labels as values.
+   psd is read from each file on the first two columns and plotted.
+
+
+.. py:function:: linearTrend(x, y)
+
+   test linear trend
+
+
+.. py:class:: PSDplot
+
+   Bases: :py:obj:`object`
+
+   Contains a number of psds in form (f,psd).
+
+   .. py:method:: append(self, psd)
+
+
+   .. py:method:: append_from_file(self, file, cols, **kwargs)
+
+
+   .. py:method:: plot(self, *args)
+
+
+
+.. py:function:: addPSDs(psdfile, cols, *args, **kwargs)
+
+   Add to current plot a list of PSDs from a standard (12-col,1 line header) PSD file.
+
+
+
+.. py:function:: plotPSDs(psdfile1, psdfile2, title=None, outfolder=None)
+
+   Plot a PSD from a standard (12-col,1 line header) PSD file.
+
+
+.. py:function:: FFTtransform(x, y)
+
+
+.. py:function:: plot_transform(f, yfft, label='', euler=False, units=None, includezerofreq=False, **kwargs)
+
+   units is a 2 element vector.
+
+
+.. py:function:: xplot_sig_psd(x, y, label='', **kwargs)
+
+   plot signal, fft and psd on three panels.
+   dft sets how the fft is plotted
+   'realim': real and im parts,
+   'euler' argument and phase
+   'both' uses two panels (four in total).
+
+
+.. py:function:: plot_sig_psd(x, y, label='', realim=False, euler=False, power=True, includezerofreq=False, yrange=None, prange=None, fignum=None, aspect='auto', units=None, outname=None, norm=1, rmsnorm=True, **kwargs)
+
+   plot signal, fft and psd on n panels according to flags, return axis.
+   for axis with a twin axis, the twin axis is appended to the first in a property 'twin'
+   parameter for plot function (styles etc., common to all plots)
+       can be passed as kwargs
+   plots signal and  additional plots according to respective flags:
+   'realim': real and im parts,
+   'euler' argument and phase
+   'power' plot PSD calling psd with default parameters
+
+
+.. py:function:: plot_sig_psd4(x, y, scale=1.0, label='', **kwargs)
+
+   wrapper around`plot_sig_psd4`
+   plot signal, fft and psd on three panels.
+   like `plot_sig_psd`, with fixed number of variables.
+
+   ??
+   dft sets how the fft is plotted
+   'realim': real and im parts,
+   'euler' argument and phase
+   'both' uses two panels (four in total).
+
+
+.. py:function:: testPSDest(x, y)
+
+   plot 3 panels with: test profile, PSD calculated with different functions
+   and PSD calculated by piecewise matplotlib function, with different settings.
+   return 3 axis.
+
+
+.. py:function:: test_psd_normalization(x, y, wfun=None, norm=1, **kwargs)
+
+   Calculate PSD with a given normalization and
+   compare its integral over frequency and sum to
+   rms square and standard deviation (they differ for rms including also offset, while stddev being referred to mean.
+
+
+.. py:data:: N
+   :annotation: = 500
+
+   
+

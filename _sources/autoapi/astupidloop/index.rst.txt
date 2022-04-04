@@ -1,0 +1,49 @@
+:py:mod:`astupidloop`
+=====================
+
+.. py:module:: astupidloop
+
+.. autoapi-nested-parse::
+
+   create a stupid loop that advances only after key is pressed.
+
+   This works, at least for a good range of pause time, however it can have some
+       problem with flickering and it blocks the execution (e.g. cannot plot on other windows).
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   astupidloop.press
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   astupidloop.wait
+   astupidloop.xl
+
+
+.. py:function:: press(event)
+
+
+.. py:data:: wait
+   :annotation: = 0
+
+   
+
+.. py:data:: xl
+   
+
+   
+

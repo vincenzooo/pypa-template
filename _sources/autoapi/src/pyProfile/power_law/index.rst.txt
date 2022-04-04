@@ -1,0 +1,32 @@
+:py:mod:`src.pyProfile.power_law`
+=================================
+
+.. py:module:: src.pyProfile.power_law
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pyProfile.power_law.power_law
+   src.pyProfile.power_law.fit_power_law
+
+
+
+.. py:function:: power_law(x, k_n, N)
+
+   return a power law for points at x,
+   given scale factor k_n and exponent N as given by k_n*x**N
+
+
+.. py:function:: fit_power_law(x, y, range=None)
+
+   fit a PSD according to a model y=K_N*x**N
+   where x is in mm-1 and y in mm*3
+
+

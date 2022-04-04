@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.pyProfile.profile_class &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="src.pyProfile.profile_v1" href="../profile_v1/index.html" />
+    <link rel="prev" title="src.pyProfile.profile" href="../profile/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pySurf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile.profile_class</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/src/pyProfile/profile_class/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.pyProfile.profile_class">
+<span id="src-pyprofile-profile-class"></span><h1><a class="reference internal" href="#module-src.pyProfile.profile_class" title="src.pyProfile.profile_class"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile.profile_class</span></code></a><a class="headerlink" href="#module-src.pyProfile.profile_class" title="Permalink to this headline"></a></h1>
+<p>2020/09/21
+Differently from what done in pySurf, here we keep reader and register mechanism separated and leave to the user the responsibility to call them. They can be put together in future if a convenient model for readers is found.</p>
+<p><cite>pyProfile.profile</cite> has only a simple reader (a thin wrapper around <cite>np.genfromtxt</cite>) and a function <cite>register_profile</cite> to align and rescale x and y. Additional readers (<cite>read_mx_profiles</cite>, <cite>read_xyz</cite>) are considered experimental and kept here, even if they are functions.</p>
+<p>2020/06/25 start to create profile class on template of data2D_class.
+N.B.: there is an important difference between profile and data2D functions
+work, and is that data2D functions accept as argument surfaces in the form (tuple)
+<cite>(data,x,y)</cite>, while functions in <cite>profile</cite> want x and y as separate arguments.
+Meaning that in this second case, passing only one argument is check with None
+as default val on second argument, rather than with inspecting the elements together.</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.Profile" title="src.pyProfile.profile_class.Profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Profile</span></code></a></p></td>
+<td><p>A class containing x,y data. It has a set of methods for analysis and visualization.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.PSD" title="src.pyProfile.profile_class.PSD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PSD</span></code></a></p></td>
+<td><p>It is a type of profile with customized behavoiur and additional properties</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.Plist" title="src.pyProfile.profile_class.Plist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plist</span></code></a></p></td>
+<td><p>A list of Profile objects on which unknown operations are performed serially.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.read_xyz" title="src.pyProfile.profile_class.read_xyz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_xyz</span></code></a>(filename, *args, **kwargs)</p></td>
+<td><p>temptative routine to read xyz files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.read_mx_profiles" title="src.pyProfile.profile_class.read_mx_profiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_mx_profiles</span></code></a>(filename, *args, **kwargs)</p></td>
+<td><p>temptative routine to read xyz files. Return a list of all profiles</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.get_header_field" title="src.pyProfile.profile_class.get_header_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_header_field</span></code></a>(db, tag, header='&lt;&lt;PMCA SPECTRUM&gt;&gt;')</p></td>
+<td><p>Extract a single field named <cite>tag</cite> as a list.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.read_mca" title="src.pyProfile.profile_class.read_mca"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_mca</span></code></a>(filename, *args, **kwargs)</p></td>
+<td><p>Given a .mca file, return a <cite>Profile</cite> object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.test_class_init" title="src.pyProfile.profile_class.test_class_init"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_class_init</span></code></a>(wfile=None)</p></td>
+<td><p>test init and plot</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.test_profile_mul" title="src.pyProfile.profile_class.test_profile_mul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_profile_mul</span></code></a>(p1, p2)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.test_profile_mul2" title="src.pyProfile.profile_class.test_profile_mul2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_profile_mul2</span></code></a>(p1, res)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.test_profile_class" title="src.pyProfile.profile_class.test_profile_class"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_profile_class</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.test_plot" title="src.pyProfile.profile_class.test_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_plot</span></code></a>(p1)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.test_profile_div" title="src.pyProfile.profile_class.test_profile_div"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_profile_div</span></code></a>(p1, p2)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.test_profile_div2" title="src.pyProfile.profile_class.test_profile_div2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_profile_div2</span></code></a>(p1, res)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile_class.test_profile_division" title="src.pyProfile.profile_class.test_profile_division"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_profile_division</span></code></a>(p1, p2)</p></td>
+<td><p>plot division of profile 2 by 1 and inverse of the inverse ratio based on np only and compare with division between objects, interpolate over 1st. Plot comparison with what is calculated by np only.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.read_xyz">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">read_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.read_xyz" title="Permalink to this definition"></a></dt>
+<dd><p>temptative routine to read xyz files.
+Use by reading the data and then passing them to profile.
+It will be incorporated in some form of reader in a
+more mature version</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.read_mx_profiles">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">read_mx_profiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.read_mx_profiles" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>temptative routine to read xyz files. Return a list of all profiles</dt><dd><p>with names from 3rd column (files are in format x,y,profilename).</p>
+</dd>
+</dl>
+<p>Use by reading the data and then passing them to profile.
+It will be incorporated in some form of reader in a
+more mature version</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.get_header_field">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">get_header_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'&lt;&lt;PMCA</span> <span class="pre">SPECTRUM&gt;&gt;'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.get_header_field" title="Permalink to this definition"></a></dt>
+<dd><p>Extract a single field named <cite>tag</cite> as a list.
+tag must should match a field (column) name as inferred from header
+(otherwise empty list is returned).
+Temporarily here for use with <cite>read_mca</cite>, can be moved to a more general
+use in dataIO.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.read_mca">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">read_mca</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.read_mca" title="Permalink to this definition"></a></dt>
+<dd><p>Given a .mca file, return a <cite>Profile</cite> object.</p>
+<p>temptative routine to read mca files from amptek energy sensitive detector. Return a profile with metadata information in a <cite>.header</cite> property (temporarily a dictionary obtained from string blocks) of all profiles.
+Like all other readers will be incorporated in some form of reader in a
+more mature version.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">Profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class containing x,y data. It has a set of methods for analysis and visualization.
+Function methods: return a copy with new values.
+to use as modifier (procedure), e.g.:</p>
+<blockquote>
+<div><p>a=a.level()</p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.plot" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.load">
+<span class="sig-name descname"><span class="pre">load</span></span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.load" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.__doc__">
+<span class="sig-name descname"><span class="pre">__doc__</span></span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.__doc__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">load</span></span><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<dd><p>from functools import update_wrapper
+#&#64;update_wrapper(rotate_data)  #this doesn’t work as I would like
+def rotate(self,angle,*args,**kwargs):</p>
+<blockquote>
+<div><p>“””call data2D.rotate_data, which rotate array of an arbitrary angle in degrees in direction
+(from first to second axis).”””
+res = self.copy()
+res.data,res.x,res.y=rotate_data(self.data,self.x,self.y,angle,*args,**kwargs)
+return res</p>
+</div></blockquote>
+<p>rotate=update_docstring(rotate,rotate_data)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.crop">
+<span class="sig-name descname"><span class="pre">crop</span></span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.crop" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.movingaverage">
+<span class="sig-name descname"><span class="pre">movingaverage</span></span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.movingaverage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.rebin">
+<span class="sig-name descname"><span class="pre">rebin</span></span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.rebin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.level">
+<span class="sig-name descname"><span class="pre">level</span></span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.level" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.resample">
+<span class="sig-name descname"><span class="pre">resample</span></span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.resample" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.psd">
+<span class="sig-name descname"><span class="pre">psd</span></span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.psd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.remove_nan_ends">
+<span class="sig-name descname"><span class="pre">remove_nan_ends</span></span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.remove_nan_ends" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.__call__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.__add__">
+<span class="sig-name descname"><span class="pre">__add__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.__add__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.__sub__">
+<span class="sig-name descname"><span class="pre">__sub__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.__sub__" title="Permalink to this definition"></a></dt>
+<dd><p>This is made on copy and paster from add. It is maybe not the most flexible way in relation with multiplication and operations with different types, but it works well enough.</p>
+<dl class="simple">
+<dt>original code (handle only profile objects):</dt><dd><p>res=Profile(<a href="#id1"><span class="problematic" id="id2">*</span></a>(subtract_profile(<a href="#id3"><span class="problematic" id="id4">*</span></a>self(),*other(),*args,**kwargs))(),units=self.units)
+res.name = self.name + ” - ” + other.name
+return res</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.__repr__" title="Permalink to this definition"></a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.__mul__">
+<span class="sig-name descname"><span class="pre">__mul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.__mul__" title="Permalink to this definition"></a></dt>
+<dd><p>mutiplocation: accept Profile, scalars or 2-vector [x,y].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.__rmul__">
+<span class="sig-name descname"><span class="pre">__rmul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.__rmul__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.__matmul__">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__matmul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.__matmul__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.__neg__">
+<span class="sig-name descname"><span class="pre">__neg__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.__neg__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.__rtruediv__">
+<span class="sig-name descname"><span class="pre">__rtruediv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.__rtruediv__" title="Permalink to this definition"></a></dt>
+<dd><p>division: accept Profile, scalars or 2-vector [x,y].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.__truediv__">
+<span class="sig-name descname"><span class="pre">__truediv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.__truediv__" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference external" href="https://stackoverflow.com/questions/37310077/python-rtruediv-does-not-work-as-i-expect">https://stackoverflow.com/questions/37310077/python-rtruediv-does-not-work-as-i-expect</a></p>
+<p>__rtruediv__ only has priority over __truediv__ if the right-hand operand is an instance of a subclass of the left-hand operand’s class.</p>
+<p>When you do 343 / x, NewInt is a subclass of int, so x’s __rtruediv__ gets priority. When you do 343.3 / x, NewInt is not a subclass of float, so 343.3’s __truediv__ gets priority.</p>
+<p>343.3.__truediv__(x) doesn’t return NotImplemented, since float knows how to divide a float by an int. Thus, x.__rtruediv__ doesn’t get called.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.merge">
+<span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.merge" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.min">
+<span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.min" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.max">
+<span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.max" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.sort">
+<span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.sort" title="Permalink to this definition"></a></dt>
+<dd><p>return sorted copy.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>plot profile using and setting automatically labels.</dt><dd><p>Additional arguments are passed to <cite>plt.plot</cite>.</p>
+</dd>
+</dl>
+<p>Quite useless for profile, can be plot with <a href="#id6"><span class="problematic" id="id7">`</span></a>plt.plot(<a href="#id8"><span class="problematic" id="id9">*</span></a>P(),*args,**kwargs)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id10" title="Permalink to this definition"></a></dt>
+<dd><p>A simple file loader using np.genfromtxt.
+Load columns from file in self.x and self.y.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.save" title="Permalink to this definition"></a></dt>
+<dd><p>Save data using <cite>pyProfile.profile.save_profile</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.register">
+<span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.register" title="Permalink to this definition"></a></dt>
+<dd><p>Use pyProfile.profile.register_profile to rescale.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">crop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id11" title="Permalink to this definition"></a></dt>
+<dd><p>crop profile making use of function profile.crop_data, where x,y are taken from self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">movingaverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id12" title="Permalink to this definition"></a></dt>
+<dd><p>moving average using function profile.movingaverage, where x,y are taken from self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">rebin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id13" title="Permalink to this definition"></a></dt>
+<dd><p>rebin using function profile.rebin_profile, where x,y are taken from self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id14" title="Permalink to this definition"></a></dt>
+<dd><p>return a leveled profile calling profile.level_profile.
+<a href="#id15"><span class="problematic" id="id16">`</span></a>zero option can be ‘top’, ‘bottom’ or ‘mean’, and is a facility to shift curves so that their min or max value is aligned to zero.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id17" title="Permalink to this definition"></a></dt>
+<dd><p>TODO, add option to pass x and y instead of other as an object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id18">
+<span class="sig-name descname"><span class="pre">psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wfun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsnorm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id18" title="Permalink to this definition"></a></dt>
+<dd><p>return a PSD object with psd of self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id19">
+<span class="sig-name descname"><span class="pre">remove_nan_ends</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id19" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.std">
+<span class="sig-name descname"><span class="pre">std</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.std" title="Permalink to this definition"></a></dt>
+<dd><p>return standard deviation of data excluding nans</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.copy" title="Permalink to this definition"></a></dt>
+<dd><p>copy.deepcopy should work well.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Profile.printstats">
+<span class="sig-name descname"><span class="pre">printstats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%3.2g'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Profile.printstats" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.PSD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">PSD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.PSD" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.pyProfile.profile_class.Profile" title="src.pyProfile.profile_class.Profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Profile</span></code></a></p>
+<p>It is a type of profile with customized behavoiur and additional properties
+and methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.PSD.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.PSD.plot" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>plot profile using and setting automatically labels.</dt><dd><p>Additional arguments are passed to <cite>plt.plot</cite>.</p>
+</dd>
+</dl>
+<p>Quite useless for profile, can be plot with <a href="#id20"><span class="problematic" id="id21">`</span></a>plt.plot(<a href="#id22"><span class="problematic" id="id23">*</span></a>P(),*args,**kwargs)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.PSD.rms_power">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rms_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.PSD.rms_power" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate rms slice power as integral of psd. If plot is set also plot the whole thing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.PSD.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.PSD.save" title="Permalink to this definition"></a></dt>
+<dd><p>Save psd.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Plist">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">Plist</span></span><a class="headerlink" href="#src.pyProfile.profile_class.Plist" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">dataIO.superlist.Superlist</span></code></p>
+<p>A list of Profile objects on which unknown operations are performed serially.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.Plist.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.Plist.plot" title="Permalink to this definition"></a></dt>
+<dd><p>plot over same plot each profile in the list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.test_class_init">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">test_class_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.test_class_init" title="Permalink to this definition"></a></dt>
+<dd><p>test init and plot</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.test_profile_mul">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">test_profile_mul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.test_profile_mul" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.test_profile_mul2">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">test_profile_mul2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">res</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.test_profile_mul2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.test_profile_class">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">test_profile_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.test_profile_class" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.test_plot">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">test_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.test_plot" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.test_profile_div">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">test_profile_div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.test_profile_div" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.test_profile_div2">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">test_profile_div2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">res</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.test_profile_div2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile_class.test_profile_division">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile_class.</span></span><span class="sig-name descname"><span class="pre">test_profile_division</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile_class.test_profile_division" title="Permalink to this definition"></a></dt>
+<dd><p>plot division of profile 2 by 1 and inverse of the inverse ratio based on np only and compare with division between objects, interpolate over 1st. Plot comparison with what is calculated by np only.</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../profile/index.html" class="btn btn-neutral float-left" title="src.pyProfile.profile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../profile_v1/index.html" class="btn btn-neutral float-right" title="src.pyProfile.profile_v1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

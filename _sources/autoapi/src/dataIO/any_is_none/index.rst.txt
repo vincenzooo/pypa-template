@@ -1,0 +1,42 @@
+:py:mod:`src.dataIO.any_is_none`
+================================
+
+.. py:module:: src.dataIO.any_is_none
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.dataIO.any_is_none.any_is_none
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.dataIO.any_is_none.tv
+
+
+.. py:function:: any_is_none(val)
+
+   Return True if any of the elements in an iterable is none.
+
+   Needed because builtins.any fails on non iterable and np.any gives
+     inconsistent results (signaled to numpy).
+   Note, it is not recursive (if nested iterable,
+   only first level is checked).
+
+
+.. py:data:: tv
+   :annotation: = [None, [None], [None, 2], 'cane']
+
+   
+

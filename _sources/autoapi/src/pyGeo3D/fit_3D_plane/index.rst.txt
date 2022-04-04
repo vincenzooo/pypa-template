@@ -1,0 +1,27 @@
+:py:mod:`src.pyGeo3D.fit_3D_plane`
+==================================
+
+.. py:module:: src.pyGeo3D.fit_3D_plane
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pyGeo3D.fit_3D_plane.fit_3D_plane
+
+
+
+.. py:function:: fit_3D_plane(points, plot=False)
+
+   Find best fit plane for points. Points is a Nx3 array.
+   If a plane is defined by the equation a*x+b*y+c*z+d=0, then the normal has
+   direction [a,b,c]. The plane is returned as a tuple (normal,ctr).
+   Note that there is some ambiguity in the orientation of the normal. I believe it is related to the sign of d. Also some mistake in plot of normal.
+
+

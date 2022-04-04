@@ -1,0 +1,322 @@
+:py:mod:`src.pySurf.data2D_class`
+=================================
+
+.. py:module:: src.pySurf.data2D_class
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.pySurf.data2D_class.Data2D
+   src.pySurf.data2D_class.PSD2D
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pySurf.data2D_class.test_rot90
+   src.pySurf.data2D_class.test_class_init
+
+
+
+.. py:class:: Data2D(data=None, x=None, y=None, file=None, reader=None, units=None, name=None, *args, **kwargs)
+
+   Bases: :py:obj:`object`
+
+   A class containing 2D data with x and y coordinates and methods for analysis.
+
+   :param object: [description]
+   :type object: [type]
+
+   :raises ValueError: [description]
+   :raises ValueError: [description]
+   :raises ValueError: [description]
+   :raises ValueError: [description]
+   :raises ValueError: [description]
+   :raises ValueError: [description]
+
+   :returns: [description]
+   :rtype: [type]
+
+   .. py:attribute:: plot
+      
+
+      
+
+   .. py:attribute:: load
+      
+
+      
+
+   .. py:attribute:: __doc__
+      
+
+      
+
+   .. py:attribute:: rotate
+      
+
+      
+
+   .. py:attribute:: rot90
+      
+
+      
+
+   .. py:attribute:: tv
+      :annotation: = [[1, 2, 3], [None, 2, 3], [None, None, 3], [None, 2, None], [1, None, None], [1, None, 3], [1,...
+
+      
+
+   .. py:attribute:: transpose
+      
+
+      
+
+   .. py:attribute:: apply_transform
+      
+
+      
+
+   .. py:attribute:: crop
+      
+
+      
+
+   .. py:attribute:: level
+      
+
+      
+
+   .. py:attribute:: resample
+      
+
+      
+
+   .. py:attribute:: psd
+      
+
+      
+
+   .. py:attribute:: remove_nan_frame
+      
+
+      
+
+   .. py:attribute:: remove_outliers
+      
+
+      
+
+   .. py:attribute:: extract_profile
+      
+
+      
+
+   .. py:attribute:: histostats
+      
+
+      
+
+   .. py:attribute:: slope
+      
+
+      
+
+   .. py:method:: __call__(self)
+
+
+   .. py:method:: __add__(self, other, *args, **kwargs)
+
+
+   .. py:method:: __mul__(self, scale, *args, **kwargs)
+
+
+   .. py:method:: __rmul__(self, scale, *args, **kwargs)
+
+
+   .. py:method:: __neg__(self)
+
+
+   .. py:method:: __sub__(self, other, *args, **kwargs)
+
+
+   .. py:method:: __truediv__(self, other)
+
+
+   .. py:method:: __repr__(self)
+
+      Return repr(self).
+
+
+   .. py:method:: merge(self, other, topoints=False)
+
+      Return the merged data between a and b.
+      If `topoints` is True points cloud data are returned.
+      Gaps are brutally interpolated (unless `topoints` is set).
+
+
+   .. py:method:: plot(self, title=None, *args, **kwargs)
+
+      plot using data2d.plot_data and setting automatically labels and colorscales.
+      by default data are filtered at 3 sigma with 2 iterations for visualization, pass nsigma = None to include all data.
+      Additional arguments are passed to plot.
+
+
+   .. py:method:: load(self, filename, *args, **kwargs)
+
+      A simple file loader using data_from_txt
+
+
+   .. py:method:: save(self, filename, *args, **kwargs)
+
+      Save data using data2d.save_data
+
+
+   .. py:method:: rotate(self, angle, *args, **kwargs)
+
+      call data2D.rotate_data, which rotate array of an arbitrary angle in degrees in direction
+      (from first to second axis).
+
+
+   .. py:method:: rot90(self, k=1, *args, **kwargs)
+
+      call data2D.rotate_data, which uses numpy.rot90 to rotate array of an integer multiple of 90 degrees in direction
+      (from first to second axis).
+
+
+   .. py:method:: shift(self, xoffset=None, yoffset=None, zoffset=None)
+
+      Shift data of given offsets along one or more axes.
+      `offsets` can be provided either as 1 (data offset), 2 (x,y) or 3 separate values, or as a single 2 (x,y) or 3 elements vector.
+
+
+   .. py:method:: transpose(self)
+
+
+   .. py:method:: apply_transform(self, *args, **kwargs)
+
+
+   .. py:method:: apply_to_data(self, func, *args, **kwargs)
+
+      apply a function from 2d array to 2d array to data.
+
+
+   .. py:method:: crop(self, *args, **kwargs)
+
+      crop data making use of function data2D.crop_data, where data,x,y are taken from a
+
+
+   .. py:method:: level(self, *args, **kwargs)
+
+
+   .. py:method:: resample(self, other, *args, **kwargs)
+
+      TODO, add option to pass x and y instead of other as an object.
+
+
+   .. py:method:: add_markers(self, *args, **kwargs)
+
+
+   .. py:method:: psd(self, wfun=None, rmsnorm=True, norm=1, analysis=False, subfix='', name=None, *args, **kwargs)
+
+      return a PSD2D object with 2D psd of self.
+      If analysis is set True, psd2d_analysis plots are generated and related parameters
+        are passed as args. You need to pass also title, it generates output,
+        this is subject to change, at the moment, pass empty string to generate plots
+        or string to create output graphics.
+      subfix and name are used to control the name of returned object.
+      units are set in units of self because of the ambiguity mentioned in
+      pySurf.psd2d.psd_units, and consistently with functions in `pySurf.psd2d`.
+
+
+   .. py:method:: remove_nan_frame(self, *args, **kwargs)
+
+
+   .. py:method:: topoints(self)
+
+      convenience function to get points using matrix_to_points2.
+
+
+   .. py:method:: std(self, axis=None)
+
+      return standard deviation of data excluding nans
+
+
+   .. py:method:: copy(self)
+
+      copy.deepcopy should work well.
+
+
+   .. py:method:: stats(self, *args, **kwargs)
+
+
+   .. py:method:: printstats(self, label=None, fmt='%3.2g')
+
+
+   .. py:method:: align_interactive(self, other, find_transform=find_affine)
+
+      interactively set markers and align self to other.
+      Alignment is performed using the transformation returned by
+      find_transform(markers1,markers2) after markers are interactively set.
+      Return aligned Data2D object.
+      There is an experimental version for dlist in scripts.
+
+
+   .. py:method:: remove_outliers(self, fill_value=np.nan, mask=False, *args, **kwargs)
+
+      use dataIO.remove_outliers to remove outliers from data. return a new Data2D object with outliers replaced by `fill_value`. If `mask` is set returns mask (easier than extracting it from returned object).
+
+
+   .. py:method:: extract_profile(self, *args, **kwargs)
+
+
+   .. py:method:: histostats(self, *args, **kwargs)
+
+
+   .. py:method:: slope(self, *args, **kwargs)
+
+
+
+.. py:class:: PSD2D(*args, **kwargs)
+
+   Bases: :py:obj:`Data2D`
+
+   It is a type of data 2D with customized behavoiur and additional properties
+   and methods.
+
+   .. py:method:: plot(self, *args, **kwargs)
+
+      plot using data2d.plot_data and setting automatically labels and colorscales.
+      by default data are filtered at 3 sigma with 2 iterations for visualization, pass nsigma = None to include all data.
+      Additional arguments are passed to plot.
+
+
+   .. py:method:: avgpsd(self, *args, **kwargs)
+
+      avg, returns f and p. Can use data2D.projection keywords `span` and `expand` to return PSD ranges.
+
+
+   .. py:method:: rms_power(self, plot=False, rmsrange=None, *args, **kwargs)
+
+      Calculate rms slice power by integrating .
+      If plot is set also plot the whole thing.
+
+
+
+.. py:function:: test_rot90()
+
+
+.. py:function:: test_class_init(wfile=None, *args, **kwargs)
+
+   test init and plot
+
+

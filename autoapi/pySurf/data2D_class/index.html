@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pySurf.data2D_class &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="pySurf.distanceTable" href="../distanceTable/index.html" />
+    <link rel="prev" title="pySurf.data2D" href="../data2D/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plotting</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyGeo3D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyProfile</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../FEA/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.FEA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PointCloud/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.PointCloud</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_instrument_reader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf._instrument_reader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../affine2D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.affine2D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clip/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.clip</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../data2D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.data2D</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.data2D_class</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distanceTable/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.distanceTable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../find_internal_rectangle/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.find_internal_rectangle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fit_cylinder/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.fit_cylinder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../instrumentReader/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.instrumentReader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../outliers2d/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.outliers2d</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plane_fit/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.plane_fit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../points/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.points</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../psd2d/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.psd2d</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../radial/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.radial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../roi/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.roi</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stress_compensation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.stress_compensation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../testSurfaces/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.testSurfaces</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.data2D_class</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/pySurf/data2D_class/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pySurf.data2D_class">
+<span id="pysurf-data2d-class"></span><h1><a class="reference internal" href="#module-pySurf.data2D_class" title="pySurf.data2D_class"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf.data2D_class</span></code></a><a class="headerlink" href="#module-pySurf.data2D_class" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pySurf.data2D_class.Data2D" title="pySurf.data2D_class.Data2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Data2D</span></code></a></p></td>
+<td><p>A class containing 2D data with x and y coordinates and methods for analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pySurf.data2D_class.PSD2D" title="pySurf.data2D_class.PSD2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PSD2D</span></code></a></p></td>
+<td><p>It is a type of data 2D with customized behavoiur and additional properties</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pySurf.data2D_class.test_rot90" title="pySurf.data2D_class.test_rot90"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_rot90</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pySurf.data2D_class.test_class_init" title="pySurf.data2D_class.test_class_init"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_class_init</span></code></a>(wfile=None, *args, **kwargs)</p></td>
+<td><p>test init and plot</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pySurf.data2D_class.</span></span><span class="sig-name descname"><span class="pre">Data2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class containing 2D data with x and y coordinates and methods for analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>object</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – [description]</p></li>
+<li><p><strong>ValueError</strong> – [description]</p></li>
+<li><p><strong>ValueError</strong> – [description]</p></li>
+<li><p><strong>ValueError</strong> – [description]</p></li>
+<li><p><strong>ValueError</strong> – [description]</p></li>
+<li><p><strong>ValueError</strong> – [description]</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>[description]</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>[type]</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.plot" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.load">
+<span class="sig-name descname"><span class="pre">load</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.load" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.__doc__">
+<span class="sig-name descname"><span class="pre">__doc__</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.__doc__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.rotate">
+<span class="sig-name descname"><span class="pre">rotate</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.rotate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.rot90">
+<span class="sig-name descname"><span class="pre">rot90</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.rot90" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.tv">
+<span class="sig-name descname"><span class="pre">tv</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">[[1,</span> <span class="pre">2,</span> <span class="pre">3],</span> <span class="pre">[None,</span> <span class="pre">2,</span> <span class="pre">3],</span> <span class="pre">[None,</span> <span class="pre">None,</span> <span class="pre">3],</span> <span class="pre">[None,</span> <span class="pre">2,</span> <span class="pre">None],</span> <span class="pre">[1,</span> <span class="pre">None,</span> <span class="pre">None],</span> <span class="pre">[1,</span> <span class="pre">None,</span> <span class="pre">3],</span> <span class="pre">[1,...</span></em><a class="headerlink" href="#pySurf.data2D_class.Data2D.tv" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.transpose">
+<span class="sig-name descname"><span class="pre">transpose</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.transpose" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.apply_transform">
+<span class="sig-name descname"><span class="pre">apply_transform</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.apply_transform" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.crop">
+<span class="sig-name descname"><span class="pre">crop</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.crop" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.level">
+<span class="sig-name descname"><span class="pre">level</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.level" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.resample">
+<span class="sig-name descname"><span class="pre">resample</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.resample" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.psd">
+<span class="sig-name descname"><span class="pre">psd</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.psd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.remove_nan_frame">
+<span class="sig-name descname"><span class="pre">remove_nan_frame</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.remove_nan_frame" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.remove_outliers">
+<span class="sig-name descname"><span class="pre">remove_outliers</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.remove_outliers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.extract_profile">
+<span class="sig-name descname"><span class="pre">extract_profile</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.extract_profile" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.histostats">
+<span class="sig-name descname"><span class="pre">histostats</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.histostats" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.slope">
+<span class="sig-name descname"><span class="pre">slope</span></span><a class="headerlink" href="#pySurf.data2D_class.Data2D.slope" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.__call__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.__add__">
+<span class="sig-name descname"><span class="pre">__add__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.__add__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.__mul__">
+<span class="sig-name descname"><span class="pre">__mul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.__mul__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.__rmul__">
+<span class="sig-name descname"><span class="pre">__rmul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.__rmul__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.__neg__">
+<span class="sig-name descname"><span class="pre">__neg__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.__neg__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.__sub__">
+<span class="sig-name descname"><span class="pre">__sub__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.__sub__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.__truediv__">
+<span class="sig-name descname"><span class="pre">__truediv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.__truediv__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.__repr__" title="Permalink to this definition"></a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.merge">
+<span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.merge" title="Permalink to this definition"></a></dt>
+<dd><p>Return the merged data between a and b.
+If <cite>topoints</cite> is True points cloud data are returned.
+Gaps are brutally interpolated (unless <cite>topoints</cite> is set).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<dd><p>plot using data2d.plot_data and setting automatically labels and colorscales.
+by default data are filtered at 3 sigma with 2 iterations for visualization, pass nsigma = None to include all data.
+Additional arguments are passed to plot.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Permalink to this definition"></a></dt>
+<dd><p>A simple file loader using data_from_txt</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.save" title="Permalink to this definition"></a></dt>
+<dd><p>Save data using data2d.save_data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Permalink to this definition"></a></dt>
+<dd><p>call data2D.rotate_data, which rotate array of an arbitrary angle in degrees in direction
+(from first to second axis).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">rot90</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Permalink to this definition"></a></dt>
+<dd><p>call data2D.rotate_data, which uses numpy.rot90 to rotate array of an integer multiple of 90 degrees in direction
+(from first to second axis).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.shift">
+<span class="sig-name descname"><span class="pre">shift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xoffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yoffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.shift" title="Permalink to this definition"></a></dt>
+<dd><p>Shift data of given offsets along one or more axes.
+<cite>offsets</cite> can be provided either as 1 (data offset), 2 (x,y) or 3 separate values, or as a single 2 (x,y) or 3 elements vector.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">transpose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">apply_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.apply_to_data">
+<span class="sig-name descname"><span class="pre">apply_to_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.apply_to_data" title="Permalink to this definition"></a></dt>
+<dd><p>apply a function from 2d array to 2d array to data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">crop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id6" title="Permalink to this definition"></a></dt>
+<dd><p>crop data making use of function data2D.crop_data, where data,x,y are taken from a</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id7" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id8" title="Permalink to this definition"></a></dt>
+<dd><p>TODO, add option to pass x and y instead of other as an object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.add_markers">
+<span class="sig-name descname"><span class="pre">add_markers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.add_markers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wfun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsnorm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">analysis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subfix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id9" title="Permalink to this definition"></a></dt>
+<dd><p>return a PSD2D object with 2D psd of self.
+If analysis is set True, psd2d_analysis plots are generated and related parameters</p>
+<blockquote>
+<div><p>are passed as args. You need to pass also title, it generates output,
+this is subject to change, at the moment, pass empty string to generate plots
+or string to create output graphics.</p>
+</div></blockquote>
+<p>subfix and name are used to control the name of returned object.
+units are set in units of self because of the ambiguity mentioned in
+pySurf.psd2d.psd_units, and consistently with functions in <cite>pySurf.psd2d</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">remove_nan_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id10" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.topoints">
+<span class="sig-name descname"><span class="pre">topoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.topoints" title="Permalink to this definition"></a></dt>
+<dd><p>convenience function to get points using matrix_to_points2.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.std">
+<span class="sig-name descname"><span class="pre">std</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.std" title="Permalink to this definition"></a></dt>
+<dd><p>return standard deviation of data excluding nans</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.copy" title="Permalink to this definition"></a></dt>
+<dd><p>copy.deepcopy should work well.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.stats">
+<span class="sig-name descname"><span class="pre">stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.stats" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.printstats">
+<span class="sig-name descname"><span class="pre">printstats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%3.2g'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.printstats" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.Data2D.align_interactive">
+<span class="sig-name descname"><span class="pre">align_interactive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">find_transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">find_affine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.Data2D.align_interactive" title="Permalink to this definition"></a></dt>
+<dd><p>interactively set markers and align self to other.
+Alignment is performed using the transformation returned by
+find_transform(markers1,markers2) after markers are interactively set.
+Return aligned Data2D object.
+There is an experimental version for dlist in scripts.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">remove_outliers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id11" title="Permalink to this definition"></a></dt>
+<dd><p>use dataIO.remove_outliers to remove outliers from data. return a new Data2D object with outliers replaced by <cite>fill_value</cite>. If <cite>mask</cite> is set returns mask (easier than extracting it from returned object).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">extract_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id12" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">histostats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id13" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">slope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id14" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pySurf.data2D_class.PSD2D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pySurf.data2D_class.</span></span><span class="sig-name descname"><span class="pre">PSD2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.PSD2D" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pySurf.data2D_class.Data2D" title="pySurf.data2D_class.Data2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Data2D</span></code></a></p>
+<p>It is a type of data 2D with customized behavoiur and additional properties
+and methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.PSD2D.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.PSD2D.plot" title="Permalink to this definition"></a></dt>
+<dd><p>plot using data2d.plot_data and setting automatically labels and colorscales.
+by default data are filtered at 3 sigma with 2 iterations for visualization, pass nsigma = None to include all data.
+Additional arguments are passed to plot.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.PSD2D.avgpsd">
+<span class="sig-name descname"><span class="pre">avgpsd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.PSD2D.avgpsd" title="Permalink to this definition"></a></dt>
+<dd><p>avg, returns f and p. Can use data2D.projection keywords <cite>span</cite> and <cite>expand</cite> to return PSD ranges.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pySurf.data2D_class.PSD2D.rms_power">
+<span class="sig-name descname"><span class="pre">rms_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.PSD2D.rms_power" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate rms slice power by integrating .
+If plot is set also plot the whole thing.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pySurf.data2D_class.test_rot90">
+<span class="sig-prename descclassname"><span class="pre">pySurf.data2D_class.</span></span><span class="sig-name descname"><span class="pre">test_rot90</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.test_rot90" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pySurf.data2D_class.test_class_init">
+<span class="sig-prename descclassname"><span class="pre">pySurf.data2D_class.</span></span><span class="sig-name descname"><span class="pre">test_class_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pySurf.data2D_class.test_class_init" title="Permalink to this definition"></a></dt>
+<dd><p>test init and plot</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../data2D/index.html" class="btn btn-neutral float-left" title="pySurf.data2D" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../distanceTable/index.html" class="btn btn-neutral float-right" title="pySurf.distanceTable" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

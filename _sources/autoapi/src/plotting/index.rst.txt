@@ -1,0 +1,34 @@
+:py:mod:`src.plotting`
+======================
+
+.. py:module:: src.plotting
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   FastImshow/index.rst
+   add_clickable_markers/index.rst
+   add_mask/index.rst
+   backends/index.rst
+   captions/index.rst
+   fignumber/index.rst
+   imageCaption/index.rst
+   imageKey/index.rst
+   imageKey_v1/index.rst
+   keyInterface/index.rst
+   linestyles/index.rst
+   multiplots/index.rst
+   plot_labels/index.rst
+   plot_positions/index.rst
+   scale/index.rst
+   test_interactive/index.rst
+   test_rezoom/index.rst
+   updating_plot/index.rst
+   viewlims/index.rst
+   xadd_clickable_markers/index.rst
+
+

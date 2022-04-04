@@ -1,0 +1,83 @@
+:py:mod:`src.pySurf.find_internal_rectangle`
+============================================
+
+.. py:module:: src.pySurf.find_internal_rectangle
+
+.. autoapi-nested-parse::
+
+   Created on Fri Nov 30 23:42:20 2018
+   https://stackoverflow.com/questions/2478447/find-largest-rectangle-containing-only-zeros-in-an-n%c3%97n-binary-matrix
+
+   @author: Vincenzo
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pySurf.find_internal_rectangle.area
+   src.pySurf.find_internal_rectangle.max_rectangle_size
+   src.pySurf.find_internal_rectangle.max_rect
+   src.pySurf.find_internal_rectangle.internal_nan_mask
+   src.pySurf.find_internal_rectangle.find_internal_rectangle
+   src.pySurf.find_internal_rectangle.test_holes
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pySurf.find_internal_rectangle.a
+
+
+.. py:function:: area(size)
+
+
+.. py:function:: max_rectangle_size(histogram)
+
+
+.. py:function:: max_rect(mat, value=0)
+
+   returns (height, width, left_column, bottom_row) of the largest rectangle
+   containing all `value`'s.
+
+   Example:
+   [[0, 0, 0, 0, 0, 0, 0, 0, 3, 2],
+    [0, 4, 0, 2, 4, 0, 0, 1, 0, 0],
+    [1, 0, 1, 0, 0, 0, 3, 0, 0, 4],
+    [0, 0, 0, 0, 4, 2, 0, 0, 0, 0],
+    [0, 0, 0, 2, 0, 0, 0, 0, 0, 0],
+    [4, 3, 0, 0, 1, 2, 0, 0, 0, 0],
+    [3, 0, 0, 0, 2, 0, 0, 0, 0, 4],
+    [0, 0, 0, 1, 0, 3, 2, 4, 3, 2],
+    [0, 3, 0, 0, 0, 2, 0, 1, 0, 0]]
+    gives: (3, 4, 6, 5)
+
+
+.. py:function:: internal_nan_mask(a, x=None, y=None)
+
+   return a mask with True on internal nans.
+
+
+.. py:function:: find_internal_rectangle(data, x=None, y=None, continuous=False)
+
+   return x and y ranges as ((x0,x1),(y0,y1)) that gives masimum area not containing external nans.
+   if contunuous is True, skip patching the interior nans (bad data surrounded by good data) and crops on the largest area without nans, can be used to speed up the calculation and cut out also holes.
+
+
+.. py:function:: test_holes()
+
+
+.. py:data:: a
+   
+
+   
+

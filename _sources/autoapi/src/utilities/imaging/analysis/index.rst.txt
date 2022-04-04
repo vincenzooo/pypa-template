@@ -1,0 +1,97 @@
+:py:mod:`src.utilities.imaging.analysis`
+========================================
+
+.. py:module:: src.utilities.imaging.analysis
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.utilities.imaging.analysis.pointGetter
+   src.utilities.imaging.analysis.peakInformation
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.utilities.imaging.analysis.ptov
+   src.utilities.imaging.analysis.rms
+   src.utilities.imaging.analysis.fitSag
+   src.utilities.imaging.analysis.findMoments
+   src.utilities.imaging.analysis.nanflat
+   src.utilities.imaging.analysis.fwhm
+   src.utilities.imaging.analysis.getPoints
+   src.utilities.imaging.analysis.getSubApp
+
+
+
+.. py:function:: ptov(d)
+
+   Return the peak to valley of an image
+
+
+.. py:function:: rms(d)
+
+   Return the RMS of an image
+
+
+.. py:function:: fitSag(d)
+
+   Compute sag to a vector by fitting a quadratic
+
+
+.. py:function:: findMoments(d)
+
+
+.. py:function:: nanflat(d)
+
+   Remove NaNs and flatten an image
+
+
+.. py:function:: fwhm(x, y)
+
+   Compute the FWHM of an x,y vector pair
+
+
+.. py:class:: pointGetter(img, log=False)
+
+   Creates an object tied to an imshow where the user can
+   accumulate a list of x,y coords by right clicking on them.
+   When done, the user can press the space key.
+
+   .. py:method:: keyEvent(self, event)
+
+
+   .. py:method:: close(self)
+
+
+
+.. py:class:: peakInformation(img)
+
+   .. py:method:: clickEvent(self, event)
+
+
+   .. py:method:: close(self)
+
+
+
+.. py:function:: getPoints(img, log=False)
+
+   This function will bring up the image, wait for the user to
+   press space while hovering over points, then wait for the user to
+   end by pressing enter in command line, and then return a list of x,y coords
+
+
+.. py:function:: getSubApp(img, log=False, points=None)
+
+   Return a subarray defined by rectangle enclosed by two points
+
+

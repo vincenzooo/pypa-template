@@ -1,0 +1,17 @@
+:py:mod:`src.dataIO.config`
+===========================
+
+.. py:module:: src.dataIO.config
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   extractConfigFromNB/index.rst
+   interface/index.rst
+   make_config/index.rst
+
+

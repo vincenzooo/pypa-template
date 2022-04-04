@@ -1,0 +1,54 @@
+:py:mod:`plotting.updating_plot`
+================================
+
+.. py:module:: plotting.updating_plot
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   plotting.updating_plot.updating_plot
+   plotting.updating_plot.updating_mu
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   plotting.updating_plot.a
+
+
+.. py:function:: updating_plot(ax=None, title=None)
+
+   make the passed axis ax active (or the current one if not passed), such that
+   it updates the color scale when zoomed to include only visible data.
+   Axes is modified in place and returned.
+   Usage:
+       ax=updating_plot()  #make the current axis an updating_plot, axis is returned
+       updating_plot(ax1)  #make the specific axis ax1 an updating_plot
+
+
+.. py:function:: updating_mu(ax=None, title=None)
+
+   mock up. to solve nsigma and
+   make the passed axis ax active (or the current one if not passed), such that
+   it updates the color scale when zoomed to include only visible data.
+   Axes is modified in place and returned.
+   Usage:
+       ax=updating_plot()  #make the current axis an updating_plot, axis is returned
+       updating_plot(ax1)  #make the specific axis ax1 an updating_plot
+
+
+.. py:data:: a
+   
+
+   
+

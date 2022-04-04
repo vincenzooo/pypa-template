@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.pySurf.testSurfaces &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="src.utilities" href="../../utilities/index.html" />
+    <link rel="prev" title="src.pySurf.stress_compensation" href="../stress_compensation/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.testSurfaces</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/src/pySurf/testSurfaces/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.pySurf.testSurfaces">
+<span id="src-pysurf-testsurfaces"></span><h1><a class="reference internal" href="#module-src.pySurf.testSurfaces" title="src.pySurf.testSurfaces"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.testSurfaces</span></code></a><a class="headerlink" href="#module-src.pySurf.testSurfaces" title="Permalink to this headline"></a></h1>
+<p>Artificially generated test surfaces.
+Can be incorporated in readers.</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.testSurfaces.makeGaussian" title="src.pySurf.testSurfaces.makeGaussian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">makeGaussian</span></code></a>(size, fwhm=3, center=None)</p></td>
+<td><p>Make a square gaussian kernel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.testSurfaces.make_sag" title="src.pySurf.testSurfaces.make_sag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_sag</span></code></a>(nx, ny)</p></td>
+<td><p>create surface with sag along y with peak-to-valley 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.testSurfaces.make_range" title="src.pySurf.testSurfaces.make_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_range</span></code></a>(nx, ny)</p></td>
+<td><p>make a data,x,y with increasing integer values for each pixel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.testSurfaces.make_prof_legendre" title="src.pySurf.testSurfaces.make_prof_legendre"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_prof_legendre</span></code></a>(x, coeff, inanp=[])</p></td>
+<td><p>create a profile on x with legendre coefficients coeff.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.testSurfaces.make_surf_legendre" title="src.pySurf.testSurfaces.make_surf_legendre"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_surf_legendre</span></code></a>(x, y, coeff, inanp=[], inanl=[])</p></td>
+<td><p>Create a test surface from profiles along x, created with</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.testSurfaces.make_surf_plane" title="src.pySurf.testSurfaces.make_surf_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_surf_plane</span></code></a>(x, y, coeff)</p></td>
+<td><p>Create a test surface from plane coefficients <cite>coeff</cite> as returned from <cite>pySurf.plane_fit</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id0" title="src.pySurf.testSurfaces.test_profile_legendre"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_profile_legendre</span></code></a>(nanpoints=0)</p></td>
+<td><p>test my routines with profile</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id0" title="src.pySurf.testSurfaces.test_profile_legendre"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_profile_legendre</span></code></a>(nanpoints=0)</p></td>
+<td><p>test my routines with profile</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.testSurfaces.test_surf_legendre" title="src.pySurf.testSurfaces.test_surf_legendre"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_surf_legendre</span></code></a>(nans=True, fixnans=True)</p></td>
+<td><p>test how 1D (line) routines in polynomial.legendre work on 1D and 2D data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.testSurfaces.test_makeGaussian" title="src.pySurf.testSurfaces.test_makeGaussian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_makeGaussian</span></code></a>(N=100, rnd=3.0)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.testSurfaces.N" title="src.pySurf.testSurfaces.N"><code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.testSurfaces.makeGaussian">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.testSurfaces.</span></span><span class="sig-name descname"><span class="pre">makeGaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.testSurfaces.makeGaussian" title="Permalink to this definition"></a></dt>
+<dd><p>Make a square gaussian kernel.
+size is the length of a side of the square
+fwhm is full-width-half-maximum, which
+can be thought of as an effective radius.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.testSurfaces.make_sag">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.testSurfaces.</span></span><span class="sig-name descname"><span class="pre">make_sag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.testSurfaces.make_sag" title="Permalink to this definition"></a></dt>
+<dd><p>create surface with sag along y with peak-to-valley 1.
+Note that this is the range of data, not of the surface (i.e. if
+number of points in y is even, the analytical minimum of the surface lies
+between the two central pixels and it is not included in data)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.testSurfaces.make_range">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.testSurfaces.</span></span><span class="sig-name descname"><span class="pre">make_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.testSurfaces.make_range" title="Permalink to this definition"></a></dt>
+<dd><p>make a data,x,y with increasing integer values for each pixel.</p>
+<p>example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">make_range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>(array([[0., 1.],</dt><dd><p>[2., 3.],
+[4., 5.]]), array([0, 1]), array([0, 1, 2]))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.testSurfaces.make_prof_legendre">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.testSurfaces.</span></span><span class="sig-name descname"><span class="pre">make_prof_legendre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inanp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.testSurfaces.make_prof_legendre" title="Permalink to this definition"></a></dt>
+<dd><p>create a profile on x with legendre coefficients coeff.
+Add nans on inanp indices.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.testSurfaces.make_surf_legendre">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.testSurfaces.</span></span><span class="sig-name descname"><span class="pre">make_surf_legendre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inanp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inanl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.testSurfaces.make_surf_legendre" title="Permalink to this definition"></a></dt>
+<dd><p>Create a test surface from profiles along x, created with
+legendre polynomial with coefficients ‘coeff’.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.testSurfaces.make_surf_plane">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.testSurfaces.</span></span><span class="sig-name descname"><span class="pre">make_surf_plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeff</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.testSurfaces.make_surf_plane" title="Permalink to this definition"></a></dt>
+<dd><p>Create a test surface from plane coefficients <cite>coeff</cite> as returned from <cite>pySurf.plane_fit</cite>.
+based on</p>
+<blockquote>
+<div><p># Ax + By + C = z</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.testSurfaces.test_profile_legendre">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.testSurfaces.</span></span><span class="sig-name descname"><span class="pre">test_profile_legendre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nanpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.testSurfaces.test_profile_legendre" title="Permalink to this definition"></a></dt>
+<dd><p>test my routines with profile</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.testSurfaces.</span></span><span class="sig-name descname"><span class="pre">test_profile_legendre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixnans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<dd><p>test on a list of 2D coefficients creating profile then fitting with
+numpy routines and with data2D routine fitlegendre
+(wrapper around numpy to handle nans).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.testSurfaces.test_surf_legendre">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.testSurfaces.</span></span><span class="sig-name descname"><span class="pre">test_surf_legendre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixnans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.testSurfaces.test_surf_legendre" title="Permalink to this definition"></a></dt>
+<dd><p>test how 1D (line) routines in polynomial.legendre work on 1D and 2D data.
+If nanpoints=0 nan are not put in data. If nanpoints=1 or 2 nans are added on some points and
+some lines, with value value of nanpoints determineing the option nanstrict of levellegendre
+(1=false, 2=true).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.testSurfaces.test_makeGaussian">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.testSurfaces.</span></span><span class="sig-name descname"><span class="pre">test_makeGaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rnd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.testSurfaces.test_makeGaussian" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="src.pySurf.testSurfaces.N">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.testSurfaces.</span></span><span class="sig-name descname"><span class="pre">N</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">100</span></em><a class="headerlink" href="#src.pySurf.testSurfaces.N" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../stress_compensation/index.html" class="btn btn-neutral float-left" title="src.pySurf.stress_compensation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../utilities/index.html" class="btn btn-neutral float-right" title="src.utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

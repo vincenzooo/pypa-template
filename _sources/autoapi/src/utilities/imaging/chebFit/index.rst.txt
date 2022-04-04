@@ -1,0 +1,25 @@
+:py:mod:`src.utilities.imaging.chebFit`
+=======================================
+
+.. py:module:: src.utilities.imaging.chebFit
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.utilities.imaging.chebFit.chebFit
+
+
+
+.. py:function:: chebFit(d, xcoeff, ycoeff)
+
+   Perform a fit to 2D data with 2D Chebyshev polynomials.
+
+
+

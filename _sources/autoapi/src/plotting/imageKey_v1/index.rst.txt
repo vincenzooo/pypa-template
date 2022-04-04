@@ -1,0 +1,124 @@
+:py:mod:`src.plotting.imageKey_v1`
+==================================
+
+.. py:module:: src.plotting.imageKey_v1
+
+.. autoapi-nested-parse::
+
+   Vincenzo Cotroneo vcotroneo@cfa.harvard.edu 2016/03/07
+
+   It's a set of classes that add key commands to a matplotlib window.
+   The class is created and called. On call with an object and a figure as arguments,
+   links them and add the key commands to the matplotlib figure.
+
+   There are
+
+   class BaseImageKey(AbstractImageKey):
+       """A simple one with only help and reset (plt.close('all')).
+       can be used as base."""
+
+   class BaseImageKey(AbstractImageKey):
+       """A simple one with only help and reset (plt.close('all')).
+       can be used as base."""
+
+   2018/06/06 it was used to work, but dependent on Tk , not on my computer.
+   It was used to visualize help.
+   Also, some problem with arguments passed to event functions for BaseImageKey
+   example b.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.imageKey_v1.AbstractImageKey
+   src.plotting.imageKey_v1.BaseImageKey
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.imageKey_v1.pltrnd
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.imageKey_v1.tk_yes
+   src.plotting.imageKey_v1.tk_yes
+   src.plotting.imageKey_v1.pe_yes
+   src.plotting.imageKey_v1.pe_yes
+
+
+.. py:data:: tk_yes
+   :annotation: = False
+
+   
+
+.. py:data:: tk_yes
+   :annotation: = True
+
+   
+
+.. py:data:: pe_yes
+   :annotation: = False
+
+   
+
+.. py:data:: pe_yes
+   :annotation: = True
+
+   
+
+.. py:class:: AbstractImageKey(keys=None, functions=None, labels=None)
+
+   Bases: :py:obj:`object`
+
+   It's a function that returns references to figure and axis after adding a key shortcut to the axis.
+   Empty class to be inherited from.
+
+   .. py:method:: add_key(self, key, function, label=None)
+
+
+   .. py:method:: connect(self, object=None, figure=None)
+
+      connect the current figure to an object adding I/O command interface based on keyboard to figure.
+      object is passed to be manipulated in routine. Includes standard keys
+      use H for list of commands.
+
+
+   .. py:method:: __call__(self, object=None, figure=None)
+
+
+
+.. py:class:: BaseImageKey(*args, **kwargs)
+
+   Bases: :py:obj:`AbstractImageKey`
+
+   A simple one with only help and reset (plt.close('all')).
+   can be used as base.
+
+   .. py:method:: __call__(self, object=None, figure=None)
+
+      connect the current figure to an object adding I/O command interface based on keyboard to figure.
+      object is passed to be manipulated in routine. Includes standard keys
+      use H for list of commands.
+
+
+
+.. py:function:: pltrnd()
+
+   a test function that plots a random array on current axis.
+
+

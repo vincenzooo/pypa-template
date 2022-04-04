@@ -1,0 +1,22 @@
+:py:mod:`utilities.imaging`
+===========================
+
+.. py:module:: utilities.imaging
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   analysis/index.rst
+   chebFit/index.rst
+   fit_cylinder/index.rst
+   fitting/index.rst
+   man/index.rst
+   stitch/index.rst
+   test_bonding/index.rst
+   zernikemod/index.rst
+
+

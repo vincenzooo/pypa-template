@@ -1,0 +1,45 @@
+:py:mod:`src.dataIO.read_pars_from_namelist`
+============================================
+
+.. py:module:: src.dataIO.read_pars_from_namelist
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.dataIO.read_pars_from_namelist.namelist_from_string
+   src.dataIO.read_pars_from_namelist.read_pars_from_namelist
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.dataIO.read_pars_from_namelist.file
+
+
+.. py:function:: namelist_from_string(l, separator='=')
+
+   extract namelist parameters from a list of strings (e.g. file lines).
+
+
+.. py:function:: read_pars_from_namelist(filename, separator='=')
+
+   Read a set of parameters from a (fortran-like) namelist in file FILENAME.
+   Return a dictionary. All values are read as strings.
+   A file-object like io.StringIO(filetext) can be used in place of a real file.
+
+
+.. py:data:: file
+   :annotation: = E:\work\WTDf\geoSettings.txt
+
+   
+

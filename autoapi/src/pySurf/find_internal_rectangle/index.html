@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.pySurf.find_internal_rectangle &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="src.pySurf.fit_cylinder" href="../fit_cylinder/index.html" />
+    <link rel="prev" title="src.pySurf.distanceTable" href="../distanceTable/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.find_internal_rectangle</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/src/pySurf/find_internal_rectangle/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.pySurf.find_internal_rectangle">
+<span id="src-pysurf-find-internal-rectangle"></span><h1><a class="reference internal" href="#module-src.pySurf.find_internal_rectangle" title="src.pySurf.find_internal_rectangle"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.find_internal_rectangle</span></code></a><a class="headerlink" href="#module-src.pySurf.find_internal_rectangle" title="Permalink to this headline"></a></h1>
+<p>Created on Fri Nov 30 23:42:20 2018
+<a class="reference external" href="https://stackoverflow.com/questions/2478447/find-largest-rectangle-containing-only-zeros-in-an-n%c3%97n-binary-matrix">https://stackoverflow.com/questions/2478447/find-largest-rectangle-containing-only-zeros-in-an-n%c3%97n-binary-matrix</a></p>
+<p>&#64;author: Vincenzo</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.find_internal_rectangle.area" title="src.pySurf.find_internal_rectangle.area"><code class="xref py py-obj docutils literal notranslate"><span class="pre">area</span></code></a>(size)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.find_internal_rectangle.max_rectangle_size" title="src.pySurf.find_internal_rectangle.max_rectangle_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_rectangle_size</span></code></a>(histogram)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.find_internal_rectangle.max_rect" title="src.pySurf.find_internal_rectangle.max_rect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_rect</span></code></a>(mat, value=0)</p></td>
+<td><p>returns (height, width, left_column, bottom_row) of the largest rectangle</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.find_internal_rectangle.internal_nan_mask" title="src.pySurf.find_internal_rectangle.internal_nan_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">internal_nan_mask</span></code></a>(a, x=None, y=None)</p></td>
+<td><p>return a mask with True on internal nans.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.find_internal_rectangle.find_internal_rectangle" title="src.pySurf.find_internal_rectangle.find_internal_rectangle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_internal_rectangle</span></code></a>(data, x=None, y=None, continuous=False)</p></td>
+<td><p>return x and y ranges as ((x0,x1),(y0,y1)) that gives masimum area not containing external nans.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.find_internal_rectangle.test_holes" title="src.pySurf.find_internal_rectangle.test_holes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_holes</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.find_internal_rectangle.a" title="src.pySurf.find_internal_rectangle.a"><code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.find_internal_rectangle.area">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.find_internal_rectangle.</span></span><span class="sig-name descname"><span class="pre">area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.find_internal_rectangle.area" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.find_internal_rectangle.max_rectangle_size">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.find_internal_rectangle.</span></span><span class="sig-name descname"><span class="pre">max_rectangle_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">histogram</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.find_internal_rectangle.max_rectangle_size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.find_internal_rectangle.max_rect">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.find_internal_rectangle.</span></span><span class="sig-name descname"><span class="pre">max_rect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.find_internal_rectangle.max_rect" title="Permalink to this definition"></a></dt>
+<dd><p>returns (height, width, left_column, bottom_row) of the largest rectangle
+containing all <cite>value</cite>’s.</p>
+<p>Example:
+[[0, 0, 0, 0, 0, 0, 0, 0, 3, 2],</p>
+<blockquote>
+<div><p>[0, 4, 0, 2, 4, 0, 0, 1, 0, 0],
+[1, 0, 1, 0, 0, 0, 3, 0, 0, 4],
+[0, 0, 0, 0, 4, 2, 0, 0, 0, 0],
+[0, 0, 0, 2, 0, 0, 0, 0, 0, 0],
+[4, 3, 0, 0, 1, 2, 0, 0, 0, 0],
+[3, 0, 0, 0, 2, 0, 0, 0, 0, 4],
+[0, 0, 0, 1, 0, 3, 2, 4, 3, 2],
+[0, 3, 0, 0, 0, 2, 0, 1, 0, 0]]
+gives: (3, 4, 6, 5)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.find_internal_rectangle.internal_nan_mask">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.find_internal_rectangle.</span></span><span class="sig-name descname"><span class="pre">internal_nan_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.find_internal_rectangle.internal_nan_mask" title="Permalink to this definition"></a></dt>
+<dd><p>return a mask with True on internal nans.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.find_internal_rectangle.find_internal_rectangle">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.find_internal_rectangle.</span></span><span class="sig-name descname"><span class="pre">find_internal_rectangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">continuous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.find_internal_rectangle.find_internal_rectangle" title="Permalink to this definition"></a></dt>
+<dd><p>return x and y ranges as ((x0,x1),(y0,y1)) that gives masimum area not containing external nans.
+if contunuous is True, skip patching the interior nans (bad data surrounded by good data) and crops on the largest area without nans, can be used to speed up the calculation and cut out also holes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.find_internal_rectangle.test_holes">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.find_internal_rectangle.</span></span><span class="sig-name descname"><span class="pre">test_holes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.find_internal_rectangle.test_holes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="src.pySurf.find_internal_rectangle.a">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.find_internal_rectangle.</span></span><span class="sig-name descname"><span class="pre">a</span></span><a class="headerlink" href="#src.pySurf.find_internal_rectangle.a" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../distanceTable/index.html" class="btn btn-neutral float-left" title="src.pySurf.distanceTable" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../fit_cylinder/index.html" class="btn btn-neutral float-right" title="src.pySurf.fit_cylinder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

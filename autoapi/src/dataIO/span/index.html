@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.dataIO.span &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="src.dataIO.superlist" href="../superlist/index.html" />
+    <link rel="prev" title="src.dataIO.running_mean" href="../running_mean/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pySurf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.span</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/src/dataIO/span/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.dataIO.span">
+<span id="src-dataio-span"></span><h1><a class="reference internal" href="#module-src.dataIO.span" title="src.dataIO.span"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO.span</span></code></a><a class="headerlink" href="#module-src.dataIO.span" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.dataIO.span.ispan" title="src.dataIO.span.ispan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ispan</span></code></a>(array: numpy.array, size: bool = False, axis: int = None) → numpy.array</p></td>
+<td><p>2018/02/09 as span, but works on indices rather than elements.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.dataIO.span.span" title="src.dataIO.span.span"><code class="xref py py-obj docutils literal notranslate"><span class="pre">span</span></code></a>(array: numpy.array, size: bool = False, axis: int = None, index: bool = False) → numpy.array</p></td>
+<td><p>Returns min and max of an array together as a array of couples (or their indices or interval size).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.dataIO.span.span_from_pixels" title="src.dataIO.span.span_from_pixels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">span_from_pixels</span></code></a>(p, n=None, delta=0)</p></td>
+<td><p>From an array with positions of pixel centers <cite>p</cite>, returns the entire range for pixels from side to side. Useful to adjust plot extent in imshow.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.dataIO.span.test_span_from_pixels" title="src.dataIO.span.test_span_from_pixels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_span_from_pixels</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.dataIO.span.filtered_span" title="src.dataIO.span.filtered_span"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filtered_span</span></code></a>(*args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataIO.span.ispan">
+<span class="sig-prename descclassname"><span class="pre">src.dataIO.span.</span></span><span class="sig-name descname"><span class="pre">ispan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.array</span></span></span><a class="headerlink" href="#src.dataIO.span.ispan" title="Permalink to this definition"></a></dt>
+<dd><p>2018/02/09 as span, but works on indices rather than elements.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataIO.span.span">
+<span class="sig-prename descclassname"><span class="pre">src.dataIO.span.</span></span><span class="sig-name descname"><span class="pre">span</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.array</span></span></span><a class="headerlink" href="#src.dataIO.span.span" title="Permalink to this definition"></a></dt>
+<dd><p>Returns min and max of an array together as a array of couples (or their indices or interval size).
+:param size: If set, return the size of the interval instead of the span.
+:param index: If set, return indices instead of elements.</p>
+<p class="rubric">Example</p>
+<p>pts.shape  #pts is an array of x,y,z coordinates
+Out[206]: (270051, 3)</p>
+<p>s=span(pts,axis=0)   #get coordinate span
+s.shape
+Out[208]: (3, 2)</p>
+<dl class="simple">
+<dt>s[0]  #span of x axis, works easily for 2d arrays, but see notes</dt><dd><p>below for ndarrays.</p>
+</dd>
+</dl>
+<p>Out[209]: array([-34.3813775 ,  34.57937714])</p>
+<p># separate axis spans:
+xs,ys,zs=span(pts,axis=0)
+xs
+Out[229]: array([-34.3813775 ,  34.57937714])</p>
+<p>xl,yl=span(pts0,axis=0)[:2] #get only x and y spans</p>
+<p>Note that couples [min,max] are accessible on last index.
+This has the effect to have a couple where the value returned by</p>
+<blockquote>
+<div><p>min and max would be a single value and the rank of the array is not changed.</p>
+</div></blockquote>
+<p>Note that the intent of the function is not to return a result that can be addressed as a 2-element list to give min and max as entire arrays (equal to array.min and array.max).
+For this behavior on ndim arrays, use instead directly np.nanmin and np.nanmax.</p>
+<p>In general, indexing span as list will have same effect it has on input array, and iteratively with the last axis being a couple [min,max] instead of a single value.</p>
+<p><cite>fit_cylinder</cite> uses this function as:</p>
+<blockquote>
+<div><p># pts.shape
+# Out[138]: (270051, 3)</p>
+<p>s=span(pts,axis=0)
+print (‘X: [%6.3f,%6.3f]’%tuple(s[0]))
+print (‘Y: [%6.3f,%6.3f]’%tuple(s[1]))
+print (‘data range: [%6.3f,%6.3f]’%tuple(s[2]))</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataIO.span.span_from_pixels">
+<span class="sig-prename descclassname"><span class="pre">src.dataIO.span.</span></span><span class="sig-name descname"><span class="pre">span_from_pixels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.span.span_from_pixels" title="Permalink to this definition"></a></dt>
+<dd><p>From an array with positions of pixel centers <cite>p</cite>, returns the entire range for pixels from side to side. Useful to adjust plot extent in imshow.</p>
+<p><cite>n</cite> is the number of pixels to consider in the output range.</p>
+<p><cite>p</cite> (defaults to n) is uniquely used to extract the range,
+which makes it possible, as alternative, to pass <cite>p</cite> as range.</p>
+<p><cite>delta</cite> is used only if p has a single value (this is tested in the simplest way by checking <cite>len(p) == 1</cite>, doesn’t account for any complex case, e.g. repeated values).</p>
+<p>In this case, the pixel width cannot be evaluated from the single <cite>p</cite> value, and <cite>delta</cite> is assumend as half width of the pixel to use. Can be set to 0 returns two identical values, as default in <cite>dataIO.span()</cite>).
+Not the most elegant, but if a negative value is passed, this is used as fraction of value.</p>
+<p>Usage example:</p>
+<blockquote>
+<div><p>s = span_from_pixels([100],n,delta=0.1)
+xs = np.linspace(s[0],s[1],n+1) # return the n+1 interval extremes</p>
+</div></blockquote>
+<p>More examples in <cite>test_span_from_pixels</cite>.</p>
+<p>note that np.linspace has flag retsteps to return step size.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataIO.span.test_span_from_pixels">
+<span class="sig-prename descclassname"><span class="pre">src.dataIO.span.</span></span><span class="sig-name descname"><span class="pre">test_span_from_pixels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.span.test_span_from_pixels" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataIO.span.filtered_span">
+<span class="sig-prename descclassname"><span class="pre">src.dataIO.span.</span></span><span class="sig-name descname"><span class="pre">filtered_span</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataIO.span.filtered_span" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../running_mean/index.html" class="btn btn-neutral float-left" title="src.dataIO.running_mean" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../superlist/index.html" class="btn btn-neutral float-right" title="src.dataIO.superlist" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+:py:mod:`dataIO.config.interface`
+=================================
+
+.. py:module:: dataIO.config.interface
+
+.. autoapi-nested-parse::
+
+   Independently from underlying mechanism or preprocessing, provides an interface to access configurations
+   on files or variables and manipulate them. A configuration is a dictionary
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   dataIO.config.interface.dict_from_json
+   dataIO.config.interface.add_config
+   dataIO.config.interface.explore_config
+   dataIO.config.interface.read_json_conf
+   dataIO.config.interface.write_json_conf
+   dataIO.config.interface.conf_from_json
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   dataIO.config.interface.parse
+
+
+.. py:data:: parse
+   
+
+   
+
+.. py:function:: dict_from_json(file)
+
+   just a wrapper around parse, reads a neste dictionary from json file. Return a dictionary.
+
+
+.. py:function:: add_config(confdic, tag, **kwargs)
+
+   add configuration from variable to confdic.
+   Used to migrate old code to new.
+
+
+.. py:function:: explore_config(config, *strings)
+
+   given a list of strings, retrieve the value of the nested config item.
+
+
+.. py:function:: read_json_conf(jfile)
+
+   Read a dictionary from a json file and return a dic. Can include or exclude first level keys.
+
+   supercede conf_from_json.
+   For `settings` dictionary, each key is a unique name for a configuation,
+   The value is a nested dictionary in format {'property_name':<value>}, where property_name
+   is a string and value can be any type (including dictionaries?).
+
+   special keys:
+       'default': dictionary of variable names and values that are used for
+       every entry in the configuration when these variables are not defined.
+       'override': dictionary of variable names and values that override every
+           entry in the configuration.
+       'includeonly': if set to some list of strings, includes only configurations that are part of the list
+       'exclude': list as in includeonly, exclude the listed config, is applied after includeonly.
+
+
+
+.. py:function:: write_json_conf(jfile, conf)
+
+   write a configuration to a json file.
+
+
+.. py:function:: conf_from_json(jfile, include=None, exclude=None)
+
+   Read a dictionary from a json file and return a dic. Can include or exclude first level keys.
+
+   For `settings` dictionary, each key is a unique name for a configuation,
+   The value is a nested dictionary in format {'property_name':<value>}, where property_name
+   is a string and value can be any type (including dictionaries?).
+
+   If included is set to a list,
+   only the keys of first level (configurations) matching names in this list are included.
+   In alternative, exclude can be set, leading to include all but these names.
+
+
+

@@ -1,0 +1,37 @@
+:py:mod:`plotting.add_mask`
+===========================
+
+.. py:module:: plotting.add_mask
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   plotting.add_mask.add_mask
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   plotting.add_mask.imfile
+
+
+.. py:function:: add_mask(fig=None, ax=None, key='enter', propertyname='mask', modkey='control', hold=False)
+
+   Select a rectangle on image.
+
+
+.. py:data:: imfile
+   :annotation: = test\input_data\IMG_4509_crop.jpg
+
+   
+

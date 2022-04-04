@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.pyProfile.profile &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="src.pyProfile.profile_class" href="../profile_class/index.html" />
+    <link rel="prev" title="src.pyProfile.power_law" href="../power_law/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pySurf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile.profile</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/src/pyProfile/profile/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.pyProfile.profile">
+<span id="src-pyprofile-profile"></span><h1><a class="reference internal" href="#module-src.pyProfile.profile" title="src.pyProfile.profile"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile.profile</span></code></a><a class="headerlink" href="#module-src.pyProfile.profile" title="Permalink to this headline"></a></h1>
+<p>It is a library of functions for manipulation or related to optics, acting on a couple of lists x and y, of same length, representing a profile.</p>
+<p>It has only a simple reader (a thin wrapper around <cite>np.genfromtxt</cite>) and a function <cite>register_profile</cite> to align and rescale x and y. Since all functions act on single vectors x and y, more complex readers are not needed here and are left to profile_class.</p>
+<p>Created on Sun Mar 06 16:06:48 2016</p>
+<p>&#64;author: Vincenzo Cotroneo
+&#64;email: <a class="reference external" href="mailto:vincenzo&#46;cotroneo&#37;&#52;&#48;inaf&#46;it">vincenzo<span>&#46;</span>cotroneo<span>&#64;</span>inaf<span>&#46;</span>it</a></p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.line" title="src.pyProfile.profile.line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">line</span></code></a>(x, y=None)</p></td>
+<td><p>return line through end points of x,y.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.make_signal" title="src.pyProfile.profile.make_signal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_signal</span></code></a>(amp, x=None, L=None, N=None, nwaves=None, phase=0, ystartend=(0, 0), noise=0.0, minus_one=False)</p></td>
+<td><p>Build a signal of length L and number of points N, as a sum of a cosinusoid, a line and a noise. minus_one remove last point (just a convenience e.g. for a periodic profile), note that in</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.test_make_Signal" title="src.pyProfile.profile.test_make_Signal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_make_Signal</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.make_circle" title="src.pyProfile.profile.make_circle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_circle</span></code></a>(x, c, r, sign=1)</p></td>
+<td><p>plot positive part if sign is positive, negative if negative.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.find_internal_interval" title="src.pyProfile.profile.find_internal_interval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_internal_interval</span></code></a>(x, y)</p></td>
+<td><p>find the largest interval of profile with all valid point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.remove_nan_ends" title="src.pyProfile.profile.remove_nan_ends"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_nan_ends</span></code></a>(x, y=None, internal=False)</p></td>
+<td><p>remove all y points at the two ends of profile that contains only nans in y. If internal is set, return the</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.polyfit_profile" title="src.pyProfile.profile.polyfit_profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">polyfit_profile</span></code></a>(x, y=None, degree=1, P=np.polynomial.Legendre)</p></td>
+<td><p>Use one of the poynomial bases in</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.register_profile" title="src.pyProfile.profile.register_profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_profile</span></code></a>(x, y, scale=(1, 1), strip=False, crop=None, center=None, *args, **kwargs)</p></td>
+<td><p>get x,y and register them using usual set of parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.load_profile" title="src.pyProfile.profile.load_profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_profile</span></code></a>(file, *args, **kwargs)</p></td>
+<td><p>The simplest file loader using np.genfromtxt.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.merge_profile" title="src.pyProfile.profile.merge_profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_profile</span></code></a>(x1, y1, x2, y2)</p></td>
+<td><p>stitch profiles</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.save_profile" title="src.pyProfile.profile.save_profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_profile</span></code></a>(filename, x, y, **kwargs)</p></td>
+<td><p>Use np.savetxt to save x and y to file</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.get_stats" title="src.pyProfile.profile.get_stats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stats</span></code></a>(x, y=None, units=None)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.level_profile" title="src.pyProfile.profile.level_profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">level_profile</span></code></a>(x, y=None, degree=1)</p></td>
+<td><p>return profile after removal of a (Legendre) polynomial component.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.sort_profile" title="src.pyProfile.profile.sort_profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort_profile</span></code></a>(x, y, reverse=False)</p></td>
+<td><p>sort profile on the base of x.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.remove_profile_outliers" title="src.pyProfile.profile.remove_profile_outliers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_profile_outliers</span></code></a>(y, nsigma=3, includenan=True)</p></td>
+<td><p>remove outliers from a profile by interpolation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.movingaverage" title="src.pyProfile.profile.movingaverage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">movingaverage</span></code></a>(values, window)</p></td>
+<td><p>for now, only odd windows. Full returns</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.rebin_profile" title="src.pyProfile.profile.rebin_profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rebin_profile</span></code></a>(x, y, *args, **kwargs)</p></td>
+<td><p>Flexible rebin of a profile. Reduces number of points without losing information.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.crop_profile" title="src.pyProfile.profile.crop_profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">crop_profile</span></code></a>(x, y=None, xrange=None, yrange=None, *args, **kwargs)</p></td>
+<td><p>Crop a profile to range (can be set to None) in x and y.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.resample_profile" title="src.pyProfile.profile.resample_profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resample_profile</span></code></a>(x1, y1, x2, y2=None)</p></td>
+<td><p>resample y1 (defined on x1) on x2.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.sum_profiles" title="src.pyProfile.profile.sum_profiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum_profiles</span></code></a>(x1, y1, x2, y2, *args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.subtract_profiles" title="src.pyProfile.profile.subtract_profiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subtract_profiles</span></code></a>(x1, y1, x2, y2, *args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.merge_profiles" title="src.pyProfile.profile.merge_profiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_profiles</span></code></a>(profiles, ranges=None)</p></td>
+<td><p>da trim_psds_group in ICSO2020_review</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.calculate_barycenter" title="src.pyProfile.profile.calculate_barycenter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_barycenter</span></code></a>(x, y)</p></td>
+<td><p>return the x of barycenter using y as weight function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.reflect_profile" title="src.pyProfile.profile.reflect_profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reflect_profile</span></code></a>(xx, yy, center=None, split=False, xout=None)</p></td>
+<td><p>Return the profile x, y mirrored around x=center.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.calculate_HEW" title="src.pyProfile.profile.calculate_HEW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_HEW</span></code></a>(x, y, center=None, fraction=0.5, profile=False)</p></td>
+<td><p>calculate HEW around center from profile x and y by integrating the two sides. If center is None, barycenter is calculated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.plot_HEW" title="src.pyProfile.profile.plot_HEW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_HEW</span></code></a>(xout, yout, center=None, fraction=0.5)</p></td>
+<td><p>Plots details of HEW calculation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.PSF_spizzichino" title="src.pyProfile.profile.PSF_spizzichino"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PSF_spizzichino</span></code></a>(x, y, alpha=0, xout=None, energy=1.0, level=True, HEW=True)</p></td>
+<td><p>Try to use spizzichino theory as in PR notes to calculate Hthe PSF,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.PSF_raimondiSR" title="src.pyProfile.profile.PSF_raimondiSR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PSF_raimondiSR</span></code></a>(x, y, alpha=0, xout=None, energy=1.0)</p></td>
+<td><p>Try to use theory from Raimondi and Spiga A&amp;A2015 to calculate the PSF for single reflection,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.profile.test_reflect" title="src.pyProfile.profile.test_reflect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_reflect</span></code></a>(xx=None, yy=None, center=None, outfolder=None)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.profile.test_HEW" title="src.pyProfile.profile.test_HEW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_HEW</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.line">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.line" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>return line through end points of x,y.</dt><dd><p>x and y are vectors, can be of different length (e.g. y can be a 2-elements vector).</p>
+</dd>
+</dl>
+<p>If only one vector is provided, it is assumend as equally spaced points.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.make_signal">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">make_signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nwaves</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ystartend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minus_one</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.make_signal" title="Permalink to this definition"></a></dt>
+<dd><p>Build a signal of length L and number of points N, as a sum of a cosinusoid, a line and a noise. minus_one remove last point (just a convenience e.g. for a periodic profile), note that in
+this case the returned x corresponds to values returned by
+np.arange e .linspace, however it needs to be called with N+1
+points, so the last one can be excluded and N points returned,
+keeping intervals consistent (this might change in future versions).
+Signal is generated on <cite>x</cite> if this is provided.
+Otherwise it is generated on length <cite>L</cite> (can be range).
+Phase adds a phase in radians (the armonic component of signal is defined as <cite>amp*np.sin(2*np.pi*x/L*nwaves+phase)</cite>).</p>
+<p>VC 2020/09/11 added option for L as range and x on which to generate signal.
+2020/07/17 make signal a cosine (it was a sine), because more consistent with real part of imaginary number.
+VC 2020/06/27 horrible interface with args, replace with kwargs with defaults.
+Added phase.
+OLD CODE NEEDS TO be UPDATED! TODO: file search</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.test_make_Signal">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">test_make_Signal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.test_make_Signal" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.make_circle">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">make_circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.make_circle" title="Permalink to this definition"></a></dt>
+<dd><p>plot positive part if sign is positive, negative if negative.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.find_internal_interval">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">find_internal_interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.find_internal_interval" title="Permalink to this definition"></a></dt>
+<dd><p>find the largest interval of profile with all valid point.
+See pySurf.data2D.find_internal_rectangle.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.remove_nan_ends">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">remove_nan_ends</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">internal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.remove_nan_ends" title="Permalink to this definition"></a></dt>
+<dd><p>remove all y points at the two ends of profile that contains only nans in y. If internal is set, return the
+internal crop (largest internal segments without nans).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.polyfit_profile">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">polyfit_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.polynomial.Legendre</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.polyfit_profile" title="Permalink to this definition"></a></dt>
+<dd><dl>
+<dt>Use one of the poynomial bases in</dt><dd><p>(default to Legendre), and return polynomial of given <cite>degree</cite> that fits the input profile <cite>x</cite>.</p>
+<blockquote>
+<div><p>Temporary function used to separate the numpy layer from the profile, as preferred implementation switched from np.polynomial functions to classes in np.polynomial.Polynomial, which is more flexible, but also has a more complex descriptor (*).
+This function is thinly wrapped by level_profile, the two will eventually merge, maybe with a flag <cite>fit</cite> to return fit or residuals.</p>
+<p>(*) Note that np coefficients are not directly the polynomial coefficient, e.g. [2,4] doesn’t necessarily mean 2 + 4 * x
+There are two poorly documented parameters <cite>window</cite> and <cite>domain</cite> (both default to -1,1) which regulate the scaling of polynomial result. This means that the polynomial coefficients are first calculated on <cite>window</cite> (default [-1,1]) and the result returned shifted to match <cite>domain</cite> (equal to range of x).</p>
+<p>Most common usage is to set window to an interval on which the polynomial
+base is well behaving, and domain to the range of x.</p>
+<p>see: <a class="reference external" href="https://stackoverflow.com/questions/52339907/numpy-polynomial-generation/52469490">https://stackoverflow.com/questions/52339907/numpy-polynomial-generation/52469490</a>
+<a class="reference external" href="https://github.com/numpy/numpy/issues/9533">https://github.com/numpy/numpy/issues/9533</a>
+A detailed example of why using window and domain is here:
+<a class="reference external" href="https://numpy.org/doc/stable/reference/routines.polynomials.classes.html">https://numpy.org/doc/stable/reference/routines.polynomials.classes.html</a></p>
+<p>Some of the Polynomials bases are well-behaving, or orthonormal only on a given <cite>window</cite> of x (e.g. Legendre on [-1,1]), we usually want</p>
+</div></blockquote>
+</dd>
+</dl>
+<p>In using Chebyshev polynomials for fitting we want to use the region where x is between -1 and 1 and that is what the window specifies. However, it is unlikely that the data to be fit has all its data points in that interval, so we use domain to specify the interval where the data points lie. When the fit is done, the domain is first mapped to the window by a linear transformation and the usual least squares fit is done using the mapped data points. The window and domain of the fit are part of the returned series and are automatically used when computing values, derivatives, and such. If they aren’t specified in the call the fitting routine will use the default window and the smallest domain that holds all the data points.</p>
+<p>(that seems in contradiction with numpy documentation that states both default to one).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.register_profile">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">register_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.register_profile" title="Permalink to this definition"></a></dt>
+<dd><p>get x,y and register them using usual set of parameters.</p>
+<dl class="simple">
+<dt>registering operation are performed in the following order and are:</dt><dd><p>scale: scale the two axis of the <cite>scale</cite> factor, if sign is changed, reorder.
+strip: if True, strip all nans at the border of the data.
+crop: list of ranges (2 axis) to pass to profile.crop_profile
+center: the final position of profile center, if 1 element, only x is centered, if 2 elements, y is centered also.</p>
+</dd>
+</dl>
+<p>This means e.g. that data are first cropped (or cleaned of invalid data) than centered. This means that the value puts in the provided coordinate(s) the center of points after cropping operations.</p>
+<p>unexpected parameters passed to register_data are ignored (<a href="#id1"><span class="problematic" id="id2">*</span></a>args and <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs are not used, just suppress error).</p>
+<dl class="simple">
+<dt><cite>load_profile</cite> doesn’t automatically call <cite>register_data</cite>,</dt><dd><p>this might be different from pySurf.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.load_profile">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">load_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.load_profile" title="Permalink to this definition"></a></dt>
+<dd><p>The simplest file loader using np.genfromtxt.
+Returns x and y.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.merge_profile">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">merge_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.merge_profile" title="Permalink to this definition"></a></dt>
+<dd><p>stitch profiles</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.save_profile">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">save_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.save_profile" title="Permalink to this definition"></a></dt>
+<dd><p>Use np.savetxt to save x and y to file</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.get_stats">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">get_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.get_stats" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.level_profile">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">level_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.level_profile" title="Permalink to this definition"></a></dt>
+<dd><p>return profile after removal of a (Legendre) polynomial component.
+polyfit_profile has an option to change the polynomial base if Legendre is not the desired base.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.sort_profile">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">sort_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.sort_profile" title="Permalink to this definition"></a></dt>
+<dd><p>sort profile on the base of x.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.remove_profile_outliers">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">remove_profile_outliers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includenan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.remove_profile_outliers" title="Permalink to this definition"></a></dt>
+<dd><p>remove outliers from a profile by interpolation.
+y is modified in place. Mask of outliers is returned.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.movingaverage">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">movingaverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.movingaverage" title="Permalink to this definition"></a></dt>
+<dd><p>for now, only odd windows. Full returns</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.rebin_profile">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">rebin_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.rebin_profile" title="Permalink to this definition"></a></dt>
+<dd><p>Flexible rebin of a profile. Reduces number of points without losing information.
+Uses <cite>stats.binned_statistics</cite> of which keeps the interface.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.crop_profile">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">crop_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.crop_profile" title="Permalink to this definition"></a></dt>
+<dd><p>Crop a profile to range (can be set to None) in x and y.
+Experimental, crop on y leaves holes in profile.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.resample_profile">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">resample_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.resample_profile" title="Permalink to this definition"></a></dt>
+<dd><p>resample y1 (defined on x1) on x2.
+Both x1 and y1 need to be set for input data,</p>
+<blockquote>
+<div><p>x2 is returned together with interpolated values as a tuple.</p>
+</div></blockquote>
+<p>y2 is not used and put for consistency (can be omitted).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.sum_profiles">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">sum_profiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.sum_profiles" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.subtract_profiles">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">subtract_profiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.subtract_profiles" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.merge_profiles">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">merge_profiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profiles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.merge_profiles" title="Permalink to this definition"></a></dt>
+<dd><p>da trim_psds_group in ICSO2020_review</p>
+<p>Makes a single profile trimming and averaging multiple ones
+according to selection.</p>
+<p>this is lauched to trim a single set of psds related to same sample (or same context).
+ranges, profiles, labels are lists with same number of elements,
+describing respectively:
+ranges for each psd (if None, the psd is not included in the output).</p>
+<blockquote>
+<div><p>If set to None, include all data.</p>
+</div></blockquote>
+<p>labels to be used in plot.
+outname: if provided generate plot of trim and txt with resulting psd.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.calculate_barycenter">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">calculate_barycenter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.calculate_barycenter" title="Permalink to this definition"></a></dt>
+<dd><p>return the x of barycenter using y as weight function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.reflect_profile">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">reflect_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.reflect_profile" title="Permalink to this definition"></a></dt>
+<dd><p>Return the profile x, y mirrored around x=center.
+If split is set return a list of the two profiles &gt;,&lt;
+as [[xpos,ypos],[xneg,yneg]].
+If xout is passed it is used to interpolate the double
+profiles. If split is not selected and the initial profile
+is not symmetrical can give unexpected results.
+In case split is selected and center exactly matches one of the input points,
+center point is added to both profiles.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.calculate_HEW">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">calculate_HEW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.calculate_HEW" title="Permalink to this definition"></a></dt>
+<dd><p>calculate HEW around center from profile x and y by integrating the two sides. If center is None, barycenter is calculated.
+Radius is returned that gives integrated height equal to <cite>fraction</cite>
+of total integral.
+If <cite>profile</cite> is set, a profile x0,y0 of the integrated intensity is returned, where x0 is distance from <cite>center</cite> and y0 is integrated y.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.plot_HEW">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">plot_HEW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.plot_HEW" title="Permalink to this definition"></a></dt>
+<dd><p>Plots details of HEW calculation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.PSF_spizzichino">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">PSF_spizzichino</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HEW</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.PSF_spizzichino" title="Permalink to this definition"></a></dt>
+<dd><p>Try to use spizzichino theory as in PR notes to calculate Hthe PSF,
+return a vector of same length as xout.
+alpha is incidence angle from normal in degrees, alpha= 90 - shell slope for tilt removed profiles.</p>
+<blockquote>
+<div><blockquote>
+<div><p>Tilt can be included in the profile, in that case alpha is left to 0</p>
+</div></blockquote>
+<p>(total slope must be &lt;0 and alpha&gt;0, this means that profile with tilt is expected to be &lt;0).</p>
+</div></blockquote>
+<p>xout can set the output intervals in theta on the focal plane (from specular angle), if not set 512 points are used.
+Lambda is wavelength in keV.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.PSF_raimondiSR">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">PSF_raimondiSR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.PSF_raimondiSR" title="Permalink to this definition"></a></dt>
+<dd><p>Try to use theory from Raimondi and Spiga A&amp;A2015 to calculate the PSF for single reflection,
+return a vector of same length as xout.
+alpha is incidence angle from normal in degrees, alpha= 90 - shell slope for tilt removed profiles.
+Tilt can be included in the profile, in that case alpha is left to 0</p>
+<blockquote>
+<div><p>(total slope must be &lt;0 and alpha&gt;0, this means that profile with tilt is expected to be &lt;0).</p>
+</div></blockquote>
+<p>xout can set the output intervals in theta on the focal plane (from specular angle), if not set 512 points are used.
+Lambda is wavelength in keV.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.test_reflect">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">test_reflect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.test_reflect" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.profile.test_HEW">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.profile.</span></span><span class="sig-name descname"><span class="pre">test_HEW</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.profile.test_HEW" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../power_law/index.html" class="btn btn-neutral float-left" title="src.pyProfile.power_law" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../profile_class/index.html" class="btn btn-neutral float-right" title="src.pyProfile.profile_class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

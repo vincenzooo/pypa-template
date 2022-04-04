@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.pyProfile.psd &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="src.pySurf" href="../../pySurf/index.html" />
+    <link rel="prev" title="src.pyProfile.profile_v1" href="../profile_v1/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pySurf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile.psd</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/src/pyProfile/psd/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.pyProfile.psd">
+<span id="src-pyprofile-psd"></span><h1><a class="reference internal" href="#module-src.pyProfile.psd" title="src.pyProfile.psd"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile.psd</span></code></a><a class="headerlink" href="#module-src.pyProfile.psd" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.psd.PSDplot" title="src.pyProfile.psd.PSDplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PSDplot</span></code></a></p></td>
+<td><p>Contains a number of psds in form (f,psd).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.psd.psd2prof" title="src.pyProfile.psd.psd2prof"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psd2prof</span></code></a>(f, p, phase=None, N=None)</p></td>
+<td><p>build a profile from PSD, if phase (in rad) is not passed use random</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.psd.normPSD" title="src.pyProfile.psd.normPSD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normPSD</span></code></a>(N, L=None, form=1)</p></td>
+<td><p>return a normalization factor for the PSD, calculated according to different definitions of <cite>power</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.psd.psd" title="src.pyProfile.psd.psd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psd</span></code></a>(x, y, retall=False, wfun=None, norm=1, rmsnorm=False)</p></td>
+<td><p>return frequencies and PSD of a profile.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.psd.psd_units" title="src.pyProfile.psd.psd_units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psd_units</span></code></a>(units=[None, None, None])</p></td>
+<td><p>return as a list of 3 strings (or None) for <cite>units</cite> of x,f,PSD</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.psd.test_psd_units" title="src.pyProfile.psd.test_psd_units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_psd_units</span></code></a>()</p></td>
+<td><p>run tests with different combinations of defined and undefined units.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.psd.components" title="src.pyProfile.psd.components"><code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code></a>(d, win=1)</p></td>
+<td><p>RA Want to return Fourier components with optional window</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.psd.realPSD" title="src.pyProfile.psd.realPSD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">realPSD</span></code></a>(d0, win=np.hanning, dx=1.0, axis=None, nans=False, minpx=10)</p></td>
+<td><p>(Ryan Allured) This function returns the PSD of a real function</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.psd.xrealPSD" title="src.pyProfile.psd.xrealPSD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xrealPSD</span></code></a>(d, win=1, dx=1.0, axis=None)</p></td>
+<td><p>RA This function returns the PSD of a real function</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.psd.plot_psd" title="src.pyProfile.psd.plot_psd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_psd</span></code></a>(f, p, units=None, label=None, span=0, psdrange=None, includezerofreq=False, *args, **kwargs)</p></td>
+<td><p>Plot a PSD on logaritmic axis with standard labels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.psd.make_psd_plots" title="src.pyProfile.psd.make_psd_plots"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_psd_plots</span></code></a>(toplot, units=None, outfile=None)</p></td>
+<td><p>This was in makenicePSDplots.make_plots, needs to be integrated with psd_plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.psd.linearTrend" title="src.pyProfile.psd.linearTrend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linearTrend</span></code></a>(x, y)</p></td>
+<td><p>test linear trend</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.psd.addPSDs" title="src.pyProfile.psd.addPSDs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addPSDs</span></code></a>(psdfile, cols, *args, **kwargs)</p></td>
+<td><p>Add to current plot a list of PSDs from a standard (12-col,1 line header) PSD file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.psd.plotPSDs" title="src.pyProfile.psd.plotPSDs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotPSDs</span></code></a>(psdfile1, psdfile2, title=None, outfolder=None)</p></td>
+<td><p>Plot a PSD from a standard (12-col,1 line header) PSD file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.psd.FFTtransform" title="src.pyProfile.psd.FFTtransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FFTtransform</span></code></a>(x, y)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.psd.plot_transform" title="src.pyProfile.psd.plot_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_transform</span></code></a>(f, yfft, label='', euler=False, units=None, includezerofreq=False, **kwargs)</p></td>
+<td><p>units is a 2 element vector.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.psd.xplot_sig_psd" title="src.pyProfile.psd.xplot_sig_psd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xplot_sig_psd</span></code></a>(x, y, label='', **kwargs)</p></td>
+<td><p>plot signal, fft and psd on three panels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.psd.plot_sig_psd" title="src.pyProfile.psd.plot_sig_psd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_sig_psd</span></code></a>(x, y, label='', realim=False, euler=False, power=True, includezerofreq=False, yrange=None, prange=None, fignum=None, aspect='auto', units=None, outname=None, norm=1, rmsnorm=True, **kwargs)</p></td>
+<td><p>plot signal, fft and psd on n panels according to flags, return axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.psd.plot_sig_psd4" title="src.pyProfile.psd.plot_sig_psd4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_sig_psd4</span></code></a>(x, y, scale=1.0, label='', **kwargs)</p></td>
+<td><p>wrapper around`plot_sig_psd4`</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.psd.testPSDest" title="src.pyProfile.psd.testPSDest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">testPSDest</span></code></a>(x, y)</p></td>
+<td><p>plot 3 panels with: test profile, PSD calculated with different functions</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pyProfile.psd.test_psd_normalization" title="src.pyProfile.psd.test_psd_normalization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_psd_normalization</span></code></a>(x, y, wfun=None, norm=1, **kwargs)</p></td>
+<td><p>Calculate PSD with a given normalization and</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pyProfile.psd.N" title="src.pyProfile.psd.N"><code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.psd2prof">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">psd2prof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.psd2prof" title="Permalink to this definition"></a></dt>
+<dd><p>build a profile from PSD, if phase (in rad) is not passed use random
+values. A real profile of npoints is assumed. Note that profiles with
+(len(p)-1)*2 and (len(p)-1)*2+1 points give psd with same number of points,
+so both reconstructions are possible. Odd number of points is the default,
+passing N overrides, with N=(len(p)-1)*2, default (len(p)-1)*2+1</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.normPSD">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">normPSD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">form</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.normPSD" title="Permalink to this definition"></a></dt>
+<dd><p>return a normalization factor for the PSD, calculated according to different definitions of <cite>power</cite>.
+The PSD is defined as PSD(f)=factor*np.abs(FFT)**2 where FFT is the fast fourier transform.
+Note that in case of rfft the doubling factor is not included in norm (because part of FFT definition).
+Possible values are (ref. to Numerical recipes when possible):
+1 - units: [Y**2] no normalization. “sum squared amplitude” in NR 13.4.1
+2 - units: [Y**2][X] This has the advantage that measurements on same range with different number of points match and it is the way it is usually plotted. The rms is the integral of PSD over frequency rather than the sum.
+3 - units: [Y**2] here rms is the sum of PSD, this is RA normalization (however it differs in RA when a window is used). 13.4.5 in NR.
+4 - units: [Y**2] not sure what this is for, “mean squared amplitude” in NR 13.4.2 and in formula 12.1.10 as discrete form of Parsifal’s theorem.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.psd">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retall</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wfun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsnorm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.psd" title="Permalink to this definition"></a></dt>
+<dd><p>return frequencies and PSD of a profile.</p>
+<p>If retall is set, also the phase is returned.
+PSD is squared FFT divided by step size. Profile is assumed real, so only positive freqs are used, doubling PSD values. Return value has ceil(N/2) elements (always odd).
+See <cite>np.fft.rfftfreq</cite> for details.
+wfun is a function that given the number of points return a vector with values for the window. Note that normalization is quite arbitrary, usually it’s rescaled later with rmsnorm.
+2017/07/30 if rmsnorm is set True, PSD is normalized to (multiplied by) rms calculated from profile (must be same if no window applied).
+2016/03/26 this psd i return to old normalizaiton “time-integral squared magnitude”, multiplying by dx.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.psd_units">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">psd_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[None,</span> <span class="pre">None,</span> <span class="pre">None]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.psd_units" title="Permalink to this definition"></a></dt>
+<dd><p>return as a list of 3 strings (or None) for <cite>units</cite> of x,f,PSD
+from units of x,y,data.
+In case there is not enough information on units of data,</p>
+<blockquote>
+<div><p>returned units are ‘’, ‘[Y]’, ‘[Y] [Z]$^2$’.</p>
+</div></blockquote>
+<p>This aims to keep some consistency in handling units, because
+of the risk of ambiguity, e.g. m^2 vs m**2 or m$^2$,
+or even None vs “”.
+This ambiguity is also the reason why in object version <cite>Data2D_class.PS2D</cite>
+units are kept from surface data, rather than being set to PSD units.
+This is probably not the best way to solve the ambiguity, but this
+function should be the preferred way to generate units for the
+PSD and its axis, until a better one is found.
+X is left blank rather than outputting ‘[X]’ because it is identical</p>
+<blockquote>
+<div><p>to input units and it can be inconvenient to use the string
+in plots (e.g. “x ([X])”) and the original units can be accessed
+if desired.</p>
+</div></blockquote>
+<p>2020/07/16 moved to <cite>pyProfile.psd</cite> from <cite>pySurf.psd2d</cite>, making it valid for 2 or 3D units.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.test_psd_units">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">test_psd_units</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.test_psd_units" title="Permalink to this definition"></a></dt>
+<dd><p>run tests with different combinations of defined and undefined units.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.components">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">components</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.components" title="Permalink to this definition"></a></dt>
+<dd><p>RA Want to return Fourier components with optional window
+Application note: These components are dependent on sampling!
+This means you can <em>not</em> interpolate these components onto other
+frequency grids!</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.realPSD">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">realPSD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.hanning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minpx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.realPSD" title="Permalink to this definition"></a></dt>
+<dd><p>(Ryan Allured) This function returns the PSD of a real function
+Gets rid of zero frequency and puts all power in positive frequencies
+Returns only positive frequencies</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.xrealPSD">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">xrealPSD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.xrealPSD" title="Permalink to this definition"></a></dt>
+<dd><p>RA This function returns the PSD of a real function
+Gets rid of zero frequency and puts all power in positive frequencies
+Returns only positive frequencies</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.plot_psd">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">plot_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psdrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includezerofreq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.plot_psd" title="Permalink to this definition"></a></dt>
+<dd><p>Plot a PSD on logaritmic axis with standard labels.
+Units can be passed as profile units (2-el) or x,y,z (3-el, only last two are used).
+If span is set, plots psd
+range according to span settings of data2D.projection.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.make_psd_plots">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">make_psd_plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">toplot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.make_psd_plots" title="Permalink to this definition"></a></dt>
+<dd><p>This was in makenicePSDplots.make_plots, needs to be integrated with psd_plot.</p>
+<p>toplot is a dictionary (or collections.OrderedDict if order is important) with filenames as keys and labels as values.
+psd is read from each file on the first two columns and plotted.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.linearTrend">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">linearTrend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.linearTrend" title="Permalink to this definition"></a></dt>
+<dd><p>test linear trend</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pyProfile.psd.PSDplot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">PSDplot</span></span><a class="headerlink" href="#src.pyProfile.psd.PSDplot" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Contains a number of psds in form (f,psd).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.psd.PSDplot.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.PSDplot.append" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.psd.PSDplot.append_from_file">
+<span class="sig-name descname"><span class="pre">append_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.PSDplot.append_from_file" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pyProfile.psd.PSDplot.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.PSDplot.plot" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.addPSDs">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">addPSDs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">psdfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.addPSDs" title="Permalink to this definition"></a></dt>
+<dd><p>Add to current plot a list of PSDs from a standard (12-col,1 line header) PSD file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.plotPSDs">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">plotPSDs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">psdfile1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psdfile2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.plotPSDs" title="Permalink to this definition"></a></dt>
+<dd><p>Plot a PSD from a standard (12-col,1 line header) PSD file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.FFTtransform">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">FFTtransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.FFTtransform" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.plot_transform">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">plot_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yfft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">euler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includezerofreq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.plot_transform" title="Permalink to this definition"></a></dt>
+<dd><p>units is a 2 element vector.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.xplot_sig_psd">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">xplot_sig_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.xplot_sig_psd" title="Permalink to this definition"></a></dt>
+<dd><p>plot signal, fft and psd on three panels.
+dft sets how the fft is plotted
+‘realim’: real and im parts,
+‘euler’ argument and phase
+‘both’ uses two panels (four in total).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.plot_sig_psd">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">plot_sig_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">realim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">euler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includezerofreq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fignum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsnorm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.plot_sig_psd" title="Permalink to this definition"></a></dt>
+<dd><p>plot signal, fft and psd on n panels according to flags, return axis.
+for axis with a twin axis, the twin axis is appended to the first in a property ‘twin’
+parameter for plot function (styles etc., common to all plots)</p>
+<blockquote>
+<div><p>can be passed as kwargs</p>
+</div></blockquote>
+<p>plots signal and  additional plots according to respective flags:
+‘realim’: real and im parts,
+‘euler’ argument and phase
+‘power’ plot PSD calling psd with default parameters</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.plot_sig_psd4">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">plot_sig_psd4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.plot_sig_psd4" title="Permalink to this definition"></a></dt>
+<dd><p>wrapper around`plot_sig_psd4`
+plot signal, fft and psd on three panels.
+like <cite>plot_sig_psd</cite>, with fixed number of variables.</p>
+<p>??
+dft sets how the fft is plotted
+‘realim’: real and im parts,
+‘euler’ argument and phase
+‘both’ uses two panels (four in total).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.testPSDest">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">testPSDest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.testPSDest" title="Permalink to this definition"></a></dt>
+<dd><p>plot 3 panels with: test profile, PSD calculated with different functions
+and PSD calculated by piecewise matplotlib function, with different settings.
+return 3 axis.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pyProfile.psd.test_psd_normalization">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">test_psd_normalization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wfun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pyProfile.psd.test_psd_normalization" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate PSD with a given normalization and
+compare its integral over frequency and sum to
+rms square and standard deviation (they differ for rms including also offset, while stddev being referred to mean.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="src.pyProfile.psd.N">
+<span class="sig-prename descclassname"><span class="pre">src.pyProfile.psd.</span></span><span class="sig-name descname"><span class="pre">N</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">500</span></em><a class="headerlink" href="#src.pyProfile.psd.N" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../profile_v1/index.html" class="btn btn-neutral float-left" title="src.pyProfile.profile_v1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../pySurf/index.html" class="btn btn-neutral float-right" title="src.pySurf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

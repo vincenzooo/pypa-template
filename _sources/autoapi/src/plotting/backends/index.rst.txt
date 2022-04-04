@@ -1,0 +1,60 @@
+:py:mod:`src.plotting.backends`
+===============================
+
+.. py:module:: src.plotting.backends
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.backends.demo_display
+   src.plotting.backends.test_demo_display
+   src.plotting.backends.get_max_size
+   src.plotting.backends.maximize
+   src.plotting.backends.list_backends
+   src.plotting.backends.test_backend
+   src.plotting.backends.test_maximize
+
+
+
+.. py:function:: demo_display(testfunc)
+
+   A wrapper function that makes the wrapped function work independently on environment (Ipython, Jupyter notebook, or shell). Use as a decorator on test functions to generate an output appropriate for the situation.
+
+
+.. py:function:: test_demo_display()
+
+
+.. py:function:: get_max_size()
+
+   returns max size for figure, in OS independent way.
+
+
+.. py:function:: maximize(backend=None, fullscreen=False, verbose=False)
+
+   Maximize window independently on backend.
+
+   Fullscreen sets fullscreen mode, that is same as maximized, but it doesn't have title bar (press key F to toggle full screen mode).
+
+
+.. py:function:: list_backends()
+
+   list all the available backends.
+
+
+.. py:function:: test_backend(gui_env=None)
+
+   test a list of interactive backend.
+
+
+.. py:function:: test_maximize()
+
+   make a few subplots and maximize window
+
+

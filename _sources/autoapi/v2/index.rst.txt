@@ -1,0 +1,74 @@
+:py:mod:`v2`
+============
+
+.. py:module:: v2
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   v2.Quest
+   v2.clickable
+   v2.Qtest
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   v2.test_pausetime
+   v2.test_interac
+
+
+
+.. py:class:: Quest(N=5, bias=0)
+
+   .. py:method:: start(self)
+
+
+   .. py:method:: next_image(self)
+
+
+   .. py:method:: user_input(self, event=None)
+
+
+   .. py:method:: show_result(self)
+
+
+   .. py:method:: generate_image(self)
+
+
+
+.. py:class:: clickable
+
+   Bases: :py:obj:`object`
+
+   .. py:method:: start(self)
+
+
+
+.. py:class:: Qtest(N=5, bias=0)
+
+   .. py:method:: start(self)
+
+
+   .. py:method:: user_input(self, event=None)
+
+
+   .. py:method:: show_result(self)
+
+
+
+.. py:function:: test_pausetime(p=False)
+
+
+.. py:function:: test_interac()
+
+

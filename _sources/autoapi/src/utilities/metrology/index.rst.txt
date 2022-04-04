@@ -1,0 +1,160 @@
+:py:mod:`src.utilities.metrology`
+=================================
+
+.. py:module:: src.utilities.metrology
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.utilities.metrology.readCylScript
+   src.utilities.metrology.readCyl4D
+   src.utilities.metrology.readConic4D
+   src.utilities.metrology.readFlatScript
+   src.utilities.metrology.readFlat4D
+   src.utilities.metrology.write4DFits
+   src.utilities.metrology.read4DFits
+   src.utilities.metrology.readCylWFS
+   src.utilities.metrology.readConicWFS
+   src.utilities.metrology.readFlatWFS
+   src.utilities.metrology.readzygo
+   src.utilities.metrology.convertzygo
+   src.utilities.metrology.make_extent
+
+
+
+.. py:function:: readCylScript(fn, rotate=np.linspace(0.75, 1.5, 50), interp=None)
+
+   Load in data from 4D measurement of cylindrical mirror.
+   File is assumed to have been saved with Ryan's scripting function.
+   Scale to microns, remove misalignments,
+   strip NaNs.
+   If rotate is set to an array of angles, the rotation angle
+   which minimizes the number of NaNs in the image after
+   stripping perimeter nans is selected.
+   Distortion is bump positive looking at concave surface.
+   Imshow will present distortion in proper orientation as if
+   viewing the concave surface.
+
+
+.. py:function:: readCyl4D(fn, rotate=np.linspace(0.75, 1.5, 50), interp=None)
+
+   Load in data from 4D measurement of cylindrical mirror.
+   Scale to microns, remove misalignments,
+   strip NaNs.
+   If rotate is set to an array of angles, the rotation angle
+   which minimizes the number of NaNs in the image after
+   stripping perimeter nans is selected.
+   Distortion is bump positive looking at concave surface.
+   Imshow will present distortion in proper orientation as if
+   viewing the concave surface.
+
+
+.. py:function:: readConic4D(fn, rotate=None, interp=None)
+
+   Load in data from 4D measurement of cylindrical mirror.
+   Scale to microns, remove misalignments,
+   strip NaNs.
+   If rotate is set to an array of angles, the rotation angle
+   which minimizes the number of NaNs in the image after
+   stripping perimeter nans is selected.
+   Distortion is bump positive looking at concave surface.
+   Imshow will present distortion in proper orientation as if
+   viewing the concave surface.
+
+
+.. py:function:: readFlatScript(fn, interp=None)
+
+   Load in data from 4D measurement of flat mirror.
+   File is assumed to have been saved with Ryan's scripting function.
+   Scale to microns, remove misalignments,
+   strip NaNs.
+   Distortion is bump positive looking at surface from 4D.
+   Imshow will present distortion in proper orientation as if
+   viewing the surface.
+
+
+.. py:function:: readFlat4D(fn, interp=None)
+
+   Load in data from 4D measurement of flat mirror.
+   Scale to microns, remove misalignments,
+   strip NaNs.
+   Distortion is bump positive looking at surface from 4D.
+   Imshow will present distortion in proper orientation as if
+   viewing the surface.
+
+
+.. py:function:: write4DFits(filename, img, dx, dx2=None)
+
+   Write processed 4D data into a FITS file.
+   Axial pixel size is given by dx.
+   Azimuthal pixel size is given by dx2 - default to none
+
+
+.. py:function:: read4DFits(filename)
+
+   Write FITS file of processed 4D data.
+   Returns img,dx in list
+
+
+.. py:function:: readCylWFS(fn, rotate=np.linspace(0.75, 1.5, 50), interp=None)
+
+   Load in data from WFS measurement of cylindrical mirror.
+   Assumes that data was processed using processHAS, and loaded into
+   a .fits file.
+   Scale to microns, remove misalignments,
+   strip NaNs.
+   If rotate is set to an array of angles, the rotation angle
+   which minimizes the number of NaNs in the image after
+   stripping perimeter nans is selected.
+   Distortion is bump positive looking at concave surface.
+   Imshow will present distortion in proper orientation as if
+   viewing the concave surface.
+
+
+.. py:function:: readConicWFS(fn, interp=None)
+
+   Load in data from WFS measurement of cylindrical mirror.
+   Assumes that data was processed using processHAS, and loaded into
+   a .fits file.
+   Scale to microns, remove misalignments,
+   strip NaNs.
+   If rotate is set to an array of angles, the rotation angle
+   which minimizes the number of NaNs in the image after
+   stripping perimeter nans is selected.
+   Distortion is bump positive looking at concave surface.
+   Imshow will present distortion in proper orientation as if
+   viewing the concave surface.
+   Returns the data with best fit conic removed, as well as the
+   coefficients in the conic fit.
+
+
+.. py:function:: readFlatWFS(fn, interp=None)
+
+   Load in data from WFS measurement of flat mirror.
+   Assumes that data was processed using processHAS, and loaded into
+   a .fits file.
+   Scale to microns, strip NaNs.
+   If rotate is set to an array of angles, the rotation angle
+   which minimizes the number of NaNs in the image after
+   stripping perimeter nans is selected.
+   Distortion is bump positive looking at concave surface.
+   Imshow will present distortion in proper orientation as if
+   viewing the concave surface.
+
+
+.. py:function:: readzygo(filename)
+
+
+.. py:function:: convertzygo(filename)
+
+
+.. py:function:: make_extent(data, dx)
+
+

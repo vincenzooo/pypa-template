@@ -1,0 +1,141 @@
+:py:mod:`src.utilities.fourier`
+===============================
+
+.. py:module:: src.utilities.fourier
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.utilities.fourier.components
+   src.utilities.fourier.continuousComponents
+   src.utilities.fourier.newFreq
+   src.utilities.fourier.freqgrid
+   src.utilities.fourier.ellipsoidalHighFrequencyCutoff
+   src.utilities.fourier.meanPSD
+   src.utilities.fourier.medianPSD
+   src.utilities.fourier.realPSD
+   src.utilities.fourier.computeFreqBand
+   src.utilities.fourier.fftComputeFreqBand
+   src.utilities.fourier.psdScan
+   src.utilities.fourier.lowpass
+   src.utilities.fourier.randomizePh
+   src.utilities.fourier.randomProfile
+
+
+
+.. py:function:: components(d, win=np.hanning)
+
+   Want to return Fourier components with optional window
+   Application note: These components are dependent on sampling!
+   This means you can *not* interpolate these components onto other
+   frequency grids!
+
+
+.. py:function:: continuousComponents(d, dx, win=np.hanning)
+
+   Want to return Fourier components with optional window
+   Divide by frequency interval to convert to continuous FFT
+   These components can be safely interpolated onto other frequency
+   grids. Multiply by new frequency interval to get to numpy format
+   FFT. Frequency units *must* be the same in each case.
+
+
+.. py:function:: newFreq(f, p, nf)
+
+   Interpolate a power spectrum onto a new frequency grid.
+
+
+.. py:function:: freqgrid(d, dx=1.0)
+
+   Return a frequency grid to match FFT components
+
+
+
+.. py:function:: ellipsoidalHighFrequencyCutoff(d, fxmax, fymax, dx=1.0, win=np.hanning)
+
+   A simple low-pass filter with a high frequency cutoff.
+   The cutoff boundary is an ellipsoid in frequency space.
+   All frequency components with (fx/fxmax)**2+(fy/fymax)**2 > 1.
+   are eliminated.
+   fxmax refers to the second index, fymax refers to the first index
+   This is consistent with indices in imshow
+
+
+.. py:function:: meanPSD(d0, win=np.hanning, dx=1.0, axis=0, irregular=False, returnInd=False, minpx=10)
+
+   Return the 1D PSD averaged over a surface.
+   Axis indicates the axis over which to FFT
+   If irregular is True, each slice will be stripped
+   and then the power spectra
+   interpolated to common frequency grid
+   Presume image has already been interpolated internally
+   If returnInd is true, return array of power spectra
+   Ignores slices with less than minpx non-nans
+
+
+.. py:function:: medianPSD(d0, win=np.hanning, dx=1.0, axis=0, nans=False)
+
+   Return the 1D PSD "medianed" over a surface.
+   Axis indicates the axis over which to FFT
+   If nans is True, each slice will be stripped,
+   internally interpolated, and then the power spectra
+   interpolated to common frequency grid
+
+
+.. py:function:: realPSD(d0, win=np.hanning, dx=1.0, axis=None, nans=False, minpx=10)
+
+   This function returns the PSD of a real function
+   Gets rid of zero frequency and puts all power in positive frequencies
+   Returns only positive frequencies
+
+
+.. py:function:: computeFreqBand(f, p, f1, f2, df, method='linear')
+
+   Compute the power in the PSD between f1 and f2.
+   f and p should be as returned by realPSD or meanPSD
+   Interpolate between f1 and f2 with size df
+   Then use numerical integration
+
+
+.. py:function:: fftComputeFreqBand(d, f1, f2, df, dx=1.0, win=np.hanning, nans=False, minpx=10, method='linear')
+
+   Wrapper to take the FFT and immediately return the
+   power between f1 and f2 of a slice
+   If slice length is < 10, return nan
+
+
+.. py:function:: psdScan(d, f1, f2, df, N, axis=0, dx=1.0, win=np.hanning, nans=False, minpx=10)
+
+   Take a running slice of length N and compute band limited
+   power over the entire image. Resulting power array will be
+   of shape (S1-N,S2) if axis is 0
+   axis is which axis to FFT over
+
+
+.. py:function:: lowpass(d, dx, fcut)
+
+   Apply a low pass filter to a 1 or 2 dimensional array.
+   Supply the bin size and the cutoff frequency in the same units.
+
+
+.. py:function:: randomizePh(d)
+
+   Create a randomized phase array that maintains a real
+   inverse Fourier transform. This requires that F(-w1,-w2)=F*(w1,w2)
+
+
+.. py:function:: randomProfile(freq, psd)
+
+   Generate a random profile from an input PSD.
+   freq should be in standard fft.fftfreq format
+   psd should be symmetric as with a real signal
+   sqrt(sum(psd)) will equal RMS of profile
+
+

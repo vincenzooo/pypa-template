@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.pySurf.psd2d &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="src.pySurf.radial" href="../radial/index.html" />
+    <link rel="prev" title="src.pySurf.points" href="../points/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.psd2d</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/src/pySurf/psd2d/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.pySurf.psd2d">
+<span id="src-pysurf-psd2d"></span><h1><a class="reference internal" href="#module-src.pySurf.psd2d" title="src.pySurf.psd2d"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf.psd2d</span></code></a><a class="headerlink" href="#module-src.pySurf.psd2d" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.psd2d.psd2d" title="src.pySurf.psd2d.psd2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psd2d</span></code></a>(data, x, y, wfun=None, norm=1, rmsnorm=False)</p></td>
+<td><p>Calculate the 2d psd. return freq and psd.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.psd2d.avgpsd2d" title="src.pySurf.psd2d.avgpsd2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">avgpsd2d</span></code></a>(psddata, axis=1, span=False, expand=False)</p></td>
+<td><p>wrapper for backward compatibilty and tutorial,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.psd2d.rms_power" title="src.pySurf.psd2d.rms_power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rms_power</span></code></a>(f, p, rmsrange=None, squeeze=True)</p></td>
+<td><p>integrate <cite>p</cite> (2dpsd) to calculate rms slice power in a range of freq. f is the  frequency axis (vertically oriented in plots) for p. Accepts None as extreme of rmsrange. frequencies are assumed to be equally spaced.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.psd2d.plot_rms_power" title="src.pySurf.psd2d.plot_rms_power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_rms_power</span></code></a>(f, p, x=None, rmsrange=None, ax2f=None, units=None, *args, **kwargs)</p></td>
+<td><p>Plot curves of slice rms from integration of PSD 2D over one or more ranges of frequency <cite>rmsrange</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.psd2d.multipsd2" title="src.pySurf.psd2d.multipsd2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipsd2</span></code></a>(datalist, wfun=None)</p></td>
+<td><p>return two lists of vectors respectively freq and avg psd2</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.psd2d.multipsd3" title="src.pySurf.psd2d.multipsd3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipsd3</span></code></a>(wdata, xwg, ywg, wfun=None)</p></td>
+<td><p>return two lists respectively freq and psd2d</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.psd2d.multipsd" title="src.pySurf.psd2d.multipsd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipsd</span></code></a>(datalist)</p></td>
+<td><p>return a tuple of two couples ((yfreq.,ypsd),(xfreq.,xpsd))</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.psd2d.plot_psd2d" title="src.pySurf.psd2d.plot_psd2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_psd2d</span></code></a>(f, p, x, prange=None, includezerofreq=False, units=None, *args, **kwargs)</p></td>
+<td><p>plots a 2d psd as a surface with logaritmic color scale on the current axis. Return axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.psd2d.psd2d_analysis" title="src.pySurf.psd2d.psd2d_analysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psd2d_analysis</span></code></a>(wdata, x, y, title=None, wfun=None, vrange=None, rmsrange=None, prange=None, fignum=5, rmsthr=None, aspect='auto', ax2f=None, units=None, outname=None, norm=1, rmsnorm=True)</p></td>
+<td><p>Calculates 2D PSD as image obtained combining all profile PSDS calculated along vertical slices of data. Resulting image has size</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.psd2d.psd_analysis" title="src.pySurf.psd2d.psd_analysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psd_analysis</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Convenience function to plot average psd.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.psd2d.compare_2dpsd" title="src.pySurf.psd2d.compare_2dpsd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compare_2dpsd</span></code></a>(data, ldata, x=None, y=None, fignum=None, titles=None, vmin=None, vmax=None)</p></td>
+<td><p>plot a four panel data and psd for the two figures from data and ldata.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.psd2d.avgpsd" title="src.pySurf.psd2d.avgpsd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">avgpsd</span></code></a>(fitsfile, correct=False, reader=None, level=None, nsigma=3, rotate=False, **kwargs)</p></td>
+<td><p>Wrapper on avgpsd2d. Extract average psd from a fits image,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.psd2d.calculatePSD" title="src.pySurf.psd2d.calculatePSD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculatePSD</span></code></a>(wdata, xg, yg, outname='', wfun=None, vrange=None, rmsrange=None, prange=None, fignum=1)</p></td>
+<td><p>given points w, calculate and plot surface maps with different leveling (piston, tilt, sag, 10 legendre)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.psd2d.calculatePSD2" title="src.pySurf.psd2d.calculatePSD2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculatePSD2</span></code></a>(wdata, xg, yg, outname='', wfun=None, vrange=[None, None], rmsrange=None, prange=None, fignum=1, misal_deg=(1, 1), leg_deg=(10, 10))</p></td>
+<td><p>Updated version with subtracted 4 terms legendre.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.psd2d.test_slicerms" title="src.pySurf.psd2d.test_slicerms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_slicerms</span></code></a>()</p></td>
+<td><p>test plot options for slicerms</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.psd2d.test_plotpsd2d" title="src.pySurf.psd2d.test_plotpsd2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_plotpsd2d</span></code></a>()</p></td>
+<td><p>test of 3 panel psd2d plot, including 2d psd and slice rms.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.psd2d.test_psd2d" title="src.pySurf.psd2d.test_psd2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_psd2d</span></code></a>()</p></td>
+<td><p>test of plotting 2dpsd alone</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.psd2d.mwc" title="src.pySurf.psd2d.mwc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mwc</span></code></a>(psd3, prange)</p></td>
+<td><p>plots a test case</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.pySurf.psd2d.test_prange_mwc" title="src.pySurf.psd2d.test_prange_mwc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_prange_mwc</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.pySurf.psd2d.test_prange_mwc2" title="src.pySurf.psd2d.test_prange_mwc2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_prange_mwc2</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.psd2d">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">psd2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wfun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsnorm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.psd2d" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the 2d psd. return freq and psd.</p>
+<p>doesnt work with nan.
+use 2d function for psd np.fft.rfft2 for efficiency and mimics</p>
+<blockquote>
+<div><p>what done in pySurf.psd.psd</p>
+</div></blockquote>
+<p>norm defines the normalization, see function psd.normPSD.
+2017/01/11 broken interface from (x,y,data..),
+added check to correct on the base of sizes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.avgpsd2d">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">avgpsd2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">psddata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.avgpsd2d" title="Permalink to this definition"></a></dt>
+<dd><p>wrapper for backward compatibilty and tutorial,
+use directly pySurf.data2D.projection() with axis=1 to get same effect.
+return psd average along axis from 2d psd computed with same
+orientation. default axis is 1, because axial profiles
+are along axis 0, sum on axis 1.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.rms_power">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">rms_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">squeeze</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.rms_power" title="Permalink to this definition"></a></dt>
+<dd><p>integrate <cite>p</cite> (2dpsd) to calculate rms slice power in a range of freq. f is the  frequency axis (vertically oriented in plots) for p. Accepts None as extreme of rmsrange. frequencies are assumed to be equally spaced.
+Return a vectors rms with one element for each range in rmsrange. If one element, extra dimension is</p>
+<blockquote>
+<div><p>removed unless squeeze is set (useful e.g. to call from wrapper function and get consistent behavior).</p>
+</div></blockquote>
+<p>Note that total rms is calculated as rms of column rms, calculated from PSD for each column. If f[0] is zero, the component is excluded, unless first component of rmsrange is explicitly set to zero. If you want to include all frequencies but zero, set rms range first component to None (or rmsrange itself to None).
+Values can then differ from surface rms in case of invalid points (e.g. as consequence of the fact
+that all lines are weighted equally in line average and also invalid points are excluded).
+2020/07/21 corrected handling of zero frequency and added <cite>includezerofreq</cite> Flag.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.plot_rms_power">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">plot_rms_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax2f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.plot_rms_power" title="Permalink to this definition"></a></dt>
+<dd><p>Plot curves of slice rms from integration of PSD 2D over one or more ranges of frequency <cite>rmsrange</cite>.
+units of x,y,z (scalar or 3-element) can be provided for axis label (as unit of length, not of f,psd),</p>
+<blockquote>
+<div><p>None can be used to exclude units. Units of y are irrelevant because integrate, but kept as 3 vector for
+consistency with other routines.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>ax2f can be an array with same length of rmsrange set to True for frequency ranges to be plotted on 2nd</dt><dd><p>y (right) axis. Total rms is always plotted on left axis.</p>
+</dd>
+</dl>
+<p>Return a set of slice rms array (of size x), however if rmsrange is not passed returns only a single array. Zero freq is excluded.
+2020/07/21 corrected bug on wrong rms total calculation in title.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.multipsd2">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">multipsd2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datalist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wfun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.multipsd2" title="Permalink to this definition"></a></dt>
+<dd><p>return two lists of vectors respectively freq and avg psd2
+each list has vectors respectively for y and x for data must be passed as list of tuples, each one in form (wdata,xwg,ywg)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.multipsd3">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">multipsd3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xwg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ywg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wfun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.multipsd3" title="Permalink to this definition"></a></dt>
+<dd><p>return two lists respectively freq and psd2d
+each list has vectors respectively for y and x for each data set passed.
+data must be passed as list of tuples, each one in form (wdata,xwg,ywg)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.multipsd">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">multipsd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datalist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.multipsd" title="Permalink to this definition"></a></dt>
+<dd><p>return a tuple of two couples ((yfreq.,ypsd),(xfreq.,xpsd))
+for each of the data passed, respectively for y and x.
+data must be passed as list of tuples (wdata,xwg,ywg)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.plot_psd2d">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">plot_psd2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includezerofreq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.plot_psd2d" title="Permalink to this definition"></a></dt>
+<dd><p>plots a 2d psd as a surface with logaritmic color scale on the current axis. Return axis.
+If a zero frequency is present it is excluded by default from plot, unless includezerofreq is set to True.
+Units (3-el array) is units of lengths for data (not of PSD), can be None.
+2020/07/10 uncommented call to <cite>pySurf.data2D.plot_data</cite> (in “functions” module <cite>data2D</cite>).
+The “old” code segment called instead directly <cite>plt.imshow</cite>.
+In some sense, replicates code in <cite>plot_data</cite> and was not necessarily in sync
+(e.g.: stats flag is not included here).
+This seems to fix the issue.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.psd2d_analysis">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">psd2d_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wfun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fignum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsthr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax2f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsnorm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.psd2d_analysis" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates 2D PSD as image obtained combining all profile PSDS calculated along vertical slices of data. Resulting image has size
+If title is provided rms slice power is also calculated and plotted on three panels with figure and PSD.</p>
+<p>Return PSD as PSD2D object.</p>
+<p>uses plot_rms_power(f,p,rmsrange=None) to calculate rms power.
+fignum window where to plot, if fignnum is 0 current figure is cleared,
+if None new figure is created. Default to figure 5.
+rmsrange is one or a list of frequency ranges for plotting integrated rms. Can contain None to use max or min.
+If axf2 is set to boolean or array of boolean, plot slice rms for the frequencies
+associated to rmsrange on second axis. rmsrange must be set accordingly (same number of elements).</p>
+<p>rmsthr sets a threshold for data inclusion. If rms is above the value, the line is considered to contain invalid data and is removed from output PSD.
+This makes it easy to average the returned PSDs.
+Corresponding data are still visualized in central panel, but are marked with a red cross at top of y axes.
+If multiple rms range intervals are provided, line is removed if any of them is over the threshold, but this might change in future, e.g. TODO: make it possible to add vector threshold with as many elements as rms range intervals.</p>
+<p>Set outname to empty string to plot without generating output.</p>
+<p>typical values:
+rmsrange=[[None,0.1],[0.1,0.2],[0.2,1],[1,None]]  #list of frequency intervals for rms
+ax2f=[0,1,1,0,0]             #   axis where to plot rms corresponding to intervals in rmsrange: 1 right, 0 left
+wfun  = np.hanning           #   type of windows for fourier transform
+units = (“mm”,”mm”,”$mu$m”) #   units of surface data from which PSD is calculated</p>
+<p>vrange_surf=([-0.5,0.5])  #color scale of surface map
+vrange_leg=([-0.05,0.05])   #color scale of legendre removed map
+prange=np.array((1e-8,1.e-1))#np.array((5e-8,1.e-5))  #color scale of 2d psd plot</p>
+<p>fs,ps=psd2d_analysis(levellegendre(y,wdata,2),x,y,outname=””,wfun=np.hanning,
+rmsrange=rmsrange,prange=prange,ax2f=ax2f,units=units)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.psd_analysis">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">psd_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.psd_analysis" title="Permalink to this definition"></a></dt>
+<dd><p>Convenience function to plot average psd.
+Wrapper around <cite>psd2d analysis</cite> analysis. Adds a plot of average PSD and return it.</p>
+<p>Accept parameters for psd2d_analysis and plot_psd,
+including <cite>analysis=True</cite>.
+Call it directly to obtain 2d psd.
+Use
+Use <cite>plot_psd</cite> from <cite>pySurf.psd</cite> to plot.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.compare_2dpsd">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">compare_2dpsd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ldata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fignum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">titles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.compare_2dpsd" title="Permalink to this definition"></a></dt>
+<dd><p>plot a four panel data and psd for the two figures from data and ldata.
+x and y must be the same for the two data sets.
+Calculate PSD. Return freqs, psd and lpsd.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.avgpsd">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">avgpsd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fitsfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.avgpsd" title="Permalink to this definition"></a></dt>
+<dd><p>Wrapper on avgpsd2d. Extract average psd from a fits image,
+includes reading and outliers removal.
+Reader is a function of fitsfile that returns x,y,data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.calculatePSD">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">calculatePSD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wfun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fignum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.calculatePSD" title="Permalink to this definition"></a></dt>
+<dd><p>given points w, calculate and plot surface maps with different leveling (piston, tilt, sag, 10 legendre)
+use psd2d to calculate and save x and y 2d PSDs, plots only y.
+fignum window where to plot, if fignnum is 0 current figure is cleared, if None new figure is created. Default to figure 1 .</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.calculatePSD2">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">calculatePSD2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wfun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[None,</span> <span class="pre">None]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fignum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">misal_deg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leg_deg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.calculatePSD2" title="Permalink to this definition"></a></dt>
+<dd><p>Updated version with subtracted 4 terms legendre.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.test_slicerms">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">test_slicerms</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.test_slicerms" title="Permalink to this definition"></a></dt>
+<dd><p>test plot options for slicerms</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.test_plotpsd2d">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">test_plotpsd2d</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.test_plotpsd2d" title="Permalink to this definition"></a></dt>
+<dd><p>test of 3 panel psd2d plot, including 2d psd and slice rms.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.test_psd2d">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">test_psd2d</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.test_psd2d" title="Permalink to this definition"></a></dt>
+<dd><p>test of plotting 2dpsd alone</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.mwc">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">mwc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">psd3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prange</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.mwc" title="Permalink to this definition"></a></dt>
+<dd><p>plots a test case</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.test_prange_mwc">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">test_prange_mwc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.test_prange_mwc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pySurf.psd2d.test_prange_mwc2">
+<span class="sig-prename descclassname"><span class="pre">src.pySurf.psd2d.</span></span><span class="sig-name descname"><span class="pre">test_prange_mwc2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pySurf.psd2d.test_prange_mwc2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../points/index.html" class="btn btn-neutral float-left" title="src.pySurf.points" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../radial/index.html" class="btn btn-neutral float-right" title="src.pySurf.radial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

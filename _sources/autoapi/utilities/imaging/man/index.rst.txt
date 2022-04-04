@@ -1,0 +1,146 @@
+:py:mod:`utilities.imaging.man`
+===============================
+
+.. py:module:: utilities.imaging.man
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   utilities.imaging.man.unpackimage
+   utilities.imaging.man.autoGrid
+   utilities.imaging.man.shiftNaN
+   utilities.imaging.man.padNaN
+   utilities.imaging.man.padRect
+   utilities.imaging.man.borderFill
+   utilities.imaging.man.tipTiltPiston
+   utilities.imaging.man.nearestNaN
+   utilities.imaging.man.rebin
+   utilities.imaging.man.stripnans
+   utilities.imaging.man.transformation
+   utilities.imaging.man.rotateImage
+   utilities.imaging.man.newGridSize
+   utilities.imaging.man.nanflatten
+   utilities.imaging.man.removePoly
+   utilities.imaging.man.removeLegSlice
+   utilities.imaging.man.remove2DLeg
+   utilities.imaging.man.removeDS9Regions
+
+
+
+.. py:function:: unpackimage(data, xlim=[-1, 1], ylim=[-1, 1], remove=True)
+
+   Convert a 2D image into x,y,z coordinates.
+   x will relate to 2nd index in order to correspond to abscissa in imshow
+   y will relate to 1st index in order to correspond to oordinate in imshow
+   if remove is True, NaNs will not be returned in the list of coordinates
+
+
+.. py:function:: autoGrid(d, xr=[-1, 1], yr=[-1, 1])
+
+   Create a meshgrid based on the shape of the image d
+
+
+.. py:function:: shiftNaN(img, n=1, axis=0)
+
+   This function shifts an image in a NaN padded array
+   Specify which axis to shift, and specify wh
+   ich direction
+
+
+.. py:function:: padNaN(img, n=1, axis=0)
+
+   Pads an image with rows or columns of NaNs
+   If n is positive, they are appended to the end of
+   the specified axis. If n is negative, they are
+   appended to the beginning
+
+
+.. py:function:: padRect(img, nan_num=1)
+
+   Pads an image with an outer NaN rectangle of width nan_num
+
+
+.. py:function:: borderFill(img, n=1, fill_value=np.NaN)
+
+
+.. py:function:: tipTiltPiston(img, piston, tip, tilt, tx=None, ty=None)
+
+   This function adds a constant and
+   tip and tilt to an array
+   This makes use of tilt arrays tx,ty
+   If not provided, compute using meshgrid
+   Updated
+
+
+.. py:function:: nearestNaN(arr, method='nearest')
+
+   Fill the NaNs in a 2D image array with the griddata
+   nearest neighbor interpolation
+
+
+.. py:function:: rebin(a, shape)
+
+
+.. py:function:: stripnans(d1, removeAll=False)
+
+   Need to fix removeAll. Likely need to remove rows/columns
+   in a circular fashion until all perimeter NaNs are eliminated.
+
+
+.. py:function:: transformation(x, y, r=0.0, tx=0.0, ty=0.0)
+
+   Return x and y vectors after applying a rotation about
+   the origin and then translations in x and y
+
+
+.. py:function:: rotateImage(img, rot)
+
+   Apply a rotation about the center of an image using
+   griddata
+
+
+.. py:function:: newGridSize(img, newshape, method='linear')
+
+   Interpolate an image onto a new shape size
+
+
+.. py:function:: nanflatten(img)
+
+   Automatically remove NaNs when flattening an image
+
+
+.. py:function:: removePoly(l, order=2)
+
+   Remove a polynomial up to order from a slice.
+   NaNs are ignored.
+
+
+.. py:function:: removeLegSlice(din, order=2, axis=0)
+
+   Remove a Legendre polynomial up to order from each
+   slice of an image.
+
+
+.. py:function:: remove2DLeg(din, xo=2, yo=0)
+
+   Remove a 2D Legendre fit to din up to
+   xo and yo.
+
+
+.. py:function:: removeDS9Regions(img, filename)
+
+   Read in an SAOImage region file and set all
+   pixels within regions to NaN.
+   File should look like:
+   circle(x,y,rad)
+   box(x,y,dx,dy,0)
+   ellipse(x,y,dx,dy,0)
+
+

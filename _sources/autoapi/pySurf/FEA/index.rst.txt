@@ -1,0 +1,35 @@
+:py:mod:`pySurf.FEA`
+====================
+
+.. py:module:: pySurf.FEA
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pySurf.FEA.FEAreader1
+   pySurf.FEA.plotFEA
+
+
+
+.. py:function:: FEAreader1(FEAfile)
+
+   read V. Marquez files. Perform column shifting and knvert x returning result in operator coordinates
+   with all units in mm.
+
+
+.. py:function:: plotFEA(FEAfile, FEAreader, datafile=None, outname=None, markers=None)
+
+   read FEA and resample/rebin both points and FEA on the grid defined by steps, subtract gravity from pts
+   and plot and returns the corrected points. Simulation and data are also plotted if valid.
+   If datafile is not passed only simulation data are plotted and returned.
+   FEA reader is a function that accept a single argument FEAfile and return an array of points describing
+   changes in shape (x,y,dz).
+
+

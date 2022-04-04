@@ -1,0 +1,45 @@
+:py:mod:`src.dataIO`
+====================
+
+.. py:module:: src.dataIO
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   config/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   any_is_none/index.rst
+   arrays/index.rst
+   beep/index.rst
+   congrid/index.rst
+   debug/index.rst
+   dicts/index.rst
+   files/index.rst
+   fn_add_subfix/index.rst
+   functions/index.rst
+   jpgToFits/index.rst
+   logger/index.rst
+   outliers/index.rst
+   read_blocks/index.rst
+   read_blocks (1)/index.rst
+   read_blocks(2)/index.rst
+   read_pars_from_namelist/index.rst
+   rebin/index.rst
+   roi/index.rst
+   running_mean/index.rst
+   span/index.rst
+   superlist/index.rst
+   test_span/index.rst
+
+

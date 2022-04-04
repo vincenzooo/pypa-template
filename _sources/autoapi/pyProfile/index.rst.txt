@@ -1,0 +1,20 @@
+:py:mod:`pyProfile`
+===================
+
+.. py:module:: pyProfile
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   makenicePSDplots/index.rst
+   power_law/index.rst
+   profile/index.rst
+   profile_class/index.rst
+   profile_v1/index.rst
+   psd/index.rst
+
+

@@ -1,0 +1,52 @@
+:py:mod:`dataIO.logger`
+=======================
+
+.. py:module:: dataIO.logger
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   dataIO.logger.Logger
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   dataIO.logger.start_logger
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   dataIO.logger.cfgfile
+
+
+.. py:function:: start_logger(cfgfile=None)
+
+
+.. py:class:: Logger
+
+   .. py:method:: info(self, msg)
+
+
+   .. py:method:: debug(self, msg)
+
+
+
+.. py:data:: cfgfile
+   :annotation: = logging.ini
+
+   
+

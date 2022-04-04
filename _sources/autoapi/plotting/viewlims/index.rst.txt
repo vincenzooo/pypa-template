@@ -1,0 +1,64 @@
+:py:mod:`plotting.viewlims`
+===========================
+
+.. py:module:: plotting.viewlims
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   plotting.viewlims.UpdatingRect
+   plotting.viewlims.MandlebrotDisplay
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   plotting.viewlims.md
+   plotting.viewlims.Z
+   plotting.viewlims.rect
+
+
+.. py:class:: UpdatingRect
+
+   Bases: :py:obj:`matplotlib.patches.Rectangle`
+
+   .. py:method:: __call__(self, ax)
+
+
+
+.. py:class:: MandlebrotDisplay(h=500, w=500, niter=50, radius=2.0, power=2)
+
+   Bases: :py:obj:`object`
+
+   .. py:method:: __call__(self, xstart, xend, ystart, yend)
+
+
+   .. py:method:: ax_update(self, ax)
+
+
+
+.. py:data:: md
+   
+
+   
+
+.. py:data:: Z
+   
+
+   
+
+.. py:data:: rect
+   
+
+   
+

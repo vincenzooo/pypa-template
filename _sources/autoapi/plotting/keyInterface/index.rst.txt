@@ -1,0 +1,84 @@
+:py:mod:`plotting.keyInterface`
+===============================
+
+.. py:module:: plotting.keyInterface
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   plotting.keyInterface.PickControl
+   plotting.keyInterface.KeymapControl
+   plotting.keyInterface.ControlSys
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   plotting.keyInterface.fig
+   plotting.keyInterface.ctrl_sys
+
+
+.. py:class:: PickControl(fig)
+
+   .. py:method:: connect_picks(self)
+
+
+   .. py:method:: disconnect_picks(self)
+
+
+   .. py:method:: add_pick_action(self, picker)
+
+
+
+.. py:class:: KeymapControl(fig)
+
+   .. py:method:: connect_keymap(self)
+
+
+   .. py:method:: disconnect_keymap(self)
+
+
+   .. py:method:: add_key_action(self, key, description, action_func)
+
+
+   .. py:method:: keypress(self, event)
+
+
+   .. py:method:: display_help_menu(self)
+
+
+
+.. py:class:: ControlSys(fig, im, data)
+
+   Bases: :py:obj:`KeymapControl`, :py:obj:`PickControl`
+
+   .. py:method:: _emit(self, event, eventdata)
+
+
+   .. py:method:: _connect(self, event, callback)
+
+
+   .. py:method:: function(self)
+
+
+
+.. py:data:: fig
+   
+
+   
+
+.. py:data:: ctrl_sys
+   
+
+   
+

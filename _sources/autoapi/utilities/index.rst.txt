@@ -1,0 +1,28 @@
+:py:mod:`utilities`
+===================
+
+.. py:module:: utilities
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   imaging/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   cylinder/index.rst
+   fourier/index.rst
+   metrology/index.rst
+   plotting/index.rst
+   transformations/index.rst
+
+

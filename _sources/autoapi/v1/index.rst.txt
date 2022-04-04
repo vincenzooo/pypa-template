@@ -1,0 +1,27 @@
+:py:mod:`v1`
+============
+
+.. py:module:: v1
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   v1.add_clickable_markers
+
+
+
+.. py:function:: add_clickable_markers(fig=None, ax=None, key='enter', propertyname='markers', modkey='control', hold=False)
+
+   Makes pickable the image (image only) in the current figure.
+   add a list `propertyname` to the figure. if axis is passed, markers are added only to
+       specific axis. This way it is possible to associate differently named markers to
+       different axis in same figure.
+
+

@@ -1,0 +1,19 @@
+:py:mod:`pyGeo3D`
+=================
+
+.. py:module:: pyGeo3D
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   fit_3D_line/index.rst
+   fit_3D_plane/index.rst
+   geoShell/index.rst
+   intersect_plane_line/index.rst
+   ostruzione/index.rst
+
+

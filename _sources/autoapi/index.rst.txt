@@ -6,6 +6,16 @@ This page contains auto-generated API reference documentation [#f1]_.
 .. toctree::
    :titlesonly:
 
-   /autoapi/pyXsurf/index
+   /autoapi/src/index
+   /autoapi/readConfig/index
+   /autoapi/readConfig2/index
+   /autoapi/test/index
+   /autoapi/test_program_path/index
+   /autoapi/annotations/index
+   /autoapi/astupidloop/index
+   /autoapi/test_interactive/index
+   /autoapi/tkmatplotlibembedded/index
+   /autoapi/v1/index
+   /autoapi/v2/index
 
 .. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_

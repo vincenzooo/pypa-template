@@ -1,0 +1,6 @@
+:py:mod:`src.pySurf.clip`
+=========================
+
+.. py:module:: src.pySurf.clip
+
+

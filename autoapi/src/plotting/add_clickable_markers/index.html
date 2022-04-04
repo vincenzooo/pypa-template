@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.plotting.add_clickable_markers &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="src.plotting.add_mask" href="../add_mask/index.html" />
+    <link rel="prev" title="src.plotting.FastImshow" href="../FastImshow/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.dataIO</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyGeo3D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pyProfile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../pySurf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.pySurf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utilities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.add_clickable_markers</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/src/plotting/add_clickable_markers/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.plotting.add_clickable_markers">
+<span id="src-plotting-add-clickable-markers"></span><h1><a class="reference internal" href="#module-src.plotting.add_clickable_markers" title="src.plotting.add_clickable_markers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.plotting.add_clickable_markers</span></code></a><a class="headerlink" href="#module-src.plotting.add_clickable_markers" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.modify_markers" title="src.plotting.add_clickable_markers.modify_markers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_markers</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.push_to_advance" title="src.plotting.add_clickable_markers.push_to_advance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">push_to_advance</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.add_clickable_markers" title="src.plotting.add_clickable_markers.add_clickable_markers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_clickable_markers</span></code></a>(fig=None, ax=None, key='enter', propertyname='markers', modkey='control', hold=False)</p></td>
+<td><p>Makes pickable the image (image only) in the current figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.add_clickable_markers2" title="src.plotting.add_clickable_markers.add_clickable_markers2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_clickable_markers2</span></code></a>(ax=None, key='enter', propertyname='markers', modkey='control', hold=False)</p></td>
+<td><p>Enable adding markers by point and click to the passed or current axis. Returns axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.test_interac" title="src.plotting.add_clickable_markers.test_interac"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_interac</span></code></a>()</p></td>
+<td><p>2018/09/05 try to solve with new idea of calling add_clickable_markers2 as a function that returns a value only</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.test_interac2" title="src.plotting.add_clickable_markers.test_interac2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_interac2</span></code></a>()</p></td>
+<td><p>This probably works better than anything else. Still has flickering, but works from both ipython and jupyter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.test_multimarkers" title="src.plotting.add_clickable_markers.test_multimarkers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_multimarkers</span></code></a>()</p></td>
+<td><p>plots two datasets in subplots, return axis with attached clickable markers</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.test_loop" title="src.plotting.add_clickable_markers.test_loop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_loop</span></code></a>()</p></td>
+<td><p>test for first version add_clickable_markers (on figure, deprecated).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.test_add_clickable_markers" title="src.plotting.add_clickable_markers.test_add_clickable_markers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_add_clickable_markers</span></code></a>(a)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.test_multiaxis" title="src.plotting.add_clickable_markers.test_multiaxis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_multiaxis</span></code></a>(ax1, ax2, hold=False)</p></td>
+<td><p>plot on two axis in a blocking or non blocking mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.test_add_clickable_markers2" title="src.plotting.add_clickable_markers.test_add_clickable_markers2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_add_clickable_markers2</span></code></a>(a, b)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.test_hold" title="src.plotting.add_clickable_markers.test_hold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_hold</span></code></a>(a)</p></td>
+<td><p>test hold mechanism independently by how it is implemented inside</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.test_disconnect" title="src.plotting.add_clickable_markers.test_disconnect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_disconnect</span></code></a>()</p></td>
+<td><p>test access to connection ids from functions in event handling. these</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.retax" title="src.plotting.add_clickable_markers.retax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">retax</span></code></a>()</p></td>
+<td><p>diagnostic routine. return coordinates of all plotted points,</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.plotting.add_clickable_markers.ps1" title="src.plotting.add_clickable_markers.ps1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ps1</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.ps1">
+<span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">ps1</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">SOMETHING</span></em><a class="headerlink" href="#src.plotting.add_clickable_markers.ps1" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.add_clickable_markers">
+<span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">add_clickable_markers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'enter'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'markers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modkey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'control'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.add_clickable_markers" title="Permalink to this definition"></a></dt>
+<dd><p>Makes pickable the image (image only) in the current figure.
+add a list <cite>propertyname</cite> to the figure. if axis is passed, markers are added only to specific axis. This way it is possible to associate differently named markers to</p>
+<blockquote>
+<div><p>different axis in same figure.</p>
+<p>Deprecated, use add_clickable_markers2</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.add_clickable_markers2">
+<span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">add_clickable_markers2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'enter'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'markers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modkey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'control'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.add_clickable_markers2" title="Permalink to this definition"></a></dt>
+<dd><p>Enable adding markers by point and click to the passed or current axis. Returns axis.</p>
+<dl class="simple">
+<dt>Markers are added by mouse left click + modkey and are stored in a list added</dt><dd><p>to the axis as a property <cite>propertyname</cite>. They can be removed by modkey
++ mouse right click.
+<cite>key</cite> disconnect user interface stopping point and click operations.</p>
+</dd>
+</dl>
+<p>Markers with different propertyname can be associated to same axis.
+hold is implemented in experimental way, only one axis should hold. Not sure</p>
+<blockquote>
+<div><p>what happens otherwise. Even with this working version there is flickering.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>This is updated version of add_clickable_markers, associate with axis,</dt><dd><p>not with figure so it is safe to use on subplots.</p>
+</dd>
+</dl>
+<p>ex:
+ax1=add_clickable_markers2()    #use current axis
+ax1=add_clickable_markers2(ax=ax1)   #use a specific axis
+print (ax1.markers)  #run this after markers are added</p>
+<p>2018 <a class="reference external" href="mailto:vcotroneo&#37;&#52;&#48;cfa&#46;harvard&#46;edu">vcotroneo<span>&#64;</span>cfa<span>&#46;</span>harvard<span>&#46;</span>edu</a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.modify_markers">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">modify_markers</span></span><a class="headerlink" href="#src.plotting.add_clickable_markers.modify_markers" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.modify_markers.add_step_through">
+<span class="sig-name descname"><span class="pre">add_step_through</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.modify_markers.add_step_through" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.push_to_advance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">push_to_advance</span></span><a class="headerlink" href="#src.plotting.add_clickable_markers.push_to_advance" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.push_to_advance.add_step_through">
+<span class="sig-name descname"><span class="pre">add_step_through</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.push_to_advance.add_step_through" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.test_interac">
+<span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">test_interac</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.test_interac" title="Permalink to this definition"></a></dt>
+<dd><p>2018/09/05 try to solve with new idea of calling add_clickable_markers2 as a function that returns a value only
+when a key is pressed. to do this the interactive mode of matplotlib must be off.
+This works perfectly if imported from ipython shell, but if
+called in qtconsole from jupyter notebook, doesn’t disable
+interactive mode.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.test_interac2">
+<span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">test_interac2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.test_interac2" title="Permalink to this definition"></a></dt>
+<dd><p>This probably works better than anything else. Still has flickering, but works from both ipython and jupyter.</p>
+<p>For some strange reason, pause and coord must be
+made global, while there is no need for cid.
+Maybe because global and pause are in functions linked to mpl,
+while remove_cids is independent?</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.test_multimarkers">
+<span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">test_multimarkers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.test_multimarkers" title="Permalink to this definition"></a></dt>
+<dd><p>plots two datasets in subplots, return axis with attached clickable markers
+(CTRL+button). return axis ax1 and ax2 with markers properties attached named respectively
+ax1.m1 and ax2.m2</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.test_loop">
+<span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">test_loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.test_loop" title="Permalink to this definition"></a></dt>
+<dd><p>test for first version add_clickable_markers (on figure, deprecated).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.test_add_clickable_markers">
+<span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">test_add_clickable_markers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.test_add_clickable_markers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.test_multiaxis">
+<span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">test_multiaxis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.test_multiaxis" title="Permalink to this definition"></a></dt>
+<dd><p>plot on two axis in a blocking or non blocking mode.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.test_add_clickable_markers2">
+<span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">test_add_clickable_markers2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.test_add_clickable_markers2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.test_hold">
+<span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">test_hold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.test_hold" title="Permalink to this definition"></a></dt>
+<dd><p>test hold mechanism independently by how it is implemented inside
+add_clickable_marker2.
+test single axis figure and figure with two subplots holding until enter</p>
+<blockquote>
+<div><p>key is pressed.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.test_disconnect">
+<span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">test_disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.test_disconnect" title="Permalink to this definition"></a></dt>
+<dd><p>test access to connection ids from functions in event handling. these
+are not stored anywhere, so they must be stored at event function definition
+from main function body.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plotting.add_clickable_markers.retax">
+<span class="sig-prename descclassname"><span class="pre">src.plotting.add_clickable_markers.</span></span><span class="sig-name descname"><span class="pre">retax</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.plotting.add_clickable_markers.retax" title="Permalink to this definition"></a></dt>
+<dd><p>diagnostic routine. return coordinates of all plotted points,
+assuming this are the symbols for the plotted markers.</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../FastImshow/index.html" class="btn btn-neutral float-left" title="src.plotting.FastImshow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../add_mask/index.html" class="btn btn-neutral float-right" title="src.plotting.add_mask" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

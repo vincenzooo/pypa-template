@@ -1,0 +1,41 @@
+:py:mod:`dataIO.debug`
+======================
+
+.. py:module:: dataIO.debug
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   dataIO.debug.chk_args_id
+   dataIO.debug.test_func
+   dataIO.debug.test_decorator
+   dataIO.debug.decorate_module
+
+
+
+.. py:function:: chk_args_id(func, n=None, *args, **kwargs)
+
+   check the first n arguments id and print a warning if
+   they don't match the first n return arguments.
+
+
+.. py:function:: test_func(x, y, z, replacez=False)
+
+
+.. py:function:: test_decorator()
+
+
+.. py:function:: decorate_module(mod, dec)
+
+   decorate all functions in a given module passed as string. it probably will not work, how export to caller routines?
+
+   modified from:  https://stackoverflow.com/questions/8718885/import-module-from-string-variable?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+
+

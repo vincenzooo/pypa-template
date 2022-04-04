@@ -1,0 +1,117 @@
+:py:mod:`pySurf.PointCloud`
+===========================
+
+.. py:module:: pySurf.PointCloud
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pySurf.PointCloud.Points
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pySurf.PointCloud._angpos2
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pySurf.PointCloud.method
+
+
+.. py:data:: method
+   :annotation: = linear
+
+   Finally a point class, inherited from numpy array.
+   Points are in format (Npoints,Ndim), where the last column is intended to be the data
+       and the first N-1 are the points coordinate. This in the most general case, but routines
+       are written and tested on the 3d case. The final intent is make it valid for any ndim
+       for an array of 2d shape. Routines made for ndimensional case are marked with ND, routines
+       that need adjustment are marked as 3D.
+
+.. py:function:: _angpos2(xy)
+
+   given an image and some notable points, return the angular positions of points with respect to barycenter.
+   The angle returned is in the range [-pi:pi]
+
+
+.. py:class:: Points(filename=None, *args, **kwargs)
+
+   Bases: :py:obj:`object`
+
+   Represent a set of points in a N-dimensional point cloud, defined as array in format (Npoints,Ndim).
+
+   .. py:method:: load(self, filename, delimiter='', *args, **kwargs)
+
+
+   .. py:method:: translate(self, offset=None)
+
+      returns translated coordinates of 2D point(s) x ([Npoints x 2]) by an offset.
+      It works also on 3-D points, in that case the z is returned unchanged.
+
+
+   .. py:method:: rotate(self, theta, center=(0, 0))
+
+      returns rotated coordinates of 2D point(s) x ([Npoints x 2]) about a center with anticlockwise angle theta in rad.
+      If 3D points are passed, z coordinate is maintained.
+
+
+   .. py:method:: resample(self, positions)
+
+      resample points [Npoints x 3] on the points defined in positions [Mpoints x 2], or [Mpoints x 3]
+      (in this case 3rd column is ignored).
+      Return a [Nx x Ny , 3] vector of points. To get a (plottable) matrix of data use:
+      plt.imshow(rpoints[:,2].reshape(xgrid.size,ygrid.size)).
+
+
+   .. py:method:: resample_grid(self, xgrid, ygrid)
+
+
+   .. py:method:: save(self, filename, xgrid=None, ygrid=None, shape=None, matrix=False, fill_value=np.nan, **kwargs)
+
+      save points on a file. If matrix is true write in matrix form (in this case you have to
+      provide the values for axis). Otherwise write as points in columns.
+
+
+   .. py:method:: plot(self, xgrid=None, ygrid=None, shape=None, resample=True, scatter=False, **kwargs)
+
+      resample xyz points [Nx3] to a grid whose axis xgrid and ygrid are given
+      and plot it. If resample is set to False x and y positions are considered only for range,
+      but they are not used to position the z values (it works if x and y are on an exact unrotated grid,
+      resampling is slower, but exact).
+
+
+   .. py:method:: rms(self, xcrop=None, ycrop=None, mask=None, clip=None)
+
+      return the rms of the selected points.
+
+
+   .. py:method:: crop(self, xrange=None, yrange=None)
+
+      crop a xyz points [Nx3], keeping only points inside xrange and yrange defined as (min,max).
+
+
+   .. py:method:: subtract_points(p1, p2, xySecond=False)
+
+      Subtract second set of points after interpolation on first set coordinates.
+      If xySecond is set to True data are interpolate on xy of p2 and then subtracted.
+
+
+   .. py:method:: smooth_points(self, xywidth)
+
+
+

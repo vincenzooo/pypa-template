@@ -1,0 +1,95 @@
+:py:mod:`pySurf.affine2D`
+=========================
+
+.. py:module:: pySurf.affine2D
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pySurf.affine2D.rot_center_func
+   pySurf.affine2D.translate_func
+   pySurf.affine2D.rototrans_func
+   pySurf.affine2D.apply2D
+   pySurf.affine2D._angpos2
+   pySurf.affine2D.plot_transform
+   pySurf.affine2D.find_rototrans
+   pySurf.affine2D.find_affine
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pySurf.affine2D.primary
+
+
+.. py:function:: rot_center_func(theta, center=(0, 0))
+
+
+.. py:function:: translate_func(offset=(0, 0))
+
+
+.. py:function:: rototrans_func(theta, center=(0, 0), offset=(0, 0))
+
+   return a function that rotate by theta about center THEN translate by offset
+
+
+.. py:function:: apply2D(func, *args, **kwargs)
+
+   given a function acting on 2D points as array[N,2], returns a function
+   that do same action on first two coordinates of a 3D array, leaving the third unchanged.
+   e.g. rototrans_func=apply2D(translate_points(rotate_points()))
+
+
+.. py:function:: _angpos2(xy)
+
+   given some notable points, return the angular positions
+   of points with respect to barycenter. The angle returned is in the range [-pi:pi].
+   Return angle and radius for each point and barycenter position.
+
+
+.. py:function:: plot_transform(points, plotLines=None, labels=None, transform=None)
+
+   plot a set of points or shapes and their transformed.
+   points is a list of sets of coordinates, one for each groups of points to be plotted with same style and transformation. Stile and transformation can be passed as single value or list.
+   plotlines is an array of flags to plot as lines(True) or points (False,default).
+   labels set of labels of same length
+   transform list (same len as points) of transformation functions or single function to be
+   applied respectively to each set of points passed.
+
+   #this plots some markers and a rectangle (see examples in module):
+   plt.figure() plot_transform([primary,secondary,rect1],[0,0,1],['markers1','markers2','ROI'],[transform2,None,transform2])
+   plt.show()
+   display(plt.gcf())
+
+
+.. py:function:: find_rototrans(markers1, markers2, pars=None)
+
+   Return the transformation that applied to markers1 gives markers2.
+   If list is passed in pars, transformation parameters mrot,b1,bartrans are appended.
+
+
+.. py:function:: find_affine(markers1, markers2, pars=None)
+
+   Return a function that can transform points from the first system to the second.
+   if pars is set to a list, append the matrix A of the transformation, that can be applied to a vector x with:
+   unpad(np.dot(pad(x), A))
+   markers1 and markers2 are sets of points in format [Npoints, Ndim]. Transformation matrix A is [Ndim+1 x Ndim+1].
+
+   http://stackoverflow.com/questions/20546182/how-to-perform-coordinates-affine-transformation-using-python-part-2
+
+
+.. py:data:: primary
+   
+
+   
+

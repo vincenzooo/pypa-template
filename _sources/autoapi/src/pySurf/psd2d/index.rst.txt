@@ -1,0 +1,213 @@
+:py:mod:`src.pySurf.psd2d`
+==========================
+
+.. py:module:: src.pySurf.psd2d
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pySurf.psd2d.psd2d
+   src.pySurf.psd2d.avgpsd2d
+   src.pySurf.psd2d.rms_power
+   src.pySurf.psd2d.plot_rms_power
+   src.pySurf.psd2d.multipsd2
+   src.pySurf.psd2d.multipsd3
+   src.pySurf.psd2d.multipsd
+   src.pySurf.psd2d.plot_psd2d
+   src.pySurf.psd2d.psd2d_analysis
+   src.pySurf.psd2d.psd_analysis
+   src.pySurf.psd2d.compare_2dpsd
+   src.pySurf.psd2d.avgpsd
+   src.pySurf.psd2d.calculatePSD
+   src.pySurf.psd2d.calculatePSD2
+   src.pySurf.psd2d.test_slicerms
+   src.pySurf.psd2d.test_plotpsd2d
+   src.pySurf.psd2d.test_psd2d
+   src.pySurf.psd2d.mwc
+   src.pySurf.psd2d.test_prange_mwc
+   src.pySurf.psd2d.test_prange_mwc2
+
+
+
+.. py:function:: psd2d(data, x, y, wfun=None, norm=1, rmsnorm=False)
+
+   Calculate the 2d psd. return freq and psd.
+
+   doesnt work with nan.
+   use 2d function for psd np.fft.rfft2 for efficiency and mimics
+       what done in pySurf.psd.psd
+   norm defines the normalization, see function psd.normPSD.
+   2017/01/11 broken interface from (x,y,data..),
+   added check to correct on the base of sizes.
+
+
+.. py:function:: avgpsd2d(psddata, axis=1, span=False, expand=False)
+
+   wrapper for backward compatibilty and tutorial,
+   use directly pySurf.data2D.projection() with axis=1 to get same effect.
+   return psd average along axis from 2d psd computed with same
+   orientation. default axis is 1, because axial profiles
+   are along axis 0, sum on axis 1.
+
+
+.. py:function:: rms_power(f, p, rmsrange=None, squeeze=True)
+
+   integrate `p` (2dpsd) to calculate rms slice power in a range of freq. f is the  frequency axis (vertically oriented in plots) for p. Accepts None as extreme of rmsrange. frequencies are assumed to be equally spaced.
+   Return a vectors rms with one element for each range in rmsrange. If one element, extra dimension is
+       removed unless squeeze is set (useful e.g. to call from wrapper function and get consistent behavior).
+   Note that total rms is calculated as rms of column rms, calculated from PSD for each column. If f[0] is zero, the component is excluded, unless first component of rmsrange is explicitly set to zero. If you want to include all frequencies but zero, set rms range first component to None (or rmsrange itself to None).
+   Values can then differ from surface rms in case of invalid points (e.g. as consequence of the fact
+   that all lines are weighted equally in line average and also invalid points are excluded).
+   2020/07/21 corrected handling of zero frequency and added `includezerofreq` Flag.
+
+
+.. py:function:: plot_rms_power(f, p, x=None, rmsrange=None, ax2f=None, units=None, *args, **kwargs)
+
+   Plot curves of slice rms from integration of PSD 2D over one or more ranges of frequency `rmsrange`.
+   units of x,y,z (scalar or 3-element) can be provided for axis label (as unit of length, not of f,psd),
+       None can be used to exclude units. Units of y are irrelevant because integrate, but kept as 3 vector for
+       consistency with other routines.
+   ax2f can be an array with same length of rmsrange set to True for frequency ranges to be plotted on 2nd
+       y (right) axis. Total rms is always plotted on left axis.
+   Return a set of slice rms array (of size x), however if rmsrange is not passed returns only a single array. Zero freq is excluded.
+   2020/07/21 corrected bug on wrong rms total calculation in title.
+
+
+.. py:function:: multipsd2(datalist, wfun=None)
+
+   return two lists of vectors respectively freq and avg psd2
+   each list has vectors respectively for y and x for data must be passed as list of tuples, each one in form (wdata,xwg,ywg)
+
+
+.. py:function:: multipsd3(wdata, xwg, ywg, wfun=None)
+
+   return two lists respectively freq and psd2d
+   each list has vectors respectively for y and x for each data set passed.
+   data must be passed as list of tuples, each one in form (wdata,xwg,ywg)
+
+
+.. py:function:: multipsd(datalist)
+
+   return a tuple of two couples ((yfreq.,ypsd),(xfreq.,xpsd))
+   for each of the data passed, respectively for y and x.
+   data must be passed as list of tuples (wdata,xwg,ywg)
+
+
+.. py:function:: plot_psd2d(f, p, x, prange=None, includezerofreq=False, units=None, *args, **kwargs)
+
+   plots a 2d psd as a surface with logaritmic color scale on the current axis. Return axis.
+   If a zero frequency is present it is excluded by default from plot, unless includezerofreq is set to True.
+   Units (3-el array) is units of lengths for data (not of PSD), can be None.
+   2020/07/10 uncommented call to `pySurf.data2D.plot_data` (in "functions" module `data2D`).
+   The "old" code segment called instead directly `plt.imshow`.
+   In some sense, replicates code in `plot_data` and was not necessarily in sync
+   (e.g.: stats flag is not included here).
+   This seems to fix the issue.
+
+
+.. py:function:: psd2d_analysis(wdata, x, y, title=None, wfun=None, vrange=None, rmsrange=None, prange=None, fignum=5, rmsthr=None, aspect='auto', ax2f=None, units=None, outname=None, norm=1, rmsnorm=True)
+
+   Calculates 2D PSD as image obtained combining all profile PSDS calculated along vertical slices of data. Resulting image has size
+   If title is provided rms slice power is also calculated and plotted on three panels with figure and PSD.
+
+   Return PSD as PSD2D object.
+
+   uses plot_rms_power(f,p,rmsrange=None) to calculate rms power.
+   fignum window where to plot, if fignnum is 0 current figure is cleared,
+   if None new figure is created. Default to figure 5.
+   rmsrange is one or a list of frequency ranges for plotting integrated rms. Can contain None to use max or min.
+   If axf2 is set to boolean or array of boolean, plot slice rms for the frequencies
+   associated to rmsrange on second axis. rmsrange must be set accordingly (same number of elements).
+
+   rmsthr sets a threshold for data inclusion. If rms is above the value, the line is considered to contain invalid data and is removed from output PSD.
+   This makes it easy to average the returned PSDs.
+   Corresponding data are still visualized in central panel, but are marked with a red cross at top of y axes.
+   If multiple rms range intervals are provided, line is removed if any of them is over the threshold, but this might change in future, e.g. TODO: make it possible to add vector threshold with as many elements as rms range intervals.
+
+   Set outname to empty string to plot without generating output.
+
+   typical values:
+   rmsrange=[[None,0.1],[0.1,0.2],[0.2,1],[1,None]]  #list of frequency intervals for rms
+   ax2f=[0,1,1,0,0]             #   axis where to plot rms corresponding to intervals in rmsrange: 1 right, 0 left
+   wfun  = np.hanning           #   type of windows for fourier transform
+   units = ("mm","mm","$\mu$m") #   units of surface data from which PSD is calculated
+
+   vrange_surf=([-0.5,0.5])  #color scale of surface map
+   vrange_leg=([-0.05,0.05])   #color scale of legendre removed map
+   prange=np.array((1e-8,1.e-1))#np.array((5e-8,1.e-5))  #color scale of 2d psd plot
+
+   fs,ps=psd2d_analysis(levellegendre(y,wdata,2),x,y,outname="",wfun=np.hanning,
+   rmsrange=rmsrange,prange=prange,ax2f=ax2f,units=units)
+
+
+.. py:function:: psd_analysis(*args, **kwargs)
+
+   Convenience function to plot average psd.
+   Wrapper around `psd2d analysis` analysis. Adds a plot of average PSD and return it.
+
+   Accept parameters for psd2d_analysis and plot_psd,
+   including `analysis=True`.
+   Call it directly to obtain 2d psd.
+   Use
+   Use `plot_psd` from `pySurf.psd` to plot.
+
+
+.. py:function:: compare_2dpsd(data, ldata, x=None, y=None, fignum=None, titles=None, vmin=None, vmax=None)
+
+   plot a four panel data and psd for the two figures from data and ldata.
+   x and y must be the same for the two data sets.
+   Calculate PSD. Return freqs, psd and lpsd.
+
+
+.. py:function:: avgpsd(fitsfile, correct=False, reader=None, level=None, nsigma=3, rotate=False, **kwargs)
+
+   Wrapper on avgpsd2d. Extract average psd from a fits image,
+   includes reading and outliers removal.
+   Reader is a function of fitsfile that returns x,y,data.
+
+
+.. py:function:: calculatePSD(wdata, xg, yg, outname='', wfun=None, vrange=None, rmsrange=None, prange=None, fignum=1)
+
+   given points w, calculate and plot surface maps with different leveling (piston, tilt, sag, 10 legendre)
+   use psd2d to calculate and save x and y 2d PSDs, plots only y.
+   fignum window where to plot, if fignnum is 0 current figure is cleared, if None new figure is created. Default to figure 1 .
+
+
+.. py:function:: calculatePSD2(wdata, xg, yg, outname='', wfun=None, vrange=[None, None], rmsrange=None, prange=None, fignum=1, misal_deg=(1, 1), leg_deg=(10, 10))
+
+   Updated version with subtracted 4 terms legendre.
+
+
+.. py:function:: test_slicerms()
+
+   test plot options for slicerms
+
+
+.. py:function:: test_plotpsd2d()
+
+   test of 3 panel psd2d plot, including 2d psd and slice rms.
+
+
+.. py:function:: test_psd2d()
+
+   test of plotting 2dpsd alone
+
+
+.. py:function:: mwc(psd3, prange)
+
+   plots a test case
+
+
+.. py:function:: test_prange_mwc()
+
+
+.. py:function:: test_prange_mwc2()
+
+

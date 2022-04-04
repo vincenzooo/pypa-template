@@ -1,0 +1,221 @@
+:py:mod:`plotting.multiplots`
+=============================
+
+.. py:module:: plotting.multiplots
+
+.. autoapi-nested-parse::
+
+   vedi anche from `mpl_toolkits.axes_grid1`.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   plotting.multiplots.smartcb
+   plotting.multiplots.align_axis_x
+   plotting.multiplots.align_axis_y
+   plotting.multiplots.commonscale
+   plotting.multiplots.find_grid_size
+   plotting.multiplots.plot_difference
+   plotting.multiplots.xfind_grid_size
+   plotting.multiplots.subplot_grid
+   plotting.multiplots.diff_images
+   plotting.multiplots.xdiff_images
+   plotting.multiplots.align_images
+   plotting.multiplots.associate_plots_axis
+   plotting.multiplots.associate_plots
+   plotting.multiplots.associate_plots_mw
+   plotting.multiplots.associate_plots_muc
+   plotting.multiplots.associate_plots_tb2
+   plotting.multiplots.set_home
+   plotting.multiplots.restore_home
+   plotting.multiplots.test_associate
+   plotting.multiplots.test_associate_zoom
+   plotting.multiplots.test_subplot_grid
+
+
+
+.. py:function:: smartcb(ax=None)
+
+   from different places online is a way to get colorbars same height than the plot.
+
+
+.. py:function:: align_axis_x(ax, ax_target)
+
+   Make x-axis of `ax` aligned with `ax_target` in figure. Useful to align shared
+   axis when colorbar messes up the alignment.
+
+   from: https://stackoverflow.com/questions/46694889/matplotlib-sharex-with-colorbar-not-working
+   see also:
+   https://stackoverflow.com/questions/54473465/aligning-x-axis-with-sharex-using-subplots-and-colorbar-with-matplotlib
+   https://stackoverflow.com/questions/44682146/align-subplot-with-colorbar
+
+
+.. py:function:: align_axis_y(ax, ax_target)
+
+   Make y-axis of `ax` aligned with `ax_target` in figure
+
+
+.. py:function:: commonscale(fig=None)
+
+   set scale of all axes in a figure to the range that includes all axes data.
+
+
+.. py:function:: find_grid_size(number, smax=0, square=True, fill=False)
+
+   given a number of plots determine the grid size that better fits all plots.
+   First number returned is smaller, meaning more rows than columns.
+   It is up to the user to switch for use as rows or cols.
+   Square and fill define the ideal shape for the grid.
+   If fill is set returns a shape with no empty axis,
+   if square is set the final shape will be as close as possible to a square,
+       if not, it will be as long as it can in one dimension (meaning
+       that if smax is not set it will be a single line).
+
+   for example
+   print(find_grid_size(10))  #gives 4,3
+   print(find_grid_size(10,3))  #gives 4,3
+   print(find_grid_size(9))  #gives 3,3
+   print(find_grid_size(9,2))  #gives 5,2
+   print (find_grid_size(3))  #gives 2,2
+   print(find_grid_size(3,2),square=False)  #gives 2,2
+
+   for i in range(11):print(i,find_grid_size(i))
+   for i in range(11):print(i,find_grid_size(i,2))
+
+
+
+.. py:function:: plot_difference(p1t, p4, trim=None, dis=False)
+
+   plots and return difference of two Data2D objects, return difference.
+   All data are plane leveled before plots, a common color scale is set after excluding outliers. Leveled difference is returned.
+   If trim is other than None, plots are adjusted on valid data x and y range,
+   if Trim = True empty borders are removed also from difference data.
+
+
+.. py:function:: xfind_grid_size(number, smax=0)
+
+   given a number of plots determine the grid size that better fits all plots.
+   First number returned is biggest, it is up to the user to switch
+   for use as rows or cols.
+   for example
+   print(find_grid_size(10))  #gives 4,3
+   print(find_grid_size(10,3))  #gives 4,3
+   print(find_grid_size(9))  #gives 3,3
+   print(find_grid_size(9,2))  #gives 5,2
+
+   for i in range(11):print(i,find_grid_size(i))
+   for i in range(11):print(i,find_grid_size(i,2))
+
+
+
+.. py:function:: subplot_grid(number, size=0, smax=0, *args, **kwargs)
+
+   Create a set of n=`number` subplots in a figure, automatically
+   chosing the shape of the grid. Returns figure and list of axis.
+   Note that empty subplots (e.g. the 9th in a grid of 3x3 subplots when `number=8`) are not created.
+
+   size: if this is provided, is used as size of the subplot grid.
+   smax: used in `find_grid_size` to limit the extension along axis for the subplot grid. See `find_grid_size` help.
+   num: if integer is passed, plot on the corresponding figure. if None is passed, create a new one. TBD: pass a figure obj.
+   Additional *args and **kwargs are passed to `plt.subplots`.
+
+
+   2020/05/14 fixed bug on subplots removal, updated doc from:
+   return a generator that plots n plots. It has advantage wrt plt.subplots of
+   not creating empty axes. The idea of making a generator is weird.
+   modified to fig,axes as equivalent to plt.subplots 2018/09/06.
+   Usage:
+       for i,a in enumerate(subplot_grid(3)):
+           a.plot(x,x**i) #or plt.plot
+
+           also axes=[a.plot(x,x**i) for i,a in enumerate(subplot_grid(3))]
+
+
+.. py:function:: diff_images(data1, data2, x=None, y=None, fignum=None, titles=None, vmin=None, vmax=None, commonscale=False, direction=0, *args, **kwargs)
+
+   plots two data sets with common axis and their difference. Return the three axis.
+   Colorbars are formatted to be same height as plot.
+   2018/06/19 use data2D routines, allowing to add parameters (e.g. stats legend).
+
+
+.. py:function:: xdiff_images(data1, data2, x=None, y=None, fignum=None, titles=None, vmin=None, vmax=None, commonscale=False, direction=0, *args, **kwargs)
+
+   plots two data sets with common axis and their difference. Return the three axis.
+   Colorbars are formatted to be same height as plot.
+
+
+.. py:function:: align_images(ax2, ax3)
+
+   make two subplots, allow to draw markers on them, exit at enter key and
+   return markers.
+
+
+.. py:function:: associate_plots_axis(ax1, ax2, axis=None, on=0)
+
+   Incomplete attempt to add axis option.
+   Associate axis of two different subplots `ax1`, `ax2`.
+   if `on` is None toggle, if it is 0 set off, if 1 set on. Not implemented, for now
+   associate and keeps on until figure is closed.
+   `axis` tells which axis are associated (0 = x, 1 =y, None = both).
+
+
+.. py:function:: associate_plots(ax1, ax2, axis=None, on=0)
+
+   Associate axis of two different subplots `ax1`, `ax2`.
+   This is a different mechanism than shared axis, in that here zoom and pans are kept synchronized, but axis are independent. If the two plots have same scales on both axis, it works like shared axis.
+
+   Run `test_associate`, `test_associate_zoom` for examples.
+
+   TODO: toggle association: note that relative alignment of centers is maintained, to be able to manually align center a toggle mechanism must be implemented:
+   if `on` is None toggle, if it is 0 set off, if 1 set on. Not implemented, for now
+   associate and keeps on until figure is closed.
+   TODO: being able to associate only on x or y `axis` tells which axis are associated (0 = x, 1 =y, None = both). See attempt in `associate_plots_axis`
+   TODO: when home is clicked, plots are messed up, need to click twice.
+
+
+
+.. py:function:: associate_plots_mw(ax1, ax2)
+
+   if on is None toggle, if it is 0 set off, if 1 set on. Not implemented, for now
+   associate and keeps on until figure is closed.
+
+
+.. py:function:: associate_plots_muc(ax1, ax2)
+
+   just print the changes of axes.
+
+
+
+.. py:function:: associate_plots_tb2(ax1, ax2)
+
+   attempt to use an alternative mechanism for adjusting plot scales
+   based on toolbar history. potentially lighter and more robust since someone
+   else took care of details. need to keep under control side effects,
+   for example must work on rescaling from code.
+
+
+.. py:function:: set_home()
+
+
+.. py:function:: restore_home(h)
+
+
+.. py:function:: test_associate()
+
+
+.. py:function:: test_associate_zoom()
+
+
+.. py:function:: test_subplot_grid()
+
+   test/example for subplot_grid
+
+

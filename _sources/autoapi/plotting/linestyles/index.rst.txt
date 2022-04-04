@@ -1,0 +1,31 @@
+:py:mod:`plotting.linestyles`
+=============================
+
+.. py:module:: plotting.linestyles
+
+.. autoapi-nested-parse::
+
+   functions to adjust linestyles.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   plotting.linestyles.colors_20
+
+
+
+.. py:function:: colors_20(plot=False)
+
+   Build a
+
+   Lazily copied from:    https://stackoverflow.com/questions/8389636/creating-over-20-unique-legend-colors-using-matplotlib
+
+

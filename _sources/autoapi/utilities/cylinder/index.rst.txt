@@ -1,0 +1,72 @@
+:py:mod:`utilities.cylinder`
+============================
+
+.. py:module:: utilities.cylinder
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   utilities.cylinder.cyl
+   utilities.cylinder.findGuess
+   utilities.cylinder.fitCyl
+   utilities.cylinder.transformCyl
+   utilities.cylinder.itransformCyl
+   utilities.cylinder.meritFn
+   utilities.cylinder.fitCyl3D
+
+
+
+.. py:function:: cyl(shape, curv, rad, yaw, pitch, roll, piston)
+
+   Create a cylindrical surface on a 2D array.
+   Specify shape of array, and other parameters in
+   pixels or radians where appropriate.
+   Radius is assumed to be large enough to fill
+   provided array.
+   Curv is +1 or -1, with +1 indicating a convex
+   cylinder from user's point of view (curving negative)
+
+
+.. py:function:: findGuess(d)
+
+   Find initial guess parameters for cylindrical
+   metrology data. Use a quadratic fit in each axis
+   to determine curvature sign and radius.
+   Assume zero yaw
+
+
+.. py:function:: fitCyl(d)
+
+   Fit a cylinder to the 2D data. NaNs are perfectly fine.
+   Supply guess as [curv,rad,yaw,pitch,roll,piston]
+
+
+.. py:function:: transformCyl(x, y, z, yaw, pitch, lateral, piston)
+
+   Transform x,y,z coordinates for cylindrical fitting
+
+
+.. py:function:: itransformCyl(x, y, z, yaw, pitch, lateral, piston)
+
+   Transform x,y,z coordinates for cylindrical fitting
+
+
+.. py:function:: meritFn(x, y, z)
+
+   Merit function for 3d cylindrical fitting
+
+
+.. py:function:: fitCyl3D(d)
+
+   Fit a cylinder to the 2D data. NaNs are fine. Image is
+   first unpacked into x,y,z point data. Use findGuess to
+   determine initial guesses for cylindrical axis.
+
+

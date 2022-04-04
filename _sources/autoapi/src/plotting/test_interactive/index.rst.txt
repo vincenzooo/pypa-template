@@ -1,0 +1,74 @@
+:py:mod:`src.plotting.test_interactive`
+=======================================
+
+.. py:module:: src.plotting.test_interactive
+
+.. autoapi-nested-parse::
+
+   experiments how it is possible to advance from a plotting function with
+   interactive control as discussed in several sources on the internet.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.test_interactive.ViewMarkers
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.plotting.test_interactive.test_toolbar
+   src.plotting.test_interactive.main
+   src.plotting.test_interactive.main2
+
+
+
+.. py:class:: ViewMarkers(*args, **kwargs)
+
+   Bases: :py:obj:`matplotlib.backend_tools.ToolToggleBase`
+
+   Hide lines with a given gid
+
+   .. py:attribute:: default_keymap
+      :annotation: = M
+
+      
+
+   .. py:attribute:: description
+      :annotation: = Hide or Show Markers
+
+      
+
+   .. py:method:: enable(self, *args)
+
+
+   .. py:method:: disable(self, *args)
+
+
+   .. py:method:: set_lines_visibility(self, state)
+
+
+
+.. py:function:: test_toolbar()
+
+
+.. py:function:: main()
+
+   this works. input from keyboard, can be replaced by?
+   infinite loop with check on figure property, generator.
+   see e.g. https://github.com/matplotlib/matplotlib/issues/1942/
+
+
+.. py:function:: main2()
+
+

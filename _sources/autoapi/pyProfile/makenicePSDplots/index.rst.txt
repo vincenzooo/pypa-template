@@ -1,0 +1,6 @@
+:py:mod:`pyProfile.makenicePSDplots`
+====================================
+
+.. py:module:: pyProfile.makenicePSDplots
+
+

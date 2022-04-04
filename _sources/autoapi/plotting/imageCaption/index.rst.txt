@@ -1,0 +1,30 @@
+:py:mod:`plotting.imageCaption`
+===============================
+
+.. py:module:: plotting.imageCaption
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   plotting.imageCaption.autofont
+   plotting.imageCaption.render_caption
+
+
+
+.. py:function:: autofont(novo, csize, minfont=10)
+
+   Given a text novo (as list of lines), determine the font size that fits an image of size csize.
+
+
+.. py:function:: render_caption(novo, csize, minfont=10)
+
+   return a rendered image of the text novo (as list of lines) determining the font size that fits the box. csize is the size of the returned image (x,y) in pixels.
+
+

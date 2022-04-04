@@ -1,0 +1,25 @@
+:py:mod:`pyGeo3D.fit_3D_line`
+=============================
+
+.. py:module:: pyGeo3D.fit_3D_line
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyGeo3D.fit_3D_line.fit_3D_line
+
+
+
+.. py:function:: fit_3D_line(points, plot=False)
+
+   return direction vector and point for the fitting line.
+   Note that it should contain also somewhere
+
+

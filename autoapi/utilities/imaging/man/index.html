@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>utilities.imaging.man &mdash; pyXsurf  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="utilities.imaging.stitch" href="../stitch/index.html" />
+    <link rel="prev" title="utilities.imaging.fitting" href="../fitting/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyXsurf
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../dataIO/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataIO</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readConfig2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readConfig2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_program_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_program_path</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotting/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plotting</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotations</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../astupidloop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astupidloop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../test_interactive/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_interactive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tkmatplotlibembedded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkmatplotlibembedded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v1/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pyGeo3D/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyGeo3D</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pyProfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyProfile</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pySurf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pySurf</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities.imaging</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyXsurf</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities.imaging</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities.imaging.man</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/utilities/imaging/man/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-utilities.imaging.man">
+<span id="utilities-imaging-man"></span><h1><a class="reference internal" href="#module-utilities.imaging.man" title="utilities.imaging.man"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utilities.imaging.man</span></code></a><a class="headerlink" href="#module-utilities.imaging.man" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.imaging.man.unpackimage" title="utilities.imaging.man.unpackimage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unpackimage</span></code></a>(data, xlim=[-1, 1], ylim=[-1, 1], remove=True)</p></td>
+<td><p>Convert a 2D image into x,y,z coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.imaging.man.autoGrid" title="utilities.imaging.man.autoGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">autoGrid</span></code></a>(d, xr=[-1, 1], yr=[-1, 1])</p></td>
+<td><p>Create a meshgrid based on the shape of the image d</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.imaging.man.shiftNaN" title="utilities.imaging.man.shiftNaN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shiftNaN</span></code></a>(img, n=1, axis=0)</p></td>
+<td><p>This function shifts an image in a NaN padded array</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.imaging.man.padNaN" title="utilities.imaging.man.padNaN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">padNaN</span></code></a>(img, n=1, axis=0)</p></td>
+<td><p>Pads an image with rows or columns of NaNs</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.imaging.man.padRect" title="utilities.imaging.man.padRect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">padRect</span></code></a>(img, nan_num=1)</p></td>
+<td><p>Pads an image with an outer NaN rectangle of width nan_num</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.imaging.man.borderFill" title="utilities.imaging.man.borderFill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">borderFill</span></code></a>(img, n=1, fill_value=np.NaN)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.imaging.man.tipTiltPiston" title="utilities.imaging.man.tipTiltPiston"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tipTiltPiston</span></code></a>(img, piston, tip, tilt, tx=None, ty=None)</p></td>
+<td><p>This function adds a constant and</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.imaging.man.nearestNaN" title="utilities.imaging.man.nearestNaN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nearestNaN</span></code></a>(arr, method='nearest')</p></td>
+<td><p>Fill the NaNs in a 2D image array with the griddata</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.imaging.man.rebin" title="utilities.imaging.man.rebin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rebin</span></code></a>(a, shape)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.imaging.man.stripnans" title="utilities.imaging.man.stripnans"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stripnans</span></code></a>(d1, removeAll=False)</p></td>
+<td><p>Need to fix removeAll. Likely need to remove rows/columns</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.imaging.man.transformation" title="utilities.imaging.man.transformation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transformation</span></code></a>(x, y, r=0.0, tx=0.0, ty=0.0)</p></td>
+<td><p>Return x and y vectors after applying a rotation about</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.imaging.man.rotateImage" title="utilities.imaging.man.rotateImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotateImage</span></code></a>(img, rot)</p></td>
+<td><p>Apply a rotation about the center of an image using</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.imaging.man.newGridSize" title="utilities.imaging.man.newGridSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">newGridSize</span></code></a>(img, newshape, method='linear')</p></td>
+<td><p>Interpolate an image onto a new shape size</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.imaging.man.nanflatten" title="utilities.imaging.man.nanflatten"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nanflatten</span></code></a>(img)</p></td>
+<td><p>Automatically remove NaNs when flattening an image</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.imaging.man.removePoly" title="utilities.imaging.man.removePoly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removePoly</span></code></a>(l, order=2)</p></td>
+<td><p>Remove a polynomial up to order from a slice.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.imaging.man.removeLegSlice" title="utilities.imaging.man.removeLegSlice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeLegSlice</span></code></a>(din, order=2, axis=0)</p></td>
+<td><p>Remove a Legendre polynomial up to order from each</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utilities.imaging.man.remove2DLeg" title="utilities.imaging.man.remove2DLeg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove2DLeg</span></code></a>(din, xo=2, yo=0)</p></td>
+<td><p>Remove a 2D Legendre fit to din up to</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utilities.imaging.man.removeDS9Regions" title="utilities.imaging.man.removeDS9Regions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeDS9Regions</span></code></a>(img, filename)</p></td>
+<td><p>Read in an SAOImage region file and set all</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.unpackimage">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">unpackimage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[-</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[-</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.unpackimage" title="Permalink to this definition"></a></dt>
+<dd><p>Convert a 2D image into x,y,z coordinates.
+x will relate to 2nd index in order to correspond to abscissa in imshow
+y will relate to 1st index in order to correspond to oordinate in imshow
+if remove is True, NaNs will not be returned in the list of coordinates</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.autoGrid">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">autoGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[-</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[-</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.autoGrid" title="Permalink to this definition"></a></dt>
+<dd><p>Create a meshgrid based on the shape of the image d</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.shiftNaN">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">shiftNaN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.shiftNaN" title="Permalink to this definition"></a></dt>
+<dd><p>This function shifts an image in a NaN padded array
+Specify which axis to shift, and specify wh
+ich direction</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.padNaN">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">padNaN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.padNaN" title="Permalink to this definition"></a></dt>
+<dd><p>Pads an image with rows or columns of NaNs
+If n is positive, they are appended to the end of
+the specified axis. If n is negative, they are
+appended to the beginning</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.padRect">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">padRect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.padRect" title="Permalink to this definition"></a></dt>
+<dd><p>Pads an image with an outer NaN rectangle of width nan_num</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.borderFill">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">borderFill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.NaN</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.borderFill" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.tipTiltPiston">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">tipTiltPiston</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">piston</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tilt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.tipTiltPiston" title="Permalink to this definition"></a></dt>
+<dd><p>This function adds a constant and
+tip and tilt to an array
+This makes use of tilt arrays tx,ty
+If not provided, compute using meshgrid
+Updated</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.nearestNaN">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">nearestNaN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nearest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.nearestNaN" title="Permalink to this definition"></a></dt>
+<dd><p>Fill the NaNs in a 2D image array with the griddata
+nearest neighbor interpolation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.rebin">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">rebin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.rebin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.stripnans">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">stripnans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">removeAll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.stripnans" title="Permalink to this definition"></a></dt>
+<dd><p>Need to fix removeAll. Likely need to remove rows/columns
+in a circular fashion until all perimeter NaNs are eliminated.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.transformation">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">transformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.transformation" title="Permalink to this definition"></a></dt>
+<dd><p>Return x and y vectors after applying a rotation about
+the origin and then translations in x and y</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.rotateImage">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">rotateImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.rotateImage" title="Permalink to this definition"></a></dt>
+<dd><p>Apply a rotation about the center of an image using
+griddata</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.newGridSize">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">newGridSize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newshape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.newGridSize" title="Permalink to this definition"></a></dt>
+<dd><p>Interpolate an image onto a new shape size</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.nanflatten">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">nanflatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.nanflatten" title="Permalink to this definition"></a></dt>
+<dd><p>Automatically remove NaNs when flattening an image</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.removePoly">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">removePoly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.removePoly" title="Permalink to this definition"></a></dt>
+<dd><p>Remove a polynomial up to order from a slice.
+NaNs are ignored.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.removeLegSlice">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">removeLegSlice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">din</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.removeLegSlice" title="Permalink to this definition"></a></dt>
+<dd><p>Remove a Legendre polynomial up to order from each
+slice of an image.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.remove2DLeg">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">remove2DLeg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">din</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.remove2DLeg" title="Permalink to this definition"></a></dt>
+<dd><p>Remove a 2D Legendre fit to din up to
+xo and yo.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.imaging.man.removeDS9Regions">
+<span class="sig-prename descclassname"><span class="pre">utilities.imaging.man.</span></span><span class="sig-name descname"><span class="pre">removeDS9Regions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.imaging.man.removeDS9Regions" title="Permalink to this definition"></a></dt>
+<dd><p>Read in an SAOImage region file and set all
+pixels within regions to NaN.
+File should look like:
+circle(x,y,rad)
+box(x,y,dx,dy,0)
+ellipse(x,y,dx,dy,0)</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../fitting/index.html" class="btn btn-neutral float-left" title="utilities.imaging.fitting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../stitch/index.html" class="btn btn-neutral float-right" title="utilities.imaging.stitch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, vincenzo cotroneo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

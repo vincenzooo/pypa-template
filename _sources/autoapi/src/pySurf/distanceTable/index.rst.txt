@@ -1,0 +1,44 @@
+:py:mod:`src.pySurf.distanceTable`
+==================================
+
+.. py:module:: src.pySurf.distanceTable
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pySurf.distanceTable.eucDist
+   src.pySurf.distanceTable.distanceTable
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.pySurf.distanceTable.defaultDist
+
+
+.. py:function:: eucDist(p1, p2)
+
+   demenziale distanza euclidea
+
+
+.. py:data:: defaultDist
+   
+
+   
+
+.. py:function:: distanceTable(pList, dist=defaultDist, format=None)
+
+   from list of points pList, create table of distances.
+   dist is a function setting a metric, if format is format string, if provided result is converted to string using the format
+
+
