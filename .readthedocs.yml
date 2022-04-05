@@ -12,3 +12,9 @@ python:
     - requirements: docs/requirements.txt
     - method: pip
       path: .
+     
+formats: []
+
+sphinx:
+  builder: html
+  configuration: docs/conf.py
