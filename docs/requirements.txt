@@ -3,3 +3,4 @@ nbsphinx
 sphinx_automodapi
 sphinx-autoapi
 sphinx-rtd-theme
+pyXsurf
